@@ -50,7 +50,6 @@ export default Vue.extend({
   },
 
   mounted () {
-    this.creditsLog()
     Detect.addClasses()
     this.bind()
   },
@@ -60,14 +59,6 @@ export default Vue.extend({
     bind () {
       this.handleWindowResize = debounce(this.broadcastWindowSize, 200)
       window.addEventListener('resize', this.handleWindowResize, false)
-    },
-
-    creditsLog () {
-      /* eslint-disable */
-      console.log('%c ==== Boiteapotes ====', 'background: #FFDBC6; padding:5px; font-size: 11px; color: #ffffff');
-      console.log('%c Site developed with -`ღ´- by yannouXpatou', 'background: #FFDBC6; padding:5px; font-size: 13px; color: #ffffff');
-      console.log('%c', 'background: #FFDBC6; font-size: 11px; color: #f0f0f0');
-      /* eslint-enable */
     },
 
     handleWindowBlur () {
