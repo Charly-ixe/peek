@@ -1,0 +1,19 @@
+const globalMessages = {
+
+  /*
+   * WINDOW
+   */
+
+  WINDOW_RESIZE: 'WINDOW_RESIZE',
+  WINDOW_ON_FOCUS: 'WINDOW_ON_FOCUS',
+  WINDOW_ON_BLUR: 'WINDOW_ON_BLUR',
+  WINDOW_ON_MOUSEMOVE: 'WINDOW_ON_MOUSEMOVE',
+
+  /*
+  * ROUTER
+  */
+  ROUTER_BEFORE_EACH: 'ROUTER_BEFORE_EACH',
+  ROUTER_AFTER_EACH: 'ROUTER_AFTER_EACH'
+}
+
+export default globalMessages

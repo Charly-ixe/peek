@@ -1,0 +1,13 @@
+<div id="application">
+
+  <div class="main-wrapper" id="main-wrapper">
+
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"/>
+    </keep-alive>
+
+    <router-view v-if="!$route.meta.keepAlive"/>
+
+  </div>
+
+</div>
