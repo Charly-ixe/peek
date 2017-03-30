@@ -1,12 +1,12 @@
 {
-  "name": "starter",
+  "name": "Peek",
   "version": "0.1.0",
-  "description": "",
+  "description": "Peek - Starter Vuejs 2 Patoch",
   "keywords": [],
   "license": "MIT",
   "private": true,
   "main": "index.js",
-  "author": "patoch",
+  "author": "Charly G. - Ben G.",
   "repository": {
     "type": "git",
     "url": ""
