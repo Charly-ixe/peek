@@ -4,6 +4,8 @@ import { home as assets } from 'config/manifestLoader'
 import { scope } from 'utils/generic'
 import States from 'core/States'
 
+import Peeks from 'components/Peeks-gallery'
+
 import {
 } from 'config/messages'
 
@@ -50,5 +52,6 @@ export default Vue.extend({
   },
 
   components: {
+    'peeks-component': Peeks
   }
 })
