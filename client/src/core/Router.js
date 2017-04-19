@@ -2,6 +2,7 @@ import VueRouter from 'vue-router'
 import Emitter from 'helpers/Emitter'
 
 import Home from 'containers/Home'
+import Details from 'containers/Details'
 
 
 import {
@@ -23,9 +24,17 @@ class Router extends VueRouter {
           keepAlive: false
         }
       },
+      // {
+      //   path: '*',
+      //   redirect: '/'
+      // }
       {
-        path: '*',
-        redirect: '/'
+        path: '/details',
+        name: 'details',
+        component: Details,
+        meta: {
+          keepAlive: false
+        }
       }
     ]
 

@@ -1,7 +1,7 @@
 class States {
   constructor () {
     this.metas = {
-      baseTitle: 'Patoch starter'
+      baseTitle: 'Peek'
     }
 
     this.resources = {}

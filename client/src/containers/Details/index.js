@@ -1,17 +1,19 @@
 import EventManagerMixin from 'mixins/EventManagerMixin'
 import AssetsLoaderMixin from 'mixins/AssetsLoaderMixin'
-import { home as assets } from 'config/manifestLoader'
+import { details as assets } from 'config/manifestLoader'
 import { scope } from 'utils/generic'
 import States from 'core/States'
 
 import {
 } from 'config/messages'
 
-import FixedNavigation from 'components/Fixed-navigation';
+import FixedNavigation from 'components/Fixed-navigation'
+import PieceInfos from 'components/Piece-infos'
+import PieceSlider from 'components/Piece-slider'
 
 export default Vue.extend({
 
-  name: 'home',
+  name: 'details',
 
   mixins: [EventManagerMixin, AssetsLoaderMixin],
 
@@ -29,7 +31,7 @@ export default Vue.extend({
   },
 
   created () {
-    document.title = `Home - ${States.metas.baseTitle}`
+    document.title = `Details - ${States.metas.baseTitle}`
 
     scope(this, [
       'createTls'
@@ -52,6 +54,8 @@ export default Vue.extend({
   },
 
   components: {
-    'fixed-navigation-component': FixedNavigation
+    'fixed-navigation-component': FixedNavigation,
+    'piece-infos-component': PieceInfos,
+    'piece-slider-component': PieceSlider
   }
 })
