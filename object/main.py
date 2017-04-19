@@ -7,6 +7,8 @@ import requests
 
 from pirc522 import RFID
 
+import RPi.GPIO as GPIO
+
 run = True
 rdr = RFID()
 util = rdr.util()
@@ -18,12 +20,16 @@ def end_read(signal,frame):
     print("\nCtrl+C captured, ending read.")
     run = False
     rdr.cleanup()
+    GPIO.cleanup()
     sys.exit()
 
 signal.signal(signal.SIGINT, end_read)
 
 print("Starting")
 while run:
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(37, GPIO.OUT)
+    GPIO.output(37, GPIO.HIGH)
     rdr.wait_for_tag()
 
     (error, data) = rdr.request()
@@ -33,7 +39,10 @@ while run:
     (error, uid) = rdr.anticoll()
     if not error:
         print("Card read UID: "+str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3]))
-        requests.post('http://192.168.43.190:3030/messages', data = {'card UID': str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3])}, headers = headers)
+        GPIO.output(37, GPIO.LOW)
+        time.sleep(2)
+        GPIO.output(37, GPIO.HIGH)
+        # requests.post('http://192.168.43.190:3030/messages', data = {'card UID': str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3])}, headers = headers)
         print("Setting tag")
         util.set_tag(uid)
         print("\nAuthorizing")
