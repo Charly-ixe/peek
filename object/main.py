@@ -38,11 +38,11 @@ while run:
 
     (error, uid) = rdr.anticoll()
     if not error:
+        requests.post('http://192.168.43.190:3030/peeks', data = {'user_card_id': str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3])}, headers = headers)
         print("Card read UID: "+str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3]))
         GPIO.output(37, GPIO.LOW)
         time.sleep(2)
         GPIO.output(37, GPIO.HIGH)
-        # requests.post('http://192.168.43.190:3030/messages', data = {'card UID': str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3])}, headers = headers)
         print("Setting tag")
         util.set_tag(uid)
         print("\nAuthorizing")

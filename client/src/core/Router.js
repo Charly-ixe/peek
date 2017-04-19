@@ -3,6 +3,7 @@ import Emitter from 'helpers/Emitter'
 
 import Home from 'containers/Home'
 import Details from 'containers/Details'
+import FirstRegister from 'containers/FirstRegister'
 
 
 import {
@@ -32,6 +33,14 @@ class Router extends VueRouter {
         path: '/details',
         name: 'details',
         component: Details,
+        meta: {
+          keepAlive: false
+        }
+      },
+      {
+        path: '/first-register',
+        name: 'firstRegister',
+        component: FirstRegister,
         meta: {
           keepAlive: false
         }

@@ -1,4 +1,5 @@
 'use strict';
+const firstRegister = require('./firstRegister');
 const peeks = require('./peeks');
 const getPeeksByUser = require('./getPeeksByUser');
 const addPeek = require('./addPeek');
@@ -14,4 +15,5 @@ module.exports = function() {
   app.configure(addPeek);
   app.configure(getPeeksByUser);
   app.configure(peeks);
+  app.configure(firstRegister);
 };

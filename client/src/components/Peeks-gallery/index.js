@@ -42,6 +42,9 @@ export default Vue.extend({
       getPeeksService.find({}).then(result => {
         this.peeks = result.data
       })
+      getPeeksService.on('created', function(message) {
+        console.log('Someone peek an artwork', message);
+      });
   },
 
   beforeDestroy () {
