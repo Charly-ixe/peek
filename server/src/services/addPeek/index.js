@@ -9,7 +9,7 @@ module.exports = function(){
   const app = this;
 
   const db = new NeDB({
-    filename: path.join(app.get('nedb'), 'bracelet-configs.db'),
+    filename: path.join(app.get('nedb'), 'addPeeks.db'),
     autoload: true
   });
 
@@ -22,14 +22,14 @@ module.exports = function(){
   };
 
   // Initialize our service with any options it requires
-  app.use('/bracelet-configs', service(options));
+  app.use('/addPeeks', service(options));
 
   // Get our initialize service to that we can bind hooks
-  const bracelet-configService = app.service('/bracelet-configs');
+  const addPeekService = app.service('/addPeeks');
 
   // Set up our before hooks
-  bracelet-configService.before(hooks.before);
+  addPeekService.before(hooks.before);
 
   // Set up our after hooks
-  bracelet-configService.after(hooks.after);
+  addPeekService.after(hooks.after);
 };
