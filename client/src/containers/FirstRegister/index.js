@@ -64,6 +64,7 @@ export default Vue.extend({
       if ( email != "" && this.validateEmail(email)) {
         //send email
         firstRegisterService.create({ user_email: email });
+        this.$refs.formEmail.value = ""
       }
     },
     validateEmail (email) {
