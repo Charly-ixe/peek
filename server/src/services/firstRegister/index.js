@@ -13,6 +13,7 @@ module.exports = function(){
     autoload: true
   });
 
+
   let options = {
     Model: db,
     paginate: {
@@ -20,6 +21,7 @@ module.exports = function(){
       max: 25
     }
   };
+
 
   // Initialize our service with any options it requires
   app.use('/firstRegisters', service(options));
