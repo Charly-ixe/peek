@@ -8,9 +8,9 @@ export default {
     },
     {
       index: 1,
-      image: "/images/look-1.jpg",
-      title: "Step 2",
-      subtitle: ""
+      image: "/images/tuto_step2.svg",
+      title: "Découvrez du contenu supplémentaire sur les œuvres",
+      subtitle: "Contexte, anecdotes ou encore des œuvres relatives"
     }
   ]
 }

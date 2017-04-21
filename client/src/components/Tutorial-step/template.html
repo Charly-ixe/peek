@@ -1,13 +1,17 @@
-<div class="tutorial-step" v-show="visible">
+<transition name="next-step">
 
-  <img :src="image" alt="">
+  <div class="tutorial-step" v-show="visible">
 
-  <div class="tutorial-step__title">
+    <img :src="image" alt="">
 
-    <h1>{{ title }}</h1>
+    <div class="tutorial-step__title">
 
-    <p>{{ subtitle }}</p>
+      <h1>{{ title }}</h1>
+
+      <p>{{ subtitle }}</p>
+
+    </div>
 
   </div>
 
-</div>
+</transition>
