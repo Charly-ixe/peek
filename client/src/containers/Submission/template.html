@@ -44,6 +44,10 @@
 
   </div>
 
-  <tutorial-slider-component></tutorial-slider-component>
+  <tutorial-slider-component>
+
+    <tutorial-step-component v-for="step in steps" :key="step.index"></tutorial-step-component>
+
+  </tutorial-slider-component>
 
 </div>

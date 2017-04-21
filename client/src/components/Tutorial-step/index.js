@@ -5,11 +5,9 @@ import {
   WINDOW_RESIZE
 } from 'config/messages'
 
-import content from 'data/content';
-
 export default Vue.extend({
 
-  name: 'tutorial-slider',
+  name: 'tutorial-step',
 
   mixins: [EventManagerMixin],
 
@@ -24,9 +22,10 @@ export default Vue.extend({
 
   data () {
     return {
-      index: 0,
-      slides: [],
-      steps: content.tuto_steps
+      index : 0,
+      image : '',
+      title : '',
+      subtitle: ''
     }
   },
 
@@ -34,21 +33,12 @@ export default Vue.extend({
   },
 
   mounted () {
-    this.slides = this.$children
-    this.slides.forEach((slide, i) => {
-      slide.index = i
-      slide.image = content.tuto_steps[i].image
-      slide.title = content.tuto_steps[i].title
-      slide.subtitle = content.tuto_steps[i].subtitle
-    })
-    this.pagination = document.querySelector('.tutorial-slider__pagination')
   },
 
   computed: {
-    slidesCount() {
-      return this.slides.length
+    visible() {
+      return this.index === this.$parent.index
     }
-
   },
 
   beforeDestroy () {

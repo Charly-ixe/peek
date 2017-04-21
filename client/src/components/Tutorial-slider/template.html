@@ -1,3 +1,11 @@
 <div class="tutorial-slider">
 
+  <slot></slot>
+
+  <div class="tutorial-slider__pagination">
+
+    <div class="tutorial-slider__pagination-item" v-for="n in slidesCount" :class="{active: n-1 === index}"></div>
+
+  </div>
+
 </div>
