@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="22px" height="59px" viewBox="0 0 22 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-scroll</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03.2-Expo-perso-Bienvenue" transform="translate(-698.000000, -544.000000)">
+            <g id="icon-scroll" transform="translate(698.000000, 544.000000)">
+                <path d="M12.6174,0 L8.9384,0 C4.0014,0 0.0004,4.002 0.0004,8.938 L0.0004,22.198 C0.0004,27.134 4.0014,31.136 8.9384,31.136 L12.6174,31.136 C17.5544,31.136 21.5554,27.134 21.5554,22.198 L21.5554,8.938 C21.5554,4.002 17.5544,0 12.6174,0 M12.6174,2 C16.4434,2 19.5554,5.113 19.5554,8.938 L19.5554,22.198 C19.5554,26.024 16.4434,29.136 12.6174,29.136 L8.9384,29.136 C5.1124,29.136 2.0004,26.024 2.0004,22.198 L2.0004,8.938 C2.0004,5.113 5.1124,2 8.9384,2 L12.6174,2" id="Fill-1" fill="#FFFFFF"></path>
+                <path d="M10.7779,7.516 L10.7779,10.51" id="Stroke-4" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path>
+                <polyline id="Stroke-6" stroke="#FFFFFF" stroke-width="2" points="16.9092 38.7155 10.7792 44.2885 4.6492 38.7155"></polyline>
+                <polyline id="Stroke-8" stroke="#FFFFFF" stroke-width="2" points="16.9092 51.181 10.7792 56.754 4.6492 51.181"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

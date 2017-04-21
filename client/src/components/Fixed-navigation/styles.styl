@@ -1,19 +1,22 @@
 .fixed-navigation
-  position fixed
+  position absolute
+  z-index
   top 0
   left 0
   width 100vw
   height 12vh
-  z-index 1000
 
   &__logo
     center-x()
     color $color-white
     top 3vh
+    z-index 5
     img
       width 4vw
 
   &__expo-button
-    position fixed
+    position relative
+    float right
     top 3vh
     right 3vw
+    z-index 3
