@@ -1,0 +1,53 @@
+<div class="page submission">
+
+  <div class="submission__wrapper">
+
+    <div class="submission__logo">
+
+      <img src="/images/logo-peek.svg" alt="Logo Peek">
+
+    </div>
+
+    <form class="submission__form">
+
+      <h1 class="submission__form-title">Inscrivez-vous</h1>
+
+      <p class="submission__form-text">Validez votre inscription et découvrez les œuvres que vous avez peeké durant votre visite d'exposition</p>
+
+      <div class="submission__form-block">
+
+        <label for="email"><p>Email</p></label>
+
+        <input class="submission__form-input input" type="email" name="email" value="">
+
+      </div>
+
+      <div class="submission__form-block">
+
+        <label for="password"><p>Mot de passe</p></label>
+
+        <input class="submission__form-input input" type="password" name="password" value="">
+
+      </div>
+
+      <div class="submission__form-block">
+
+        <label for="password-confirm"><p>Confirmez votre mot de passe</p></label>
+
+        <input class="submission__form-input input" type="password" name="password_confirm" value="">
+
+      </div>
+
+      <button type="button" name="submit" class="submission__form-submit cta-button">S'enregistrer</button>
+
+    </form>
+
+  </div>
+
+  <tutorial-slider-component>
+
+    <tutorial-step-component v-for="step in steps" :key="step.index"></tutorial-step-component>
+
+  </tutorial-slider-component>
+
+</div>

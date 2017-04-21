@@ -7,7 +7,7 @@ import {
 
 export default Vue.extend({
 
-  name: 'example',
+  name: 'piece-slider',
 
   mixins: [EventManagerMixin],
 

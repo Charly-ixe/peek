@@ -7,7 +7,7 @@ import {
 
 export default Vue.extend({
 
-  name: 'piece-infos',
+  name: 'tutorial-step',
 
   mixins: [EventManagerMixin],
 
@@ -22,6 +22,10 @@ export default Vue.extend({
 
   data () {
     return {
+      index : 0,
+      image : '',
+      title : '',
+      subtitle: ''
     }
   },
 
@@ -29,6 +33,12 @@ export default Vue.extend({
   },
 
   mounted () {
+  },
+
+  computed: {
+    visible() {
+      return this.index === this.$parent.index
+    }
   },
 
   beforeDestroy () {

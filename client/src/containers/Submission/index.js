@@ -4,16 +4,17 @@ import { home as assets } from 'config/manifestLoader'
 import { scope } from 'utils/generic'
 import States from 'core/States'
 
-import Peeks from 'components/Peeks-gallery'
-
 import {
 } from 'config/messages'
 
-import FixedNavigation from 'components/Fixed-navigation'
+import content from 'data/content'
+
+import TutorialSlider from 'components/Tutorial-slider'
+import TutorialStep from 'components/Tutorial-step'
 
 export default Vue.extend({
 
-  name: 'home',
+  name: 'submission',
 
   mixins: [EventManagerMixin, AssetsLoaderMixin],
 
@@ -27,11 +28,12 @@ export default Vue.extend({
 
   data () {
     return {
+      steps: content.tuto_steps
     }
   },
 
   created () {
-    document.title = `Home - ${States.metas.baseTitle}`
+    document.title = `Submission - ${States.metas.baseTitle}`
 
     scope(this, [
       'createTls'
@@ -54,7 +56,7 @@ export default Vue.extend({
   },
 
   components: {
-    'fixed-navigation-component': FixedNavigation,
-    'peeks-component': Peeks
+    'tutorial-slider-component': TutorialSlider,
+    'tutorial-step-component': TutorialStep
   }
 })
