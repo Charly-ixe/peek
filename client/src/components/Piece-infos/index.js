@@ -5,6 +5,8 @@ import {
   WINDOW_RESIZE
 } from 'config/messages'
 
+import content from 'data/content'
+
 export default Vue.extend({
 
   name: 'piece-infos',
@@ -22,6 +24,9 @@ export default Vue.extend({
 
   data () {
     return {
+      pieces: content.pieces,
+      index: 0,
+      currentPiece: {}
     }
   },
 
@@ -29,6 +34,16 @@ export default Vue.extend({
   },
 
   mounted () {
+    this.currentPiece = this.pieces[this.index]
+  },
+
+  computed: {
+    peeked() {
+      return this.currentPiece.peeked
+    },
+    contents() {
+      return this.currentPiece.content
+    }
   },
 
   beforeDestroy () {

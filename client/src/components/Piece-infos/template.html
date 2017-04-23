@@ -1,3 +1,29 @@
 <div class="infos-zone">
 
+  <div class="infos-zone__wrapper">
+
+    <div class="infos-zone__title">
+
+      <h1>{{ currentPiece.name }}</h1>
+
+      <img src="/images/icon-peek-on.svg" alt="" v-show="peeked">
+
+    </div>
+
+    <div class="infos-zone__date">
+
+      <p>{{ currentPiece.date }}, {{ currentPiece.type }}</p>
+
+    </div>
+
+    <div class="infos-zone__content" v-for="content in contents">
+
+      <h4>{{ content.title }}</h4>
+
+      <p>{{ content.content }}</p>
+
+    </div>
+
+  </div>
+
 </div>

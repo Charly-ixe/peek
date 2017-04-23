@@ -12,5 +12,26 @@ export default {
       title: "Découvrez du contenu supplémentaire sur les œuvres",
       subtitle: "Contexte, anecdotes ou encore des œuvres relatives"
     }
+  ],
+  pieces : [
+    {
+      index: 0,
+      name: "Maus II / Auschwitz",
+      date: "1991",
+      type: "Album",
+      peeked: true,
+      content: [
+        {
+          title: "Le Zoomorphisme",
+          type: "Text",
+          content: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs."
+        },
+        {
+          title: "Vladek Spiegelman",
+          type: "Video",
+          content: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
+        }
+      ]
+    }
   ]
 }

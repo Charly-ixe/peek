@@ -11,6 +11,8 @@ import FixedNavigation from 'components/Fixed-navigation'
 import PieceInfos from 'components/Piece-infos'
 import PieceSlider from 'components/Piece-slider'
 
+import content from 'data/content'
+
 export default Vue.extend({
 
   name: 'details',
@@ -27,6 +29,7 @@ export default Vue.extend({
 
   data () {
     return {
+      
     }
   },
 
