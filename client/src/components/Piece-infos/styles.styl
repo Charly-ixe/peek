@@ -7,6 +7,7 @@
   height 100vh
   background-color $color-white
   z-index 20
+  overflow scroll
 
   &__back
     z-index 100
@@ -20,7 +21,7 @@
   &__wrapper
     position relative
     margin 8vh 2vw
-    padding-left 25px
+    //padding-left 25px
 
     .infos-zone__title
       color $color-grey-dark
@@ -38,3 +39,24 @@
 
     .infos-zone__content
       margin-bottom 6vh
+
+    .infos-zone__video
+      width 100%
+
+    .infos-zone__outro
+      color $color-grey-button
+      margin-top 30px
+
+    .infos-zone__link
+      color $color-grey-dark
+      display inline-block
+      font-family PT Sans
+      font-size 1.6rem
+      font-weight normal
+      padding-left 30px
+      background-image url('/images/icon-link.svg')
+      background-repeat no-repeat
+      background-position 0%
+      background-size 20px
+      margin-right 25px
+      cursor pointer

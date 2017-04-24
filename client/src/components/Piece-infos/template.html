@@ -16,18 +16,44 @@
 
     </div>
 
-    <div class="infos-zone__content" v-for="content in contents">
+    <div class="infos-zone__content" v-for="content in contents" ref="contentinfos" v-show="categoriesDisplayed">
 
       <h4>{{ content.title }}</h4>
 
-      <p>{{ content.content }}</p>
+      <p>{{ content.intro }}</p>
 
-      <button type="button" name="discover_button" class="infos-zone__dicover-button secondary-button">Découvrir plus</button>
+      <button type="button" name="discover_button" class="infos-zone__dicover-button secondary-button" @click="fadeOutCategories">Découvrir plus</button>
+
+    </div>
+
+    <div class="infos-zone__content" v-show="detailDisplayed" ref="details">
+
+      <h4>{{ contents[0].title }}</h4>
+
+      <p>{{ contents[0].intro }}</p>
+
+      <p>{{ contents[0].content }}</p>
+
+      <video src="/videos/zoomorphisme-art-spieglman.mp4" poster="/images/poster.png" class="infos-zone__video" controls></video>
+
+      <h4 class="infos-zone__outro">Aller plus loin</h4>
+
+      <div class="infos-zone__link">
+
+        Le juif éternel
+
+      </div>
+
+      <div class="infos-zone__link">
+
+        Looney Tunes
+        
+      </div>
 
     </div>
 
   </div>
 
-  <button type="button" name="back_to_gallery" class="infos-zone__back back-button">Art Spiegelman</button>
+  <router-link to="/"><button type="button" name="back_to_gallery" class="infos-zone__back back-button">Art Spiegelman</button></router-link>
 
 </div>
