@@ -25,6 +25,8 @@
     "body-parser": "^1.17.1",
     "compression": "^1.6.2",
     "cors": "^2.8.3",
+    "ejs": "^2.5.6",
+    "email-templates": "^2.5.4",
     "feathers": "^2.1.1",
     "feathers-authentication": "^0.7.12",
     "feathers-configuration": "^0.3.3",
