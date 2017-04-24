@@ -18,7 +18,7 @@ export default {
       index: 0,
       name: "Maus II / Auschwitz",
       date: "1991",
-      type: "Album",
+      type: "Bande dessinée",
       peeked: true,
       content: [
         {
