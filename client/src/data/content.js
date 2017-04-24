@@ -30,6 +30,11 @@ export default {
           title: "Vladek Spiegelman",
           type: "Video",
           content: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
+        },
+        {
+          title: "Le style graphique",
+          type: "Audio",
+          content: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère »."
         }
       ]
     }

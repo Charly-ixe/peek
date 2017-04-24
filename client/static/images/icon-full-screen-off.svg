@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-full-screen</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04.1-Detail-oeuvre-Hover-Page-précedente" transform="translate(-1283.000000, -57.000000)" stroke-width="1.5" stroke="#FFFFFF">
+            <g id="icon-full-screen" transform="translate(1283.000000, 57.000000)">
+                <polygon id="Stroke-1" points="5.63266667 15.9401579 16.0603333 15.9401579 16.0603333 5.59089474 5.63266667 5.59089474"></polygon>
+                <g id="Group-10" transform="translate(0.000000, 0.688368)">
+                    <polyline id="Stroke-2" points="0.875 6.60324211 0.875 0.1804 7.3465 0.1804"></polyline>
+                    <polyline id="Stroke-4" points="7.34673333 19.9736842 0.875233333 19.9736842 0.875233333 13.5508421"></polyline>
+                    <polyline id="Stroke-6" points="20.8185833 13.5506105 20.8185833 19.9734526 14.3470833 19.9734526"></polyline>
+                    <polyline id="Stroke-8" points="14.3467333 0.180052632 20.8182333 0.180052632 20.8182333 6.60289474"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

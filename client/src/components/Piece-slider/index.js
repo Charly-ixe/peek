@@ -1,5 +1,6 @@
 import EventManagerMixin from 'mixins/EventManagerMixin'
 import scope from 'utils/generic/scope'
+import 'gsap'
 
 import {
   WINDOW_RESIZE
@@ -22,6 +23,7 @@ export default Vue.extend({
 
   data () {
     return {
+      fullScreen: false
     }
   },
 
@@ -37,6 +39,18 @@ export default Vue.extend({
   methods: {
 
     createTls () {
+    },
+
+    goFullScreen() {
+      this.$refs.overlay.classList.add("full")
+      this.$refs.pieceimg.classList.add("full")
+      this.fullScreen = true
+    },
+
+    exitFullScreen() {
+      this.$refs.overlay.classList.remove("full")
+      this.$refs.pieceimg.classList.remove("full")
+      this.fullScreen = false
     },
 
     onWindowResize ({width, height}) {
