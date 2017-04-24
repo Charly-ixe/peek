@@ -4,22 +4,67 @@
   background-color $color-grey-dark
 
   &__titles
+    position fixed
     color $color-white
     margin 3vh 3vw
     padding 16px 20px
+    // position relative
+    z-index 4
 
     h1
       color $color-white
 
     h2
       color $color-grey-light
+  .bg-vid
+    position fixed
+    top 50%
+    left 50%
+    // width 100%
+    // min-width 100%
+    min-height 100%
+    width auto
+    height auto
+    z-index 3
+    -ms-transform translateX(-50%) translateY(-50%)
+    -moz-transform translateX(-50%) translateY(-50%)
+    -webkit-transform translateX(-50%) translateY(-50%)
+    transform translateX(-50%) translateY(-50%)
+    background-size cover
+
+  &__filter
+    font-family "PT Sans"
+    margin 16vh 3vw
+    padding 16px 20px
+    position fixed
+    z-index 4
+    width 210px
+
+    .filter-icon
+      background url('/images/icons/icon-filtres.svg')
+      width 30px
+      height 30px
+      float left
+
+    .filter-title
+      font-size 1.2em
+      color $color-grey-light
+      margin-left 40px
+
+    .filter-name
+      font-size 1.3em
+      color white
+      text-transform uppercase
+      margin-left 40px
+      margin-top 6px
+      letter-spacing 0.2em
 
   &__overlay
     position absolute
     display flex
     top 0
     width 100%
-    height 100%
+    height 120%
 
   &__overlay-container
     position relative
@@ -46,3 +91,23 @@
       width 22px
       height 59px
       margin 20px auto 0 auto
+
+  &__down-btn
+    position fixed
+    right 30px
+    bottom 30px
+    display inline-block
+    z-index 3
+    .btn-info
+      background url('/images/icons/icon-informations.svg')
+      width 30px
+      height 30px
+      float left
+      margin-right 20px
+      cursor pointer
+    .btn-account
+      background url('/images/icons/icon-compte.svg')
+      width 30px
+      height 30px
+      float right
+      cursor pointer

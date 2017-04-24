@@ -1,12 +1,30 @@
-<div class="page home">
+<div class="page home" ref="homeContainer">
 
   <fixed-navigation-component></fixed-navigation-component>
   <div class="home__titles">
     <h2>Expositions de la BPI</h2>
     <h1>Art Spiegelman</h1>
   </div>
+  <div class="home__filter">
+    <div class="filter-icon"></div>
+    <div class="filter-title">
+      Filtres
+    </div>
+    <div class="filter-name">
+      chronologique
+    </div>
+  </div>
   <!-- <peeks-component></peeks-component> -->
-  <div class="home__overlay">
+  <video playsinline muted class="bg-vid" ref="bgVid">
+    <!-- <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="precomp.mp4" type="video/mp4"> -->
+    <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="video-compres.mp4">
+    <!-- <source type="video/webm; codecs=&quot;vp8, vorbis&quot;" src="precomp.webm"></source> -->
+
+    <!-- <source type="video/ogg; codecs=&quot;theora, vorbis&quot;" src="http://www.html5rocks.com/tutorials/video/basics/Chrome_ImF.ogv"></source>
+
+    <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="http://www.html5rocks.com/tutorials/video/basics/Chrome_ImF.mp4"></source> -->
+  </video>
+  <div class="home__overlay" ref="overlay">
     <div class="home__overlay-container">
       <div class="home__overlay-content">
         <h1>Bienvenue !</h1>
@@ -18,6 +36,10 @@
         <div class="nav-indicator-icon"></div>
       </div>
     </div>
+  </div>
+  <div class="home__down-btn">
+    <div class="btn-info"></div>
+    <div class="btn-account"></div>
   </div>
 
 </div>
