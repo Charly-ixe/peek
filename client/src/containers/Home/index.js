@@ -106,7 +106,7 @@ export default Vue.extend({
       }
     },
     handleClick () {
-      Router.go('/details')
+      Router.push('/details')
     }
   },
 

@@ -8,7 +8,7 @@ import feathers from 'feathers/client'
 import socketio from 'feathers-socketio/client'
 import io from 'socket.io-client'
 
-const socket = io('http://localhost:3030')
+const socket = io('http://192.168.43.190:3030')
 const app = feathers().configure(socketio(socket))
 // Get the message service that uses a websocket connection
 const firstRegisterService = app.service('firstRegisters')
