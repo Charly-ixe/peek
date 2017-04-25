@@ -31,6 +31,7 @@ export default Vue.extend({
   },
 
   created () {
+    setInterval(this.nextStep, 4000)
   },
 
   mounted () {
@@ -57,6 +58,14 @@ export default Vue.extend({
   methods: {
 
     createTls () {
+    },
+
+    nextStep() {
+      this.index++
+
+      if(this.index > this.slidesCount - 1) {
+        this.index = 0
+      }
     },
 
     onWindowResize ({width, height}) {

@@ -1,3 +1,12 @@
 <div class="piece-slider">
 
+  <div class="piece-slider__overlay" ref="overlay" @click="exitFullScreen">
+
+  </div>
+
+  <img src="/images/7-maus-art-spiegelman.jpg" alt="Maus" ref="pieceimg">
+
+  <button type="button" name="full_screen" @click="goFullScreen" class="piece-slider__fullscreen-button" ref="fullbutton" v-if="!fullScreen"></button>
+  <button type="button" name="close_full" @click="exitFullScreen" class="piece-slider__close-button" ref="fullbutton" v-else></button>
+
 </div>

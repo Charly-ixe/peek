@@ -1,8 +1,10 @@
 import EventManagerMixin from 'mixins/EventManagerMixin'
 import scope from 'utils/generic/scope'
+import 'gsap'
 
 import {
-  WINDOW_RESIZE
+  WINDOW_RESIZE,
+  DETAIL_CLICK
 } from 'config/messages'
 
 export default Vue.extend({
@@ -18,10 +20,16 @@ export default Vue.extend({
   emitterEvents: [{
     message: WINDOW_RESIZE,
     method: 'onWindowResize'
-  }],
+  },
+  {
+    message: DETAIL_CLICK,
+    method: 'adaptSlider'
+  }
+  ],
 
   data () {
     return {
+      fullScreen: false
     }
   },
 
@@ -37,6 +45,27 @@ export default Vue.extend({
   methods: {
 
     createTls () {
+    },
+
+    goFullScreen() {
+      this.$refs.overlay.classList.add("full")
+      this.$refs.pieceimg.classList.add("full")
+      this.fullScreen = true
+    },
+
+    exitFullScreen() {
+      this.$refs.overlay.classList.remove("full")
+      this.$refs.pieceimg.classList.remove("full")
+      this.fullScreen = false
+    },
+
+    adaptSlider() {
+      this.$refs.overlay.classList.add("half")
+
+      setTimeout(function(){
+        this.$refs.pieceimg.classList.add("half")
+      }.bind(this), 500)
+
     },
 
     onWindowResize ({width, height}) {

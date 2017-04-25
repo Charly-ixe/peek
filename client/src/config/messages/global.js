@@ -9,6 +9,8 @@ const globalMessages = {
   WINDOW_ON_BLUR: 'WINDOW_ON_BLUR',
   WINDOW_ON_MOUSEMOVE: 'WINDOW_ON_MOUSEMOVE',
 
+  DETAIL_CLICK: 'DETAIL_CLICK',
+
   /*
   * ROUTER
   */

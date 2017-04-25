@@ -6,3 +6,29 @@
   top 0
   right 0
   background-color $color-white
+
+  &__pagination
+    center-x()
+    bottom 5vh
+
+    &-item
+      width 16px
+      height 16px
+      border-radius 50%
+      border 1px solid $color-grey-soft
+      display inline-block
+      margin-right 10px
+      position relative
+
+      div
+        width 6px
+        height 6px
+        background-color $color-grey-soft
+        center-xy()
+        border-radius 50%
+
+
+      &.active
+        border 1px solid $color-yellow-peek
+        div
+          background-color $color-yellow-peek
