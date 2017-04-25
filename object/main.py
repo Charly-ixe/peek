@@ -25,11 +25,11 @@ def end_read(signal,frame):
 
 signal.signal(signal.SIGINT, end_read)
 
-print("Starting")
+print("Starting Peek scan")
 while run:
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(37, GPIO.OUT)
-    GPIO.output(37, GPIO.HIGH)
+    GPIO.output(37, GPIO.LOW)
     rdr.wait_for_tag()
 
     (error, data) = rdr.request()
@@ -40,9 +40,9 @@ while run:
     if not error:
         # requests.post('http://192.168.43.190:3030/peeks', data = {'user_card_id': str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3])}, headers = headers)
         print("Card read UID: "+str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3]))
-        GPIO.output(37, GPIO.LOW)
-        time.sleep(2)
         GPIO.output(37, GPIO.HIGH)
+        time.sleep(2)
+        GPIO.output(37, GPIO.LOW)
         print("Setting tag")
         util.set_tag(uid)
         print("\nAuthorizing")
