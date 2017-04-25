@@ -55,12 +55,13 @@ export default Vue.extend({
     this.createTls()
     this.video = this.$refs.bgVid
     this.playbackConst = 500
+
     let _this = this
 
     this.video.addEventListener('loadedmetadata', function() {
       _this.$refs.homeContainer.style.height = Math.floor(_this.video.duration) * _this.playbackConst + "px";
     });
-    window.requestAnimationFrame(this.scrollPlay);
+
   },
 
   beforeDestroy () {
@@ -88,16 +89,18 @@ export default Vue.extend({
     },
 
     handleScroll () {
-      // let _this = this
       if (!this.scrolled) {
         console.log(this.$refs.overlay)
-        Tweenmax.to(this.$refs.overlay, 0.5, {
+        Tweenmax.to(this.$refs.overlay, 1, {
           opacity: 0,
           ease:Power1.easeInOut,
           onComplete: ()=> {
             this.scrolled = true
             this.$refs.overlay.style.display = "none"
             // this.video.play()
+            // let _this = this
+
+            window.requestAnimationFrame(this.scrollPlay);
         }
         })
       }
