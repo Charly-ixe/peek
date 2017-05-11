@@ -28,7 +28,7 @@ export default Vue.extend({
 
   data () {
     return {
-      steps: content.tuto_steps
+      steps: content.tuto_sub_steps
     }
   },
 

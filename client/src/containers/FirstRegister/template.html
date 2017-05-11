@@ -1,4 +1,4 @@
-<div class="page first-register">
+<!-- <div class="page first-register">
 
   <fixed-navigation-component></fixed-navigation-component>
   <div class="first-register__form">
@@ -7,5 +7,43 @@
       Enregistrer mon email
     </div>
   </div>
+
+</div> -->
+
+<div class="page first-register">
+
+  <div class="first-register__wrapper">
+
+    <div class="first-register__logo">
+
+      <img src="/images/logo-peek.svg" alt="Logo Peek">
+
+    </div>
+
+    <form class="first-register__form">
+
+      <h1 class="first-register__form-title">Enregistrez-vous</h1>
+
+      <p class="first-register__form-text">Entrez votre adresse mail afin d'y associer votre bracelet. Nous vous enverrons un seul mail afin d'activer votre compte</p>
+
+      <div class="first-register__form-block">
+
+        <label for="email"><p>Adresse Email</p></label>
+
+        <input class="first-register__form-input input" type="email" name="email" value="">
+
+      </div>
+
+      <div @click="saveEmail" class="first-register__form-submit cta-button">Valider</div>
+
+    </form>
+
+  </div>
+
+  <tutorial-slider-component>
+
+    <tutorial-step-component v-for="step in steps" :key="step.index"></tutorial-step-component>
+
+  </tutorial-slider-component>
 
 </div>

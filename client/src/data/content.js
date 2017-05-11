@@ -1,5 +1,5 @@
 export default {
-  tuto_steps : [
+  tuto_sub_steps : [
     {
       index: 0,
       image: "/images/tuto_step1.svg",
@@ -11,6 +11,23 @@ export default {
       image: "/images/tuto_step2.svg",
       title: "Découvrez du contenu supplémentaire sur les œuvres",
       subtitle: "Contexte, anecdotes ou encore des œuvres relatives"
+    }
+  ],
+  tuto_first_reg_steps : [
+    {
+      index: 0,
+      image: "/images/illlu-step-1-first-reg.svg",
+      title: "Prenez votre bracelet et activez-le sur la borne"
+    },
+    {
+      index: 1,
+      image: "/images/illlu-step-2-first-reg.svg",
+      title: "Peekez vos oeuvres préférées avec le bracelet"
+    },
+    {
+      index: 2,
+      image: "/images/illlu-step-3-first-reg.svg",
+      title: "Retrouvez votre exposition personnelle"
     }
   ],
   pieces : [
