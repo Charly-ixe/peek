@@ -41,7 +41,7 @@
     width 210px
 
     .filter-icon
-      background url('/images/icons/icon-filtres.svg')
+      background url('/images/icons/icon-parcours.svg')
       width 30px
       height 30px
       float left
@@ -53,18 +53,24 @@
 
     .filter-name
       font-size 1.3em
-      color white
+      font-weight bold
+      color $color-yellow-peek
       text-transform uppercase
       margin-left 40px
       margin-top 6px
       letter-spacing 0.2em
+  &__bg-name
+    center-xy()
+    font-family "Berlingske"
+    font-size 10em
+    color $color-grey-bg
 
   &__overlay
     position absolute
     display flex
     top 0
     width 100%
-    height 120%
+    height 100%
 
   &__overlay-container
     position fixed
