@@ -111,7 +111,7 @@ export default {
     },
     {
       index: 3,
-      name: "Breakdowns, Portrait de l’artiste en jeune",
+      name: "Portrait de l’artiste en jeune",
       date: "1978",
       type: "Bande dessinée",
       peeked: true,
