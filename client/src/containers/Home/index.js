@@ -14,6 +14,7 @@ import {
 
 import FixedNavigation from 'components/Fixed-navigation'
 import Tweenmax from 'gsap'
+import Content from 'data/content'
 
 export default Vue.extend({
 
@@ -31,7 +32,8 @@ export default Vue.extend({
 
   data () {
     return {
-      scrolled: false
+      scrolled: false,
+      peeks_obj: Content.pieces
     }
   },
 

@@ -17,6 +17,18 @@
   <div class="home__bg-name">
     Mes peeks
   </div>
+  <div class="home__peeks-container">
+    <div class="peek-container" v-for="peek in peeks_obj">
+      <img :src="peek.cover_url" :alt="peek.name">
+      <p class="peek-container-name">
+        {{ peek.name }}
+      </p>
+      <div class="peek-logo"></div>
+      <div class="peek-date">
+        {{ peek.date }}
+      </div>
+    </div>
+  </div>
   <!-- <peeks-component></peeks-component> -->
   <div class="home__overlay" ref="overlay">
     <div class="home__overlay-container">
@@ -31,9 +43,4 @@
       </div>
     </div>
   </div>
-  <div class="home__down-btn">
-    <div class="btn-info"></div>
-    <div class="btn-account"></div>
-  </div>
-
 </div>
