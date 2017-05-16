@@ -18,16 +18,18 @@
     Mes peeks
   </div>
   <div class="home__peeks-container">
-    <div class="peek-container" v-for="peek in peeks_obj">
-      <img :src="peek.cover_url" :alt="peek.name">
-      <p class="peek-container-name">
-        {{ peek.name }}
-      </p>
-      <div class="peek-logo"></div>
-      <div class="peek-date">
-        {{ peek.date }}
+      <div class="home__peeks-scroll-container">
+        <div class="peek-container" v-for="peek in peeks_obj">
+          <img class="peek-image" :src="peek.cover_url" :alt="peek.name" @mouseover="hoverCard" @mouseleave="leaveCard">
+          <p class="peek-container-name">
+            {{ peek.name }}
+          </p>
+          <div class="peek-logo"></div>
+          <div class="peek-date">
+            {{ peek.date }}
+          </div>
+        </div>
       </div>
-    </div>
   </div>
   <!-- <peeks-component></peeks-component> -->
   <div class="home__overlay" ref="overlay">

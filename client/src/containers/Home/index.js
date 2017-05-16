@@ -4,6 +4,7 @@ import { home as assets } from 'config/manifestLoader'
 import { scope } from 'utils/generic'
 import States from 'core/States'
 import Router from 'core/Router'
+import Scroll from 'helpers/Scroll'
 
 import {throttle} from 'lodash'
 
@@ -33,7 +34,8 @@ export default Vue.extend({
   data () {
     return {
       scrolled: false,
-      peeks_obj: Content.pieces
+      peeks_obj: Content.pieces,
+      hovered: false
     }
   },
 
@@ -52,6 +54,17 @@ export default Vue.extend({
   mounted () {
     this.createTls()
 
+    this.scroll = new Scroll({
+        preload: false,
+        native: false,
+        direction: 'horizontal',
+        section: document.querySelector('.home__peeks-scroll-container'),
+        divs: document.querySelectorAll('.peek-container')
+      })
+
+      this.scroll.init()
+      this.scrolled = true
+      this.$refs.overlay.style.display = "none"
   },
 
   beforeDestroy () {
@@ -71,9 +84,16 @@ export default Vue.extend({
             this.scrolled = true
             this.$refs.overlay.style.display = "none"
 
-        }
+          }
         })
       }
+    },
+    hoverCard(e) {
+      console.log("hover card")
+      console.log(e.srcElement.className);
+    },
+    leaveCard(e) {
+      console.log("leave card")
     }
   },
 

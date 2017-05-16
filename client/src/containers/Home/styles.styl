@@ -1,9 +1,14 @@
+body
+  overflow-y hidden
+
+
 .home
   width auto
   height 100%
   background-color $color-grey-dark
-  // overflow-x scroll
-  overflow-y hidden
+  // overflow-x auto
+  // overflow-y hidden
+  overflow hidden
   white-space nowrap
 
   &__titles
@@ -19,21 +24,6 @@
 
     h2
       color $color-grey-light
-  .bg-vid
-    position fixed
-    top 50%
-    left 50%
-    // width 100%
-    // min-width 100%
-    min-height 100%
-    width auto
-    height auto
-    z-index 3
-    -ms-transform translateX(-50%) translateY(-50%)
-    -moz-transform translateX(-50%) translateY(-50%)
-    -webkit-transform translateX(-50%) translateY(-50%)
-    transform translateX(-50%) translateY(-50%)
-    background-size cover
 
   &__filter
     font-family "PT Sans"
@@ -74,16 +64,18 @@
     center-y()
     left 75%
     z-index 3
+    &__peeks-scroll-container
+      overflow-y hidden
     .peek-container
+      // width 300px
       display inline-block
       position relative
       padding 0 60px
-      // width 300px
-      img
+      .peek-image
         width 300px
         cursor pointer
       .peek-container-name
-        opacity 0
+        opacity 1
         width 269px
         font-family "Berlingske"
         color white
@@ -94,7 +86,7 @@
         text-overflow ellipsis
         transition $transition-ui
       .peek-logo
-        opacity 0
+        opacity 1
         background url('/images/icons/icon-peek-on.svg')
         width 30px
         height 30px
@@ -102,19 +94,19 @@
         float right
         transition $transition-ui
       .peek-date
-        opacity 0
+        opacity 1
         font-family "PT Sans"
         color $color-grey-light
         font-size 1.3em
         transition $transition-ui
-    &:hover
-      .peek-container
-        .peek-container-name
-          opacity 1
-        .peek-logo
-          opacity 1
-        .peek-date
-          opacity 1
+    // &:hover
+    //   .peek-container
+    //     .peek-container-name
+    //       opacity 1
+    //     .peek-logo
+    //       opacity 1
+    //     .peek-date
+    //       opacity 1
 
 
 
@@ -152,7 +144,9 @@
       margin 20px auto 0 auto
 
 ::-webkit-scrollbar
-  height 6px
+  height 4px
+// ::-webkit-scrollbar:hover
+//   height 8px
 
 ::-webkit-scrollbar-thumb
-    background rgba(255,255,255,1)
+    background rgba(255,255,255,0.5)
