@@ -34,6 +34,7 @@
     "feathers-socketio": "^1.6.0",
     "gsap": "^1.19.0",
     "inline-worker": "^1.1.0",
+    "lodash": "^4.17.4",
     "lodash.chunk": "^4.2.0",
     "lodash.debounce": "^4.0.8",
     "lodash.find": "^4.6.0",

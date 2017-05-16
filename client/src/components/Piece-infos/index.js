@@ -30,7 +30,8 @@ export default Vue.extend({
       index: 0,
       currentPiece: {},
       categoriesDisplayed: true,
-      detailDisplayed: false
+      detailDisplayed: false,
+      selectedDetail: {}
     }
   },
 
@@ -39,9 +40,16 @@ export default Vue.extend({
 
   mounted () {
     this.currentPiece = this.pieces[this.index]
-    let video = document.getElementsByTagName('video')
-    video.autoplay = false
-    video.load()
+    // let video = document.getElementsByTagName('video')
+    // video.autoplay = false
+    // video.load()
+    // let wrapper = document.querySelector(".infos-zone__wrapper")
+    // let navbar = document.querySelector(".infos-zone__navbar")
+    //
+    // let dynamicHeight = wrapper.offsetHeight
+    // navbar.style.height = dynamicHeight
+    // console.log(dynamicHeight)
+
   },
 
   computed: {
@@ -61,7 +69,8 @@ export default Vue.extend({
     createTls () {
     },
 
-    fadeOutCategories() {
+    fadeOutCategories(selected) {
+      this.selectedDetail = selected
       Emitter.emit(DETAIL_CLICK)
       this.fadeOutTl = new TimelineMax({onComplete: this.changeContent})
       this.fadeOutTl

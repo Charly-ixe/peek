@@ -2,51 +2,63 @@
 
   <div class="infos-zone__wrapper">
 
-    <div class="infos-zone__title">
+    <div class="infos-zone__navbar-block">
 
-      <h1>Maus II / </br> Auschwitz</h1>
-
-      <img src="/images/icon-peek-on.svg" alt="" v-show="peeked">
-
-    </div>
-
-    <div class="infos-zone__date">
-
-      <p>{{ currentPiece.date }}, {{ currentPiece.type }}</p>
-
-    </div>
-
-    <div class="infos-zone__content" v-for="content in contents" ref="contentinfos" v-show="categoriesDisplayed">
-
-      <h4>{{ content.title }}</h4>
-
-      <p>{{ content.intro }}</p>
-
-      <button type="button" name="discover_button" class="infos-zone__dicover-button secondary-button" @click="fadeOutCategories">Découvrir plus</button>
-
-    </div>
-
-    <div class="infos-zone__content" v-show="detailDisplayed" ref="details">
-
-      <h4>{{ contents[0].title }}</h4>
-
-      <p>{{ contents[0].intro }}</p>
-
-      <p>{{ contents[0].content }}</p>
-
-      <video src="/videos/zoomorphisme-art-spieglman.mp4" poster="/images/poster.png" class="infos-zone__video" controls></video>
-
-      <h4 class="infos-zone__outro">Aller plus loin</h4>
-
-      <div class="infos-zone__link">
-
-        Le juif éternel
+      <div class="infos-zone__navbar">
 
       </div>
 
-      <div class="infos-zone__link">
+    </div>
 
-        Looney Tunes
+    <div class="infos-zone__content-block">
+
+      <div class="infos-zone__title">
+
+        <h1>Maus II / </br> Auschwitz</h1>
+
+        <img src="/images/icon-peek-on.svg" alt="" v-show="peeked">
+
+      </div>
+
+      <div class="infos-zone__date">
+
+        <p>{{ currentPiece.date }}, {{ currentPiece.type }}</p>
+
+      </div>
+
+      <div class="infos-zone__content" v-for="content in contents" ref="contentinfos" v-show="categoriesDisplayed">
+
+        <h4>{{ content.title }}</h4>
+
+        <p>{{ content.intro }}</p>
+
+        <button type="button" name="discover_button" class="infos-zone__dicover-button secondary-button" @click="fadeOutCategories(content)">Découvrir plus</button>
+
+      </div>
+
+      <div class="infos-zone__content" v-show="detailDisplayed" ref="details">
+
+        <h4>{{ selectedDetail.title }}</h4>
+
+        <p>{{ selectedDetail.intro }}</p>
+
+        <p>{{ selectedDetail.content }}</p>
+
+        <video src="/videos/zoomorphisme-art-spieglman.mp4" poster="/images/poster.png" class="infos-zone__video" controls></video>
+
+        <h4 class="infos-zone__outro">Aller plus loin</h4>
+
+        <div class="infos-zone__link">
+
+          Le juif éternel
+
+        </div>
+
+        <div class="infos-zone__link">
+
+          Looney Tunes
+
+        </div>
 
       </div>
 
