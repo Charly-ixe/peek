@@ -8,3 +8,58 @@
     .btn-send
       border none
       margin-top 10px
+.first-register
+  display block
+  width 100vw
+  height 100vh
+  background-color $color-grey-dark
+
+  &__wrapper
+    position fixed
+    top 0
+    left 0
+    width 50%
+    height 100%
+
+    .first-register__logo
+      center-x()
+      top 10vh
+
+      img
+        width 5vw
+
+    .first-register__form
+      center-xy()
+      width 55%
+
+      &-title
+        color $color-white
+
+      &-text
+        color $color-white
+        margin-top 6vh
+
+      &-block
+        margin-top 6vh
+        position relative
+        height 4.8rem
+
+        label
+          color $color-grey-light
+          text-transform uppercase
+          font-size 1.2rem
+          font-weight bold
+          position absolute
+          //transform translateY(10px)
+
+        .first-register__form-input
+          position absolute
+          bottom 0
+          font-family PT Sans
+          font-size 1.6rem
+
+
+      &-submit
+
+        center-x()
+        margin-top 4vh

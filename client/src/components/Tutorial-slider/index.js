@@ -26,7 +26,7 @@ export default Vue.extend({
     return {
       index: 0,
       slides: [],
-      steps: content.tuto_steps
+      steps: content.tuto_sub_steps
     }
   },
 
@@ -38,9 +38,9 @@ export default Vue.extend({
     this.slides = this.$children
     this.slides.forEach((slide, i) => {
       slide.index = i
-      slide.image = content.tuto_steps[i].image
-      slide.title = content.tuto_steps[i].title
-      slide.subtitle = content.tuto_steps[i].subtitle
+      slide.image = content.tuto_sub_steps[i].image
+      slide.title = content.tuto_sub_steps[i].title
+      slide.subtitle = content.tuto_sub_steps[i].subtitle
     })
     this.pagination = document.querySelector('.tutorial-slider__pagination')
   },
