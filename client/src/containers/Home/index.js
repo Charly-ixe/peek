@@ -35,7 +35,8 @@ export default Vue.extend({
     return {
       scrolled: false,
       peeks_obj: Content.pieces,
-      hovered: false
+      hovered: false,
+      openedMenu: false
     }
   },
 
@@ -45,10 +46,12 @@ export default Vue.extend({
     scope(this, [
       'createTls'
     ])
-    window.addEventListener('mousewheel', throttle(this.handleScroll, 1200, {'trailing': false}))
+    window.addEventListener('mousewheel', throttle(this.handleFirstScroll, 1200, {'trailing': false}))
+    window.addEventListener('mouseup', this.handleFirstClick)
   },
   destroyed () {
-    window.removeEventListener('mousewheel', throttle(this.handleScroll, 1200, {'trailing': false}))
+    window.removeEventListener('mouseup', this.handleFirstClick)
+    window.removeEventListener('mousewheel', throttle(this.handleFirstScroll, 1200, {'trailing': false}))
   },
 
   mounted () {
@@ -62,9 +65,7 @@ export default Vue.extend({
         divs: document.querySelectorAll('.peek-container')
       })
 
-      this.scroll.init()
-      this.scrolled = true
-      this.$refs.overlay.style.display = "none"
+
   },
 
   beforeDestroy () {
@@ -75,7 +76,7 @@ export default Vue.extend({
       this.enterTl = new TimelineMax({paused: true})
     },
 
-    handleScroll () {
+    handleFirstScroll () {
       if (!this.scrolled) {
         Tweenmax.to(this.$refs.overlay, 1, {
           opacity: 0,
@@ -83,20 +84,39 @@ export default Vue.extend({
           onComplete: ()=> {
             this.scrolled = true
             this.$refs.overlay.style.display = "none"
-
+            this.scroll.init()
           }
         })
       }
     },
+    handleFirstClick() {
+      Tweenmax.to(this.$refs.overlay, 1, {
+        opacity: 0,
+        ease:Power1.easeInOut,
+        onComplete: ()=> {
+          this.scrolled = true
+          this.$refs.overlay.style.display = "none"
+          this.scroll.init()
+        }
+      })
+    },
     hoverCard(e) {
-      console.log("hover card")
-      console.log(e.srcElement.className);
     },
     leaveCard(e) {
-      console.log("leave card")
     },
-    goDetails(index){
+    goDetails(index) {
       Router.push('details/'+index)
+    },
+    onMenuClick() {
+      if (!this.openedMenu){
+        this.$refs.overlayMenu.className = "home__overlay-menu opened"
+        this.$refs.menuBtn.className = "home__menu-button opened"
+        this.openedMenu = true
+      } else {
+        this.$refs.overlayMenu.className = "home__overlay-menu"
+        this.$refs.menuBtn.className = "home__menu-button"
+        this.openedMenu = false
+      }
     }
   },
 

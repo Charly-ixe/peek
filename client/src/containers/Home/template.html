@@ -1,6 +1,10 @@
 <div class="page home" ref="homeContainer">
 
   <fixed-navigation-component></fixed-navigation-component>
+  <div class="home__menu-button" @click="onMenuClick" ref="menuBtn">
+    <div class="menu-icon"></div>
+    <div class="menu-title">menu</div>
+  </div>
   <div class="home__titles">
     <h2>Expositions de la BPI</h2>
     <h1>Art Spiegelman</h1>
@@ -10,8 +14,14 @@
     <div class="filter-title">
       Parcours
     </div>
-    <div class="filter-name">
+    <div class="filter-name current">
       mes peeks
+    </div>
+    <div class="filter-name">
+      les plus peekés
+    </div>
+    <div class="filter-name">
+      toutes les oeuvres
     </div>
   </div>
   <div class="home__bg-name">
@@ -19,8 +29,8 @@
   </div>
   <div class="home__peeks-container">
       <div class="home__peeks-scroll-container">
-        <div class="peek-container" v-for="(peek, index) in peeks_obj" @click="goDetails(index)">
-          <img class="peek-image" :src="peek.cover_url" :alt="peek.name" @mouseover="hoverCard" @mouseleave="leaveCard">
+        <div class="peek-container" v-for="(peek, index) in peeks_obj">
+          <img class="peek-image" :src="peek.cover_url" :alt="peek.name" @click="goDetails(index)" @mouseover="hoverCard" @mouseleave="leaveCard">
           <p class="peek-container-name">
             {{ peek.name }}
           </p>
@@ -42,6 +52,32 @@
           scroller pour naviguer
         </div>
         <div class="nav-indicator-icon"></div>
+      </div>
+    </div>
+  </div>
+  <div class="home__overlay-menu" ref="overlayMenu">
+    <div class="home__overlay-menu-container">
+      <div class="home__overlay-menu-content">
+        <div class="menu-item-container">
+          <h1 class="menu-item-txt">Toutes les expositions</h1>
+          <div class="menu-item-arrow"></div>
+        </div>
+        <div class="menu-item-container">
+          <h1 class="menu-item-txt">Mes peeks</h1>
+          <div class="menu-item-arrow"></div>
+        </div>
+        <div class="menu-item-container">
+          <h1 class="menu-item-txt">Informations pratiques</h1>
+          <div class="menu-item-arrow"></div>
+        </div>
+        <div class="menu-item-container">
+          <h1 class="menu-item-txt">À propos de Peek</h1>
+          <div class="menu-item-arrow"></div>
+        </div>
+        <div class="menu-item-container">
+          <h1 class="menu-item-txt">Mon compte</h1>
+          <div class="menu-item-arrow"></div>
+        </div>
       </div>
     </div>
   </div>

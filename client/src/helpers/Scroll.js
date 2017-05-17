@@ -37,7 +37,7 @@ class Parallax extends Smooth {
         // console.log(e.originalEvent);
         this.vars.bounding = this.dom.section.getBoundingClientRect().width
         this.clampTarget()
-        console.log(this.vars.target, this.vars.bounding);
+        // console.log(this.vars.target, this.vars.bounding);
     }
 
     getCache() {

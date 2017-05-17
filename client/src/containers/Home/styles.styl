@@ -28,19 +28,57 @@ body
       font-size 13px
       color $color-grey-light
 
+  &__menu-button
+    position fixed
+    float right
+    top 5vh
+    right 5vh
+    z-index 5
+    color white
+    cursor pointer
+
+    .menu-icon
+      background url('/images/icons/icon-burger-menu.svg')
+      width 29px
+      height 23px
+      float right
+      transition $transition-ui
+
+    .menu-title
+      font-family "PT Sans"
+      text-transform uppercase
+      font-size 1.4em
+      font-weight bold
+      letter-spacing 0.2em
+      float left
+      margin-top 4px
+      margin-right 10px
+
+  &__menu-button.opened
+    .menu-icon
+      background url('/images/icons/icon-fleche-1.svg')
+      transition $transition-ui
+
+
   &__filter
     font-family "PT Sans"
-    margin 16vh 3vw
+    margin 17vh 3vw
     padding 16px 20px
     position fixed
     z-index 4
-    width 210px
+    cursor pointer
+    width 240px
+    overflow hidden
+    background-color $color-grey-dark
+    height 60px
+    transition $transition-ui
 
     .filter-icon
       background url('/images/icons/icon-parcours.svg')
       width 30px
       height 30px
       float left
+      transition $transition-ui
 
     .filter-title
       font-size 1.2em
@@ -53,8 +91,21 @@ body
       color $color-yellow-peek
       text-transform uppercase
       margin-left 40px
-      margin-top 6px
+      margin-top 15px
       letter-spacing 0.2em
+      &:hover
+        opacity 0.5
+
+    .filter-name.current
+      margin-top 6px
+      &:hover
+        opacity 1
+
+    &:hover
+      height 120px
+
+      .filter-icon
+        background url('/images/icons/icon-parcours-fleche.svg')
   &__bg-name
     center-xy()
     opacity 0.5
@@ -62,14 +113,14 @@ body
     font-family "Berlingske"
     font-size 10em
     color $color-grey-bg
-    z-index 2
+    z-index 0
 
   &__peeks-container
     position absolute
     top 60%
     transform translate3d(0%, -60%, 0)
     left 15%
-    z-index 3
+    // z-index 3
     &__peeks-scroll-container
       overflow-y hidden
     .peek-container
@@ -81,40 +132,38 @@ body
         width 250px
         cursor pointer
       .peek-container-name
-        opacity 1
+        opacity 0
         width 219px
         font-family "Berlingske-DemiBold"
         color white
         font-size 17pt
-        margin-top 5px
+        margin-top 10px
         overflow hidden
         white-space nowrap
         text-overflow ellipsis
         transition $transition-ui
       .peek-logo
-        opacity 1
+        opacity 0
         background url('/images/icons/icon-peek-on.svg')
         width 30px
         height 30px
         margin-top -40px
         float right
         transition $transition-ui
+        cursor pointer
       .peek-date
-        opacity 1
+        opacity 0
         font-family "PT Sans"
         color $color-grey-light
         font-size 1.3em
         transition $transition-ui
-    // &:hover
-    //   .peek-container
-    //     .peek-container-name
-    //       opacity 1
-    //     .peek-logo
-    //       opacity 1
-    //     .peek-date
-    //       opacity 1
-
-
+    [class^='peek-container']:hover
+      .peek-container-name
+        opacity 1
+      .peek-logo
+        opacity 1
+      .peek-date
+        opacity 1
 
   &__overlay
     position absolute
@@ -129,7 +178,7 @@ body
     min-height 100%
     background-color black
     opacity 0.8
-    z-index 4
+    z-index 10
 
   &__overlay-content
     display inline-block
@@ -148,6 +197,51 @@ body
       width 22px
       height 59px
       margin 20px auto 0 auto
+
+  &__overlay-menu
+    position absolute
+    display none
+    top 0
+    width 100%
+    height 100%
+    transition $transition-ui
+
+  &__overlay-menu.opened
+    display flex
+    transition $transition-ui
+
+  &__overlay-menu-container
+    position fixed
+    min-width 100%
+    min-height 100%
+    background-color black
+    opacity 0.9
+    z-index 4
+
+  &__overlay-menu-content
+    font-family "Berlingske-ExtraBold"
+    display inline-block
+    color white
+    center-xy()
+
+    .menu-item-container
+      padding 20px 0
+
+    .menu-item-txt
+      display inline-block
+      margin 0
+      cursor pointer
+      &:hover
+        opacity 0.8
+
+    .menu-item-arrow
+      display inline-block
+      top -10px
+      position relative
+      left 20px
+      background url('/images/icons/icon-fleche-2-grand-format.svg')
+      width 32px
+      height 13px
 
 ::-webkit-scrollbar
   height 4px
