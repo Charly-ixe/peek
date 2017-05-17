@@ -41,11 +41,19 @@ export default Vue.extend({
 
   mounted () {
     this.currentPiece = this.pieces[this.index]
-    let items = document.querySelectorAll("div.content-item")
-    for (var i = 0; i < this.$refs.navitems.length; i++) {
-      this.navItems.push(items[i])
-    }
-    console.log(this.navItems);
+
+    setTimeout(()=>{
+      for (var i = 0; i < this.$refs.navitems.length; i++) {
+
+        this.navItems.push(this.$refs.navitems[i])
+      }
+      let wrapper = document.querySelector(".infos-zone__wrapper")
+      let navbar = document.querySelector(".infos-zone__navbar")
+      let dynamicHeight = wrapper.offsetHeight
+      navbar.style.height = dynamicHeight - 80 + 'px'
+      console.log(navbar)
+    },100)
+
     // let video = document.getElementsByTagName('video')
     // video.autoplay = false
     // video.load()
@@ -77,6 +85,7 @@ export default Vue.extend({
 
     fadeOutCategories(selected, n) {
       this.selectedDetail = selected
+      this.navItems[n].classList.add('active')
       Emitter.emit(DETAIL_CLICK)
       this.fadeOutTl = new TimelineMax({onComplete: this.changeContent})
       this.fadeOutTl
