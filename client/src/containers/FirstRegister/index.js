@@ -8,7 +8,12 @@ import feathers from 'feathers/client'
 import socketio from 'feathers-socketio/client'
 import io from 'socket.io-client'
 
-const socket = io('http://192.168.43.190:3030')
+import content from 'data/content'
+
+import TutorialFirstRegSlider from 'components/Tutorial-first-reg-slider'
+import TutorialStep from 'components/Tutorial-step'
+
+const socket = io('http://localhost:3030')
 const app = feathers().configure(socketio(socket))
 // Get the message service that uses a websocket connection
 const firstRegisterService = app.service('firstRegisters')
@@ -36,6 +41,7 @@ export default Vue.extend({
 
   data () {
     return {
+      steps: content.tuto_first_reg_steps
     }
   },
 
@@ -75,6 +81,7 @@ export default Vue.extend({
   },
 
   components: {
-    'fixed-navigation-component': FixedNavigation
+    'tutorial-slider-component': TutorialFirstRegSlider,
+    'tutorial-step-component': TutorialStep
   }
 })

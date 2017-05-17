@@ -40,6 +40,7 @@ export default Vue.extend({
   mounted () {
     // Call the messages service on the server via websocket
       getPeeksService.find({}).then(result => {
+        console.log(result.data);
         this.peeks = result.data
       })
       getPeeksService.on('created', function(message) {

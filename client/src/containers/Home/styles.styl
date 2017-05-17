@@ -1,7 +1,15 @@
+body
+  overflow-y hidden
+
+
 .home
-  width 100%
+  width auto
   height 100%
   background-color $color-grey-dark
+  // overflow-x auto
+  // overflow-y hidden
+  overflow hidden
+  white-space nowrap
 
   &__titles
     position fixed
@@ -15,22 +23,9 @@
       color $color-white
 
     h2
+      font-family "PT Sans"
+      letter-spacing 3px
       color $color-grey-light
-  .bg-vid
-    position fixed
-    top 50%
-    left 50%
-    // width 100%
-    // min-width 100%
-    min-height 100%
-    width auto
-    height auto
-    z-index 3
-    -ms-transform translateX(-50%) translateY(-50%)
-    -moz-transform translateX(-50%) translateY(-50%)
-    -webkit-transform translateX(-50%) translateY(-50%)
-    transform translateX(-50%) translateY(-50%)
-    background-size cover
 
   &__filter
     font-family "PT Sans"
@@ -41,7 +36,7 @@
     width 210px
 
     .filter-icon
-      background url('/images/icons/icon-filtres.svg')
+      background url('/images/icons/icon-parcours.svg')
       width 30px
       height 30px
       float left
@@ -53,18 +48,79 @@
 
     .filter-name
       font-size 1.3em
-      color white
+      font-weight bold
+      color $color-yellow-peek
       text-transform uppercase
       margin-left 40px
       margin-top 6px
       letter-spacing 0.2em
+  &__bg-name
+    center-xy()
+    opacity 0.5
+    position fixed
+    font-family "Berlingske"
+    font-size 10em
+    color $color-grey-bg
+    z-index 2
+
+  &__peeks-container
+    position absolute
+    top 60%
+    transform translate3d(0%, -60%, 0)
+    left 75%
+    z-index 3
+    &__peeks-scroll-container
+      overflow-y hidden
+    .peek-container
+      // width 300px
+      display inline-block
+      position relative
+      padding 0 60px
+      .peek-image
+        width 250px
+        cursor pointer
+      .peek-container-name
+        opacity 1
+        width 219px
+        font-family "Berlingske-DemiBold"
+        color white
+        font-size 23pt
+        margin-top 5px
+        overflow hidden
+        white-space nowrap
+        text-overflow ellipsis
+        transition $transition-ui
+      .peek-logo
+        opacity 1
+        background url('/images/icons/icon-peek-on.svg')
+        width 30px
+        height 30px
+        margin-top -40px
+        float right
+        transition $transition-ui
+      .peek-date
+        opacity 1
+        font-family "PT Sans"
+        color $color-grey-light
+        font-size 1.3em
+        transition $transition-ui
+    // &:hover
+    //   .peek-container
+    //     .peek-container-name
+    //       opacity 1
+    //     .peek-logo
+    //       opacity 1
+    //     .peek-date
+    //       opacity 1
+
+
 
   &__overlay
     position absolute
     display flex
     top 0
     width 100%
-    height 120%
+    height 100%
 
   &__overlay-container
     position fixed
@@ -92,22 +148,10 @@
       height 59px
       margin 20px auto 0 auto
 
-  &__down-btn
-    position fixed
-    right 30px
-    bottom 30px
-    display inline-block
-    z-index 3
-    .btn-info
-      background url('/images/icons/icon-informations.svg')
-      width 30px
-      height 30px
-      float left
-      margin-right 20px
-      cursor pointer
-    .btn-account
-      background url('/images/icons/icon-compte.svg')
-      width 30px
-      height 30px
-      float right
-      cursor pointer
+::-webkit-scrollbar
+  height 4px
+// ::-webkit-scrollbar:hover
+//   height 8px
+
+::-webkit-scrollbar-thumb
+    background rgba(255,255,255,0.5)
