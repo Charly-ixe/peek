@@ -31,7 +31,7 @@ class Router extends VueRouter {
       //   redirect: '/'
       // }
       {
-        path: '/details',
+        path: '/details/:id',
         name: 'details',
         component: Details,
         meta: {

@@ -2,6 +2,8 @@ import EventManagerMixin from 'mixins/EventManagerMixin'
 import scope from 'utils/generic/scope'
 import 'gsap'
 
+import data from 'data/content'
+
 import {
   WINDOW_RESIZE,
   DETAIL_CLICK
@@ -29,11 +31,13 @@ export default Vue.extend({
 
   data () {
     return {
-      fullScreen: false
+      fullScreen: false,
+      currentPiece: {}
     }
   },
 
   created () {
+    this.currentPiece = data.pieces[this.$route.params.id]
   },
 
   mounted () {

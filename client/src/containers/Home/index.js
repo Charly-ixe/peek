@@ -94,6 +94,9 @@ export default Vue.extend({
     },
     leaveCard(e) {
       console.log("leave card")
+    },
+    goDetails(index){
+      Router.push('details/'+index)
     }
   },
 
