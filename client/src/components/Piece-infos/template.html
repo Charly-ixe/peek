@@ -6,6 +6,18 @@
 
       <div class="infos-zone__navbar">
 
+        <div class="infos-zone__navbar-item first active">
+
+          <div class="first"></div>
+
+        </div>
+
+        <div class="infos-zone__navbar-item" ref="navitems" v-for="(content, index) in contents">
+
+          <div></div>
+
+        </div>
+
       </div>
 
     </div>
@@ -16,23 +28,24 @@
 
         <h1>Maus II / </br> Auschwitz</h1>
 
-        <img src="/images/icon-peek-on.svg" alt="" v-show="peeked">
+        <img src="/images/icon-peek-on.svg" alt="" v-if="peeked">
+        <img src="/images/icon-peek-off.svg" alt="" v-else>
 
       </div>
 
       <div class="infos-zone__date">
 
-        <p>{{ currentPiece.date }}, {{ currentPiece.type }}</p>
+        <p>{{ currentPiece.date }}</p>
 
       </div>
 
-      <div class="infos-zone__content" v-for="content in contents" ref="contentinfos" v-show="categoriesDisplayed">
+      <div class="infos-zone__content" v-for="(content, index) in contents" ref="contentinfos" v-show="categoriesDisplayed">
 
         <h4>{{ content.title }}</h4>
 
         <p>{{ content.intro }}</p>
 
-        <button type="button" name="discover_button" class="infos-zone__dicover-button secondary-button" @click="fadeOutCategories(content)">Découvrir plus</button>
+        <button type="button" name="discover_button" class="infos-zone__dicover-button secondary-button" @click="fadeOutCategories(content, index)">Découvrir plus</button>
 
       </div>
 
