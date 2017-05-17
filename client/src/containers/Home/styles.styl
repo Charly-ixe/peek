@@ -23,6 +23,8 @@ body
       color $color-white
 
     h2
+      font-family "PT Sans"
+      letter-spacing 3px
       color $color-grey-light
 
   &__filter
@@ -54,6 +56,7 @@ body
       letter-spacing 0.2em
   &__bg-name
     center-xy()
+    opacity 0.5
     position fixed
     font-family "Berlingske"
     font-size 10em
@@ -61,7 +64,9 @@ body
     z-index 2
 
   &__peeks-container
-    center-y()
+    position absolute
+    top 60%
+    transform translate3d(0%, -60%, 0)
     left 75%
     z-index 3
     &__peeks-scroll-container
@@ -72,12 +77,12 @@ body
       position relative
       padding 0 60px
       .peek-image
-        width 300px
+        width 250px
         cursor pointer
       .peek-container-name
         opacity 1
-        width 269px
-        font-family "Berlingske"
+        width 219px
+        font-family "Berlingske-DemiBold"
         color white
         font-size 23pt
         margin-top 5px
