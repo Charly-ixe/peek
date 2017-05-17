@@ -19,7 +19,7 @@
   </div>
   <div class="home__peeks-container">
       <div class="home__peeks-scroll-container">
-        <div class="peek-container" v-for="peek in peeks_obj">
+        <div class="peek-container" v-for="(peek, index) in peeks_obj" @click="goDetails(index)">
           <img class="peek-image" :src="peek.cover_url" :alt="peek.name" @mouseover="hoverCard" @mouseleave="leaveCard">
           <p class="peek-container-name">
             {{ peek.name }}

@@ -4,7 +4,7 @@
 
   </div>
 
-  <img src="/images/pieces/7-maus-art-spiegelman.jpg" alt="Maus" ref="pieceimg">
+  <img :src=currentPiece.cover_url alt="Maus" ref="pieceimg">
 
   <button type="button" name="full_screen" @click="goFullScreen" class="piece-slider__fullscreen-button" ref="fullbutton" v-if="!fullScreen"></button>
   <button type="button" name="close_full" @click="exitFullScreen" class="piece-slider__close-button" ref="fullbutton" v-else></button>

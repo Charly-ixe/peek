@@ -40,6 +40,7 @@ export default Vue.extend({
   },
 
   mounted () {
+    this.index = this.$route.params.id
     this.currentPiece = this.pieces[this.index]
 
     setTimeout(()=>{
