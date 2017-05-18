@@ -26,7 +26,7 @@
 
       <div class="infos-zone__title">
 
-        <h1> {{ currentPiece.name }} </h1>
+        <h1 @click="goBackToCategories"> {{ currentPiece.name }} </h1>
 
         <img src="/images/icon-peek-on.svg" alt="" v-if="peeked">
         <img src="/images/icon-peek-off.svg" alt="" v-else>
@@ -41,7 +41,7 @@
 
       <div class="infos-zone__content" v-for="(content, index) in contents" ref="contentinfos" v-show="categoriesDisplayed">
 
-        <h4>{{ content.title }}</h4>
+        <h4 @click="fadeOutCategories(content, index)" class="infos-zone__content-title">{{ content.title }}</h4>
 
         <p>{{ content.intro }}</p>
 
@@ -51,7 +51,7 @@
 
       <div class="infos-zone__content" v-show="detailDisplayed" ref="details">
 
-        <h4>{{ selectedDetail.title }}</h4>
+        <h4 @click="goBackToCategories">{{ selectedDetail.title }}</h4>
 
         <p>{{ selectedDetail.intro }}</p>
 
