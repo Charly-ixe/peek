@@ -54,6 +54,10 @@ export default Vue.extend({
       let dynamicHeight = wrapper.offsetHeight
       navbar.style.height = dynamicHeight - 80 + 'px'
       console.log(navbar)
+
+      this.navItems[0].style.marginTop = 85 + "px"
+      this.navItems[1].style.marginTop = 190 + "px"
+      this.navItems[2].style.marginTop = 140 + "px"
     },100)
 
     // let video = document.getElementsByTagName('video')
