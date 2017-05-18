@@ -56,7 +56,7 @@ body
 
   &__menu-button.opened
     .menu-icon
-      background url('/images/icons/icon-fleche-1.svg')
+      background url('/images/icons/icon-fermer.svg')
       transition $transition-ui
 
 
@@ -74,11 +74,12 @@ body
     transition $transition-ui
 
     .filter-icon
-      background url('/images/icons/icon-parcours.svg')
+      background url('/images/icons/fleche-parcours.svg')
+      transform rotate(180deg)
       width 30px
       height 30px
       float left
-      transition $transition-ui
+      // transition $transition-ui
 
     .filter-title
       font-size 1.2em
@@ -105,7 +106,7 @@ body
       height 120px
 
       .filter-icon
-        background url('/images/icons/fleche-parcours.svg')
+        transform rotate(360deg)
   &__bg-name
     center-xy()
     opacity 0.5
@@ -239,7 +240,7 @@ body
       top -10px
       position relative
       left 20px
-      background url('/images/icons/icon-fleche-2-grand-format.svg')
+      background url('/images/icons/icon-fleche-1-grand-format.svg')
       width 32px
       height 13px
 

@@ -68,6 +68,7 @@ export default Vue.extend({
 
     if (this.hasSeenWelcome !== null) {
       this.$refs.overlay.style.display = "none"
+      this.scroll.init()
     } else {
       window.addEventListener('mousewheel', throttle(this.handleFirstScroll, 1200, {'trailing': false}))
       window.addEventListener('mouseup', this.handleFirstClick)
@@ -126,6 +127,11 @@ export default Vue.extend({
         this.$refs.menuBtn.className = "home__menu-button"
         this.openedMenu = false
       }
+    },
+    onFilterClick() {
+      this.$refs.bgName.innerHTML = "Toutes les oeuvres"
+      this.$refs.currentFilter.innerHTML = "Toutes les oeuvres"
+      this.$refs.secondFilter.innerHTML = "Mes peeks"
     }
   },
 

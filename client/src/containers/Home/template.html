@@ -14,17 +14,17 @@
     <div class="filter-title">
       Parcours
     </div>
-    <div class="filter-name current">
+    <div class="filter-name current" ref="currentFilter">
       mes peeks
     </div>
-    <div class="filter-name">
+    <div class="filter-name" ref="firstFilter">
       les plus peekés
     </div>
-    <div class="filter-name">
+    <div class="filter-name" @click="onFilterClick" ref="secondFilter">
       toutes les oeuvres
     </div>
   </div>
-  <div class="home__bg-name">
+  <div class="home__bg-name" ref="bgName">
     Mes peeks
   </div>
   <div class="home__peeks-container">
