@@ -1,4 +1,4 @@
-import Smooth from 'smooth-scrolling'
+import Smooth from 'helpers/smooth-scrolling'
 
 class Parallax extends Smooth {
 

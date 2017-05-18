@@ -46,8 +46,7 @@ export default Vue.extend({
     scope(this, [
       'createTls'
     ])
-    window.addEventListener('mousewheel', throttle(this.handleFirstScroll, 1200, {'trailing': false}))
-    window.addEventListener('mouseup', this.handleFirstClick)
+
   },
   destroyed () {
     window.removeEventListener('mouseup', this.handleFirstClick)
@@ -65,6 +64,14 @@ export default Vue.extend({
         divs: document.querySelectorAll('.peek-container')
       })
 
+    this.hasSeenWelcome = localStorage.getItem("has-seen-welcome")
+
+    if (this.hasSeenWelcome !== null) {
+      this.$refs.overlay.style.display = "none"
+    } else {
+      window.addEventListener('mousewheel', throttle(this.handleFirstScroll, 1200, {'trailing': false}))
+      window.addEventListener('mouseup', this.handleFirstClick)
+    }
 
   },
 
@@ -85,6 +92,7 @@ export default Vue.extend({
             this.scrolled = true
             this.$refs.overlay.style.display = "none"
             this.scroll.init()
+            localStorage.setItem("has-seen-welcome", "true")
           }
         })
       }
@@ -97,6 +105,7 @@ export default Vue.extend({
           this.scrolled = true
           this.$refs.overlay.style.display = "none"
           this.scroll.init()
+          localStorage.setItem("has-seen-welcome", "true")
         }
       })
     },
