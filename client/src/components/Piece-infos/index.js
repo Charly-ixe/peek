@@ -32,7 +32,8 @@ export default Vue.extend({
       categoriesDisplayed: true,
       detailDisplayed: false,
       selectedDetail: {},
-      navItems: []
+      navItems: [],
+      activeItem: null
     }
   },
 
@@ -53,6 +54,10 @@ export default Vue.extend({
       let dynamicHeight = wrapper.offsetHeight
       navbar.style.height = dynamicHeight - 80 + 'px'
       console.log(navbar)
+
+      this.navItems[0].style.marginTop = 85 + "px"
+      this.navItems[1].style.marginTop = 190 + "px"
+      this.navItems[2].style.marginTop = 140 + "px"
     },100)
 
     // let video = document.getElementsByTagName('video')
@@ -86,7 +91,8 @@ export default Vue.extend({
 
     fadeOutCategories(selected, n) {
       this.selectedDetail = selected
-      this.navItems[n].classList.add('active')
+      this.activeItem = n
+      this.navItems[this.activeItem].classList.add('active')
       Emitter.emit(DETAIL_CLICK)
       this.fadeOutTl = new TimelineMax({onComplete: this.changeContent})
       this.fadeOutTl
@@ -100,6 +106,21 @@ export default Vue.extend({
       this.fadeInTl = new TimelineMax()
       this.fadeInTl
         .staggerFromTo(this.$refs.details.children, 0.5, {opacity: 0,x:-10, ease: Expo.easeOut}, {opacity: 1,x:0, ease: Expo.easeOut}, 0.1)
+    },
+
+    goBackToCategories() {
+      if(this.detailDisplayed == true) {
+        this.leaveDetailTl = new TimelineMax({onComplete: this.displayCategories})
+        this.leaveDetailTl
+          .staggerFromTo(this.$refs.details.children, 0.5, {opacity: 1,x:0, ease: Expo.easeOut}, {opacity: 0,x:-10, ease: Expo.easeOut}, 0.1)
+        this.categoriesDisplayed = true
+        this.detailDisplayed = false
+      }
+    },
+
+    displayCategories() {
+      this.fadeOutTl.reverse()
+      this.navItems[this.activeItem].classList.remove('active')
     },
 
     onWindowResize ({width, height}) {
