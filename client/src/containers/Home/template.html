@@ -34,7 +34,10 @@
           <p class="peek-container-name">
             {{ peek.name }}
           </p>
-          <div class="peek-logo"></div>
+          <div class="peek-logo-container">
+            <div class="peek-logo" @click="onPeekClick"></div>
+            <div class="peek-logo-legend">dépeeker</div>
+          </div>
           <div class="peek-date">
             {{ peek.date }}
           </div>

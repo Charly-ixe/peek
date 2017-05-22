@@ -143,15 +143,22 @@ body
         white-space nowrap
         text-overflow ellipsis
         transition $transition-ui
-      .peek-logo
+      .peek-logo-container
         opacity 0
-        background url('/images/icons/icon-peek-on.svg')
-        width 30px
-        height 30px
-        margin-top -40px
-        float right
         transition $transition-ui
-        cursor pointer
+        .peek-logo
+          background url('/images/icons/icon-peek-on.svg')
+          width 30px
+          height 30px
+          margin-top -40px
+          float right
+          cursor pointer
+        .peek-logo-legend
+          text-transform uppercase
+          font-family "PT Sans"
+          color $color-yellow-peek
+          font-size 10px
+          float right
       .peek-date
         opacity 0
         font-family "PT Sans"
@@ -161,7 +168,7 @@ body
     [class^='peek-container']:hover
       .peek-container-name
         opacity 1
-      .peek-logo
+      .peek-logo-container
         opacity 1
       .peek-date
         opacity 1

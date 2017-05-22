@@ -132,6 +132,14 @@ export default Vue.extend({
       this.$refs.bgName.innerHTML = "Toutes les oeuvres"
       this.$refs.currentFilter.innerHTML = "Toutes les oeuvres"
       this.$refs.secondFilter.innerHTML = "Mes peeks"
+    },
+    onPeekClick(e){
+      let prevEl = e.srcElement.nextSibling.nextElementSibling
+      console.log(prevEl)
+
+      e.srcElement.style.backgroundImage="url(/images/icons/icon-peek-off.svg)"
+      prevEl.innerHTML = "peeker"
+      prevEl.style.color = "#908A86"
     }
   },
 
