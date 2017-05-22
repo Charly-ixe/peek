@@ -6,21 +6,18 @@ body
   width auto
   height 100%
   background-color $color-grey-dark
-  // overflow-x auto
-  // overflow-y hidden
   overflow hidden
   white-space nowrap
 
   &__titles
-    position fixed
+    position relative
     color $color-white
-    margin 3vh 3vw
-    padding 16px 20px
-    // position relative
+    padding 40px 50px 0
     z-index 4
 
     h1
       color $color-white
+      margin-bottom 0
 
     h2
       font-family "PT Sans"
@@ -47,6 +44,7 @@ body
     .menu-title
       font-family "PT Sans"
       text-transform uppercase
+      position relative
       font-size 1.4em
       font-weight bold
       letter-spacing 0.2em
@@ -62,48 +60,38 @@ body
 
   &__filter
     font-family "PT Sans"
-    margin 17vh 3vw
-    padding 16px 20px
-    position fixed
-    z-index 4
+    padding 15px 35px
+    position relative
+    display inline-block
     cursor pointer
-    width 240px
-    overflow hidden
     background-color $color-grey-dark
-    height 60px
-    transition $transition-ui
-
-    .filter-icon
-      background url('/images/icons/fleche-parcours.svg')
-      transform rotate(180deg)
-      width 30px
-      height 30px
-      float left
-      // transition $transition-ui
-
-    .filter-title
-      font-size 1.2em
-      color $color-grey-light
-      margin-left 40px
 
     .filter-name
       font-size 1.3em
       font-weight bold
-      color $color-yellow-peek
+      color $color-grey-middle
       text-transform uppercase
-      margin-left 40px
-      margin-top 15px
+      margin-left 15px
       letter-spacing 0.2em
+      display inline-block
+
       &:hover
         opacity 0.5
 
     .filter-name.current
-      margin-top 6px
+      color $color-yellow-peek
+      border-bottom 1px solid $color-yellow-peek
+      padding-bottom 5px
       &:hover
         opacity 1
 
-    &:hover
-      height 120px
+    .filter-separator
+      display inline-block
+      position absolute
+      margin-left 5px
+      width 1px
+      height 15px
+      background-color $color-grey-soft
 
       .filter-icon
         transform rotate(360deg)
