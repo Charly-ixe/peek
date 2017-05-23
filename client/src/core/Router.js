@@ -5,6 +5,7 @@ import Home from 'containers/Home'
 import Details from 'containers/Details'
 import FirstRegister from 'containers/FirstRegister'
 import Submission from 'containers/Submission'
+import ArtSpiegelman from 'containers/ArtSpiegelman'
 
 
 import {
@@ -26,12 +27,20 @@ class Router extends VueRouter {
           keepAlive: false
         }
       },
+      {
+        path: '/art-spiegelman',
+        name: 'art-spiegelman',
+        component: ArtSpiegelman,
+        meta: {
+          keepAlive: false
+        }
+      },
       // {
       //   path: '*',
       //   redirect: '/'
-      // }
+      // },
       {
-        path: '/details/:id',
+        path: '/art-spiegelman/details/:id',
         name: 'details',
         component: Details,
         meta: {

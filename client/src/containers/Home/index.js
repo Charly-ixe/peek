@@ -33,10 +33,6 @@ export default Vue.extend({
 
   data () {
     return {
-      scrolled: false,
-      peeks_obj: Content.pieces,
-      hovered: false,
-      openedMenu: false
     }
   },
 
@@ -49,30 +45,10 @@ export default Vue.extend({
 
   },
   destroyed () {
-    window.removeEventListener('mouseup', this.handleFirstClick)
-    window.removeEventListener('mousewheel', throttle(this.handleFirstScroll, 1200, {'trailing': false}))
   },
 
   mounted () {
     this.createTls()
-
-    this.scroll = new Scroll({
-        preload: false,
-        native: false,
-        direction: 'horizontal',
-        section: document.querySelector('.home__peeks-scroll-container'),
-        divs: document.querySelectorAll('.peek-container')
-      })
-
-    this.hasSeenWelcome = localStorage.getItem("has-seen-welcome")
-
-    if (this.hasSeenWelcome !== null) {
-      this.$refs.overlay.style.display = "none"
-      this.scroll.init()
-    } else {
-      window.addEventListener('mousewheel', throttle(this.handleFirstScroll, 1200, {'trailing': false}))
-      window.addEventListener('mouseup', this.handleFirstClick)
-    }
 
   },
 
@@ -82,69 +58,10 @@ export default Vue.extend({
   methods: {
     createTls () {
       this.enterTl = new TimelineMax({paused: true})
-    },
-
-    handleFirstScroll () {
-      if (!this.scrolled) {
-        Tweenmax.to(this.$refs.overlay, 1, {
-          opacity: 0,
-          ease:Power1.easeInOut,
-          onComplete: ()=> {
-            this.scrolled = true
-            this.$refs.overlay.style.display = "none"
-            this.scroll.init()
-            localStorage.setItem("has-seen-welcome", "true")
-          }
-        })
-      }
-    },
-    handleFirstClick() {
-      Tweenmax.to(this.$refs.overlay, 1, {
-        opacity: 0,
-        ease:Power1.easeInOut,
-        onComplete: ()=> {
-          this.scrolled = true
-          this.$refs.overlay.style.display = "none"
-          this.scroll.init()
-          localStorage.setItem("has-seen-welcome", "true")
-        }
-      })
-    },
-    hoverCard(e) {
-    },
-    leaveCard(e) {
-    },
-    goDetails(index) {
-      Router.push('details/'+index)
-    },
-    onMenuClick() {
-      if (!this.openedMenu){
-        this.$refs.overlayMenu.className = "home__overlay-menu opened"
-        this.$refs.menuBtn.className = "home__menu-button opened"
-        this.openedMenu = true
-      } else {
-        this.$refs.overlayMenu.className = "home__overlay-menu"
-        this.$refs.menuBtn.className = "home__menu-button"
-        this.openedMenu = false
-      }
-    },
-    onFilterClick() {
-      this.$refs.bgName.innerHTML = "Toutes les oeuvres"
-      this.$refs.currentFilter.innerHTML = "Toutes les oeuvres"
-      this.$refs.secondFilter.innerHTML = "Mes peeks"
-    },
-    onPeekClick(e){
-      let prevEl = e.srcElement.nextSibling.nextElementSibling
-      console.log(prevEl)
-
-      e.srcElement.style.backgroundImage="url(/images/icons/icon-peek-off.svg)"
-      prevEl.innerHTML = "peeker"
-      prevEl.style.color = "#908A86"
     }
   },
 
   components: {
     'fixed-navigation-component': FixedNavigation,
-    'peeks-component': Peeks
   }
 })

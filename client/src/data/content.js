@@ -37,7 +37,7 @@ export default {
       date: "2008",
       type: "Bande dessinée",
       peeked: true,
-      cover_url: "/images/pieces/01-Comics-Spiegelman-Joe-Sacco.jpg",
+      cover_url: [ "/images/pieces/01-Comics-Spiegelman-Joe-Sacco.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
