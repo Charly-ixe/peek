@@ -46,7 +46,6 @@ export default Vue.extend({
     scope(this, [
       'createTls'
     ])
-
   },
   destroyed () {
     window.removeEventListener('mouseup', this.handleFirstClick)
@@ -98,6 +97,12 @@ export default Vue.extend({
         })
       }
     },
+
+    isMultipleCover(i) {
+      console.log(i);
+      return this.peeks_obj[i].cover_url.length > 1
+    },
+
     handleFirstClick() {
       Tweenmax.to(this.$refs.overlay, 1, {
         opacity: 0,

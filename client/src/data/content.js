@@ -63,7 +63,7 @@ export default {
       date: "1985",
       type: "Couverture",
       peeked: true,
-      cover_url: "/images/pieces/02-Raw-couverture.jpg",
+      cover_url: [ "/images/pieces/02-Raw-couverture.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
@@ -89,7 +89,7 @@ export default {
       date: "1978",
       type: "Bande dessinée",
       peeked: true,
-      cover_url: "/images/pieces/03-Couverture-Breakdowns.jpg",
+      cover_url: [ "/images/pieces/03-Couverture-Breakdowns.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
@@ -115,7 +115,7 @@ export default {
       date: "1978",
       type: "Bande dessinée",
       peeked: true,
-      cover_url: "/images/pieces/04-Breakdowns.jpg",
+      cover_url: [ "/images/pieces/04-Breakdowns.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
@@ -141,7 +141,7 @@ export default {
       date: "1991",
       type: "Bande dessinée",
       peeked: true,
-      cover_url: "/images/pieces/05-Breakdowns.jpg",
+      cover_url: [ "/images/pieces/05-Breakdowns.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
@@ -167,7 +167,7 @@ export default {
       date: "1993",
       type: "Couverture",
       peeked: true,
-      cover_url: "/images/pieces/06-NewYorker.jpg",
+      cover_url: [ "/images/pieces/06-NewYorker.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
@@ -193,7 +193,7 @@ export default {
       date: "1998",
       type: "Couverture",
       peeked: true,
-      cover_url: "/images/pieces/07-NewYorker.jpeg",
+      cover_url: [ "/images/pieces/07-NewYorker.jpeg" ],
       content: [
         {
           title: "Le Zoomorphisme",
@@ -219,7 +219,7 @@ export default {
       date: "2001",
       type: "Couverture",
       peeked: true,
-      cover_url: "/images/pieces/08-NewYorker.jpg",
+      cover_url: [ "/images/pieces/08-NewYorker.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
@@ -245,7 +245,7 @@ export default {
       date: "1976",
       type: "Bande dessinée",
       peeked: true,
-      cover_url: "/images/pieces/09-croquis-maus-spiegleman.jpg",
+      cover_url: [ "/images/pieces/09-croquis-maus-spiegleman.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
@@ -271,7 +271,7 @@ export default {
       date: "1991",
       type: "Bande dessinée",
       peeked: true,
-      cover_url: "/images/pieces/10-maus-lune-de-miel.jpg",
+      cover_url: [ "/images/pieces/10-maus-lune-de-miel.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
@@ -297,7 +297,7 @@ export default {
       date: "1991",
       type: "Bande dessinée",
       peeked: true,
-      cover_url: "/images/pieces/11-maus-la-corde-se-resserre.jpg",
+      cover_url: [ "/images/pieces/11-maus-la-corde-se-resserre.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
@@ -323,7 +323,7 @@ export default {
       date: "1991",
       type: "Bande dessinée",
       peeked: true,
-      cover_url: "/images/pieces/12-maus-trousde-souris.jpg",
+      cover_url: [ "/images/pieces/12-maus-trousde-souris.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
@@ -344,11 +344,44 @@ export default {
       ]
     },
     {
-      index: 1,
-      name: "Maus II / Auschwitz",
+      index: 12,
+      name: "Mauschwitz",
       date: "1991",
       peeked: true,
-      cover_url: "/images/pieces/7-maus-art-spiegelman.jpg",
+      cover_url: [ "/images/pieces/Mauschwitz-p11.jpg", "/images/pieces/Auschwitz-p41.jpg" ],
+      content: [
+        {
+          title: "Le Zoomorphisme",
+          type: "Text",
+          intro: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs.",
+          content: "Les souris, apparaissant déjà dans une œuvre préfigurant Maus, et font référence aux images de propagande nazies et au documentaire antisémite Le Juif éternel ; elles permettent également de traduire la haine antisémite des Nazis par la métaphore chat-souris (l’image du prisonnier juif d’Allemagne rendue tantôt par une souris et tantôt par un chat permet à l’auteur de jouer sur ces représentations et ce qu’elles évoquent au lecteur) et les Américains deviennent des chiens car ils chassèrent les Allemands, tout comme les chiens chassent les chats.",
+          video: "",
+          links: ""
+        },
+        {
+          title: "Vladek Spiegelman",
+          type: "Video",
+          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire.",
+          content: "",
+          video: "",
+          links: ""
+        },
+        {
+          title: "Le style graphique",
+          type: "Audio",
+          intro: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère ».",
+          content: "",
+          video: "",
+          links: ""
+        }
+      ]
+    },
+    {
+      index: 13,
+      name: "Auschwitz",
+      date: "1991",
+      peeked: true,
+      cover_url: [ "/images/pieces/Auschwitz-p41.jpg", "/images/pieces/Auschwitz-p41.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
