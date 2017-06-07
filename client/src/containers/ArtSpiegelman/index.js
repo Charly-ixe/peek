@@ -35,7 +35,8 @@ export default Vue.extend({
     return {
       peeks_obj: Content.pieces,
       hovered: false,
-      openedMenu: false
+      openedMenu: false,
+      firstAnimatedPeeks : []
     }
   },
 
@@ -53,6 +54,9 @@ export default Vue.extend({
 
   mounted () {
     this.bgPeekTypo = this.$refs.bgPeekTypo
+    for (let i = 0; i < 4; i++) {
+      this.firstAnimatedPeeks.push(this.$refs.peekContainer[i])
+    }
     this.createTls()
 
     this.scroll = new Scroll({
@@ -82,16 +86,39 @@ export default Vue.extend({
     createTls () {
       this.enterTl = new TimelineMax({paused: true})
       this.enterTl
-        .add(Tweenmax.to(this.bgPeekTypo, 1, {
+        .add(Tweenmax.to(this.bgPeekTypo, 0.7, {
           opacity: 0.5,
           top: "45%",
+          ease:Power1.easeInOut
+        })
+      )
+        .add(Tweenmax.to(this.firstAnimatedPeeks[0], 0.5, {
+          opacity: 1,
+          left: "-15px",
+          ease:Power1.easeInOut
+        }),"-=0.4")
+        .add(Tweenmax.to(this.firstAnimatedPeeks[1], 0.5, {
+          opacity: 1,
+          left: "-15px",
+          ease:Power1.easeInOut
+        }),"-=0.3")
+        .add(Tweenmax.to(this.firstAnimatedPeeks[2], 0.5, {
+          opacity: 1,
+          left: "-15px",
+          ease:Power1.easeInOut
+        }),"-=0.3")
+        .add(Tweenmax.to(this.firstAnimatedPeeks[3], 0.5, {
+          opacity: 1,
+          left: "-15px",
           ease:Power1.easeInOut,
           onComplete: ()=> {
             this.scroll.init()
             localStorage.setItem("has-seen-welcome", "true")
+            for (let i = 4; i < this.$refs.peekContainer.length; i++) {
+              this.$refs.peekContainer[i].style.opacity = 1
+            }
           }
-        })
-      )
+        }),"-=0.3")
     },
 
     handleFirstUserAction () {
@@ -109,7 +136,6 @@ export default Vue.extend({
     },
 
     isMultipleCover(i) {
-      console.log(i);
       return this.peeks_obj[i].cover_url.length > 1
     },
     hoverCard(e) {
@@ -117,7 +143,6 @@ export default Vue.extend({
     leaveCard(e) {
     },
     goDetails(index) {
-      console.log('go setails');
       Router.push('art-spiegelman/details/'+index)
     },
     onMenuClick() {
