@@ -33,7 +33,6 @@ export default Vue.extend({
 
   data () {
     return {
-      scrolled: false,
       peeks_obj: Content.pieces,
       hovered: false,
       openedMenu: false
@@ -53,6 +52,7 @@ export default Vue.extend({
   },
 
   mounted () {
+    this.bgPeekTypo = this.$refs.bgPeekTypo
     this.createTls()
 
     this.scroll = new Scroll({
@@ -67,10 +67,10 @@ export default Vue.extend({
 
     if (this.hasSeenWelcome !== null) {
       this.$refs.overlay.style.display = "none"
-      this.scroll.init()
+      this.enterTl.play()
     } else {
-      window.addEventListener('mousewheel', throttle(this.handleFirstScroll, 1200, {'trailing': false}))
-      window.addEventListener('mouseup', this.handleFirstClick)
+      window.addEventListener('mousewheel', throttle(this.handleFirstUserAction, 1200, {'trailing': false}))
+      window.addEventListener('mouseup', this.handleFirstUserAction)
     }
 
   },
@@ -81,39 +81,36 @@ export default Vue.extend({
   methods: {
     createTls () {
       this.enterTl = new TimelineMax({paused: true})
-    },
-
-    handleFirstScroll () {
-      if (!this.scrolled) {
-        Tweenmax.to(this.$refs.overlay, 1, {
-          opacity: 0,
+      this.enterTl
+        .add(Tweenmax.to(this.bgPeekTypo, 1, {
+          opacity: 0.5,
+          top: "45%",
           ease:Power1.easeInOut,
           onComplete: ()=> {
-            this.scrolled = true
-            this.$refs.overlay.style.display = "none"
             this.scroll.init()
             localStorage.setItem("has-seen-welcome", "true")
           }
         })
-      }
+      )
+    },
+
+    handleFirstUserAction () {
+      Tweenmax.to(this.$refs.overlay, 1, {
+        opacity: 0,
+        ease:Power1.easeInOut,
+        onStart: ()=> {
+          this.enterTl.play()
+        },
+        onComplete: ()=> {
+          this.$refs.overlay.style.display = "none"
+          localStorage.setItem("has-seen-welcome", "true")
+        }
+      })
     },
 
     isMultipleCover(i) {
       console.log(i);
       return this.peeks_obj[i].cover_url.length > 1
-    },
-
-    handleFirstClick() {
-      Tweenmax.to(this.$refs.overlay, 1, {
-        opacity: 0,
-        ease:Power1.easeInOut,
-        onComplete: ()=> {
-          this.scrolled = true
-          this.$refs.overlay.style.display = "none"
-          this.scroll.init()
-          localStorage.setItem("has-seen-welcome", "true")
-        }
-      })
     },
     hoverCard(e) {
     },
