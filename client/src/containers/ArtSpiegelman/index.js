@@ -214,10 +214,17 @@ export default Vue.extend({
     },
     onPeekClick(e){
       let prevEl = e.srcElement.nextSibling.nextElementSibling
+      if (prevEl.innerHTML == "dépeeker") {
+        e.srcElement.style.backgroundImage="url(/images/icons/icon-peek-off.svg)"
+        prevEl.innerHTML = "peeker"
+        prevEl.style.color = "#908A86"
+      } else {
+        e.srcElement.style.backgroundImage="url(/images/icons/icon-peek-on.svg)"
+        prevEl.innerHTML = "dépeeker"
+        prevEl.style.color = "#fcc854"
 
-      e.srcElement.style.backgroundImage="url(/images/icons/icon-peek-off.svg)"
-      prevEl.innerHTML = "peeker"
-      prevEl.style.color = "#908A86"
+      }
+
     }
   },
 
