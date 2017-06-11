@@ -10,16 +10,16 @@
     <h1>Art Spiegelman</h1>
   </div>
   <div class="expo__filter">
-    <div class="filter-name current" ref="currentFilter">
-      mes peeks
+    <div class="filter-name current" @click="onFilterClick" ref="filterMyPeek">
+      Mes peeks
     </div>
     <div class="filter-separator"></div>
-    <div class="filter-name" ref="firstFilter">
-      les + peekés
+    <div class="filter-name" @click="onFilterClick" ref="filterMostPeeked">
+      Les + peekés
     </div>
     <div class="filter-separator"></div>
-    <div class="filter-name" @click="onFilterClick" ref="secondFilter">
-      toutes les oeuvres
+    <div class="filter-name" @click="onFilterClick" ref="filterAll">
+      Toutes les oeuvres
     </div>
   </div>
   <div class="expo__bg-name" ref="bgPeekTypo">

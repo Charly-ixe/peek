@@ -53,8 +53,9 @@ export default Vue.extend({
   },
 
   mounted () {
+    this.filterClicFlag = false
     this.bgPeekTypo = this.$refs.bgPeekTypo
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
       this.firstAnimatedPeeks.push(this.$refs.peekContainer[i])
     }
     this.createTls()
@@ -85,13 +86,14 @@ export default Vue.extend({
   methods: {
     createTls () {
       this.enterTl = new TimelineMax({paused: true})
+      this.fadeOutCards = new TimelineMax({paused: true})
+
       this.enterTl
         .add(Tweenmax.to(this.bgPeekTypo, 0.7, {
           opacity: 0.5,
           top: "45%",
           ease:Power1.easeInOut
-        })
-      )
+        }))
         .add(Tweenmax.to(this.firstAnimatedPeeks[0], 0.5, {
           opacity: 1,
           left: "-15px",
@@ -110,15 +112,52 @@ export default Vue.extend({
         .add(Tweenmax.to(this.firstAnimatedPeeks[3], 0.5, {
           opacity: 1,
           left: "-15px",
+          ease:Power1.easeInOut
+        }),"-=0.3")
+        .add(Tweenmax.to(this.firstAnimatedPeeks[4], 0.5, {
+          opacity: 1,
+          left: "-15px",
           ease:Power1.easeInOut,
           onComplete: ()=> {
             this.scroll.init()
-            localStorage.setItem("has-seen-welcome", "true")
             for (let i = 4; i < this.$refs.peekContainer.length; i++) {
               this.$refs.peekContainer[i].style.opacity = 1
             }
           }
         }),"-=0.3")
+
+        this.fadeOutCards
+        .add(Tweenmax.to(this.bgPeekTypo, 0.7, {
+          opacity: 0,
+          ease:Power1.easeInOut
+        }))
+        .add(Tweenmax.to(this.firstAnimatedPeeks[0], 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut
+        }),"-=0.5")
+        .add(Tweenmax.to(this.firstAnimatedPeeks[1], 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut
+        }),"-=0.5")
+        .add(Tweenmax.to(this.firstAnimatedPeeks[2], 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut
+        }),"-=0.5")
+        .add(Tweenmax.to(this.firstAnimatedPeeks[3], 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut
+        }),"-=0.5")
+        .add(Tweenmax.to(this.firstAnimatedPeeks[4], 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut,
+          onComplete: ()=> {
+            for (let i = 4; i < this.$refs.peekContainer.length; i++) {
+              this.$refs.peekContainer[i].style.opacity = 0
+            }
+            this.$refs.bgPeekTypo.innerHTML = this.bgTitle
+            this.enterTl.restart()
+          }
+        }),"-=0.5")
     },
 
     handleFirstUserAction () {
@@ -156,14 +195,25 @@ export default Vue.extend({
         this.openedMenu = false
       }
     },
-    onFilterClick() {
-      this.$refs.bgName.innerHTML = "Toutes les oeuvres"
-      this.$refs.currentFilter.innerHTML = "Toutes les oeuvres"
-      this.$refs.secondFilter.innerHTML = "Mes peeks"
+    onFilterClick(e) {
+      if (e.srcElement.className != 'filter-name current') {
+        this.bgTitle = e.srcElement.innerHTML
+        if (!this.filterClicFlag) {
+          this.fadeOutCards.play()
+          this.filterClicFlag = true
+        } else {
+          this.fadeOutCards.restart()
+        }
+        let filtersEls = document.getElementsByClassName('filter-name')
+        for (var i = 0; i < filtersEls.length; i++) {
+          filtersEls[i].className = "filter-name"
+        }
+        e.srcElement.className = "filter-name current"
+      } else {
+      }
     },
     onPeekClick(e){
       let prevEl = e.srcElement.nextSibling.nextElementSibling
-      console.log(prevEl)
 
       e.srcElement.style.backgroundImage="url(/images/icons/icon-peek-off.svg)"
       prevEl.innerHTML = "peeker"
