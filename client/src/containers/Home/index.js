@@ -5,6 +5,7 @@ import { scope } from 'utils/generic'
 import States from 'core/States'
 import Router from 'core/Router'
 import Scroll from 'helpers/Scroll'
+import AssetsLoader from 'helpers/AssetsLoader'
 
 import {throttle} from 'lodash'
 
@@ -14,6 +15,7 @@ import {
 } from 'config/messages'
 
 import FixedNavigation from 'components/Fixed-navigation'
+import LoaderComponent from 'components/Loader'
 import Tweenmax from 'gsap'
 import Content from 'data/content'
 
@@ -33,15 +35,31 @@ export default Vue.extend({
 
   data () {
     return {
+      assetsIsLoaded: false,
+      resources: {}
     }
   },
 
   created () {
     document.title = `Home - ${States.metas.baseTitle}`
 
+    this.loader = AssetsLoader
+
+    this.loader
+     .load()
+     .then( resources => {
+
+       resources.forEach( ({ id, img }) => this.resources[ id ] = img )
+
+       this.assetsIsLoaded = true
+
+     })
+
     scope(this, [
       'createTls'
     ])
+
+
 
   },
   destroyed () {
@@ -72,12 +90,12 @@ export default Vue.extend({
     },
 
     addListeners() {
-      window.addEventListener('mousewheel', throttle(this.fadeOutInfos, 1200, {'trailing': false}))
+      window.addEventListener('scroll', throttle(this.fadeOutInfos, 1200, {'trailing': false}))
     },
 
     fadeOutInfos() {
-      console.log("eghizehfgizfhl");
-      // Tweenmax.to(this.$refs.infoselt, 0.3, {opacity: 0, ease:Power1.easeInOut})
+      console.log("eojfozfjezgofz");
+      Tweenmax.to(this.$refs.infoselt, 0.3, {opacity: 0, ease:Power1.easeInOut})
 
     }
 
@@ -85,5 +103,6 @@ export default Vue.extend({
 
   components: {
     'fixed-navigation-component': FixedNavigation,
+    'loader-component': LoaderComponent
   }
 })

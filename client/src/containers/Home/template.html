@@ -1,4 +1,5 @@
 <div class="page home" ref="homeContainer">
+  <loader-component  v-show="!assetsIsLoaded"></loader-component>
   <fixed-navigation-component></fixed-navigation-component>
   <div class="home__intro-container" ref="infoselt">
     <h1>Toutes les Expositions</h1>
