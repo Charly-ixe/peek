@@ -2,7 +2,9 @@ import Smooth from 'helpers/smooth-scrolling'
 import Emitter from 'helpers/Emitter'
 import {
   SCROLL_STARTED_ALL_EXP,
-  SCROLL_ZERO_ALL_EXP
+  SCROLL_ZERO_ALL_EXP,
+  SCROLL_AFTER_THIRD_CARD,
+  SCROLL_BEFORE_THIRD_CARD
 } from 'config/messages'
 
 import Tweenmax from 'gsap'
@@ -17,6 +19,7 @@ class Parallax extends Smooth {
 
         this.resizing = false
         this.scrollStarted = false
+        this.scrollAfterThirdCard = false
         this.cache = null
         this.dom.divs = Array.prototype.slice.call(opt.divs, 0)
         this.lastTarget = 0
@@ -62,6 +65,14 @@ class Parallax extends Smooth {
       }
       if(scrollPos < 20 && this.scrollStarted) {
         Emitter.emit('SCROLL_ZERO_ALL_EXP')
+        this.scrollStarted = false
+      }
+      if (scrollPos > 400 && !this.scrollAfterThirdCard) {
+        Emitter.emit('SCROLL_AFTER_THIRD_CARD')
+        this.scrollAfterThirdCard = true
+      }
+      if (scrollPos < 400 && this.scrollAfterThirdCard) {
+        Emitter.emit('SCROLL_BEFORE_THIRD_CARD')
         this.scrollStarted = false
       }
     }

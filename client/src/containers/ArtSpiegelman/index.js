@@ -11,6 +11,8 @@ import {throttle} from 'lodash'
 import Peeks from 'components/Peeks-gallery'
 
 import {
+  SCROLL_AFTER_THIRD_CARD,
+  SCROLL_BEFORE_THIRD_CARD
 } from 'config/messages'
 
 import FixedNavigation from 'components/Fixed-navigation'
@@ -29,7 +31,16 @@ export default Vue.extend({
 
   assets,
 
-  emitterEvents: [],
+  emitterEvents: [
+    {
+      message: SCROLL_BEFORE_THIRD_CARD,
+      method: 'onScrollBeforeThird'
+    },
+    {
+      message: SCROLL_AFTER_THIRD_CARD,
+      method: 'onScrollAfterThird'
+    }
+  ],
 
   data () {
     return {
@@ -93,7 +104,7 @@ export default Vue.extend({
       this.fadeOutCards = new TimelineMax({paused: true})
 
       this.enterTl
-        .add(Tweenmax.to(this.bgPeekTypo, 0.7, {
+        .add(Tweenmax.to(this.bgPeekTypo, 1, {
           opacity: 0.5,
           top: "45%",
           ease:Power1.easeInOut
@@ -244,6 +255,18 @@ export default Vue.extend({
     },
     goMyAccount() {
 
+    },
+    onScrollBeforeThird() {
+      Tweenmax.to(this.$refs.bgPeekTypo, 0.3, {
+        opacity: 0.7,
+        ease:Power1.easeInOut
+      })
+    },
+    onScrollAfterThird() {
+      Tweenmax.to(this.$refs.bgPeekTypo, 0.3, {
+        opacity: 0,
+        ease:Power1.easeInOut
+      })
     }
   },
 
