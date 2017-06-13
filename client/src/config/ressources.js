@@ -73,20 +73,5 @@ export default [
     type: 'image',
     id: 'ombre-2',
     url: './images/pieces/16-a-lombre-des-tours-mortes.jpg'
-  },
-  {
-    type: 'image',
-    id: 'test',
-    url: './images/IMG_7845.jpg'
-  },
-  {
-    type: 'image',
-    id: 'test2',
-    url: './images/IMG_7845 copie.jpg'
-  },
-  {
-    type: 'image',
-    id: 'test3',
-    url: './images/IMG_7845 copie 2.jpg'
-  },
+  }
 ];
