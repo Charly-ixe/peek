@@ -63,23 +63,23 @@
   <div class="expo__overlay-menu" ref="overlayMenu">
     <div class="expo__overlay-menu-container">
       <div class="expo__overlay-menu-content">
-        <div class="menu-item-container">
+        <div class="menu-item-container" @click="goAllExpo">
           <h1 class="menu-item-txt">Toutes les expositions</h1>
           <div class="menu-item-arrow"></div>
         </div>
-        <div class="menu-item-container">
+        <div class="menu-item-container" @click="goArtSpi">
           <h1 class="menu-item-txt">Mes peeks</h1>
           <div class="menu-item-arrow"></div>
         </div>
-        <div class="menu-item-container">
+        <div class="menu-item-container" @click="goInfos">
           <h1 class="menu-item-txt">Informations pratiques</h1>
           <div class="menu-item-arrow"></div>
         </div>
-        <div class="menu-item-container">
+        <div class="menu-item-container" @click="goAbout">
           <h1 class="menu-item-txt">À propos de Peek</h1>
           <div class="menu-item-arrow"></div>
         </div>
-        <div class="menu-item-container">
+        <div class="menu-item-container" @click="goMyAccount">
           <h1 class="menu-item-txt">Mon compte</h1>
           <div class="menu-item-arrow"></div>
         </div>

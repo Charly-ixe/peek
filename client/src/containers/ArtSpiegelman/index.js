@@ -229,6 +229,21 @@ export default Vue.extend({
 
       }
 
+    },
+    goAllExpo() {
+      Router.push("/")
+    },
+    goArtSpi() {
+      Router.push("/art-spiegelman")
+    },
+    goInfos() {
+
+    },
+    goAbout() {
+
+    },
+    goMyAccount() {
+
     }
   },
 
