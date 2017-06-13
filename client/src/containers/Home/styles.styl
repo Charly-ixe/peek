@@ -10,3 +10,58 @@ body
 
 ::-webkit-scrollbar-thumb
     background rgba(255,255,255,0.5)
+
+
+.home
+  width auto
+  overflow hidden
+  &__intro-container
+    position fixed
+    top 20vh
+    left 0
+    padding-left 5vw
+    width 30vw
+    transition opacity 0.4s ease-out
+
+    &.hidden
+      opacity 0
+
+
+    h1
+      color $color-white
+      font-size 6.2rem
+
+    p
+      color $color-grey-soft
+      line-height 2.5rem
+      margin-bottom 30px
+
+    h4
+      color $color-white
+
+  &__expos-container
+    position absolute
+    top 25%
+
+    .home__expos-scroll-container
+      overflow-y hidden
+      padding-left 40vw
+      display inline-flex
+      .home__expo-container
+        position relative
+        display inline-block
+        margin-right 60px
+        &-headline
+          p
+            font-size 14px
+            color $color-grey-button
+        img
+          width 450px
+          margin-bottom 20px
+        &-text
+          width 400px
+          color $color-white
+
+          h2
+            font-size 4.2rem
+            margin 20px 0

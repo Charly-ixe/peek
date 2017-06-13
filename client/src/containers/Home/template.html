@@ -1,3 +1,44 @@
 <div class="page home" ref="homeContainer">
-
+  <loader-component  v-show="!assetsIsLoaded"></loader-component>
+  <fixed-navigation-component></fixed-navigation-component>
+  <div class="home__intro-container" ref="infoselt">
+    <h1>Toutes les Expositions</h1>
+    <p>(Re)découvrez les expositions de la BPI<br> passées et venez jeter un coup d'oeil à l'exposition<br> en cours.</p>
+    <h4>Qu'est-ce que peek ?</h4>
+    <p>C’est un moyen de visiter les expositions de la BPI autrement, en peekant vos oeuvres préférées et en les retrouvant sur internet !</p>
+  </div>
+  <div class="home__expos-container">
+    <div class="home__expos-scroll-container">
+      <div class="home__expo-container">
+        <div class="home__expo-container-headline">
+          <p>En cours - Jusqu’au 18 mai 2017</p>
+        </div>
+        <img src="/images/covers/cover-art-speigelman.jpg" alt="Art Spiegelman">
+        <div class="home__expo-container-text">
+          <h2>Art Spiegelman</h2>
+          <p>Parcourez des planches originales, esquisses ou encore dessins préparatoires des diverses périodes son oeuvre.</p>
+        </div>
+      </div>
+      <div class="home__expo-container">
+        <div class="home__expo-container-headline">
+          <p>Terminée - Du 16 octobre 2016 au 26 mars 2017</p>
+        </div>
+        <img src="/images/covers/cover-bretecher.jpg" alt="Art Spiegelman">
+        <div class="home__expo-container-text">
+          <h2>Claire Brétecher</h2>
+          <p>Parcourez des planches originales, esquisses ou encore dessins.</p>
+        </div>
+      </div>
+      <div class="home__expo-container">
+        <div class="home__expo-container-headline">
+          <p>Terminé - Du 23 Février 2017 au 25 Juin 2017</p>
+        </div>
+        <img src="/images/covers/cover-gaston.jpg" alt="Art Spiegelman">
+        <div class="home__expo-container-text">
+          <h2>Gaston Lagaffe</h2>
+          <p>Parcourez des planches originales, esquisses ou encore dessins préparatoires.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

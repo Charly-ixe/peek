@@ -1,4 +1,9 @@
 import Smooth from 'helpers/smooth-scrolling'
+import Emitter from 'helpers/Emitter'
+import {
+  SCROLL_STARTED_ALL_EXP,
+  SCROLL_ZERO_ALL_EXP
+} from 'config/messages'
 
 import Tweenmax from 'gsap'
 
@@ -11,6 +16,7 @@ class Parallax extends Smooth {
         this.createExtraBound()
 
         this.resizing = false
+        this.scrollStarted = false
         this.cache = null
         this.dom.divs = Array.prototype.slice.call(opt.divs, 0)
         this.lastTarget = 0
@@ -45,10 +51,19 @@ class Parallax extends Smooth {
         // console.log(e.originalEvent);
         this.vars.bounding = this.dom.section.getBoundingClientRect().width
         this.clampTarget()
-        // console.log(this.peekImages);
+        this.checkScroll()
+    }
 
-
-
+    checkScroll() {
+      let scrollPos = this.vars.target
+      if (scrollPos != 0 && !this.scrollStarted) {
+        Emitter.emit('SCROLL_STARTED_ALL_EXP')
+        this.scrollStarted = true
+      }
+      if(scrollPos < 20 && this.scrollStarted) {
+        Emitter.emit('SCROLL_ZERO_ALL_EXP')
+        this.scrollStarted = false
+      }
     }
 
     getCache() {

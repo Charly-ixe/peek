@@ -90,8 +90,38 @@
 
       .infos-zone__content
         margin-bottom 30px
+        position relative
         h4
           cursor pointer
+
+      .infos-zone__navbar-item
+        width 16px
+        height 16px
+        border-radius 50%
+        border 1px solid $color-grey-soft
+        background-color $color-white
+        display inline-block
+        position absolute
+        transform translate(-50%)
+        left -5%
+        margin-top 3px
+
+        div
+          width 6px
+          height 6px
+          background-color $color-grey-soft
+          center-xy()
+          border-radius 50%
+          &.first
+            width 10px
+            height 10px
+
+
+        &.active
+          border 1px solid $color-yellow-peek
+
+          div
+            background-color $color-yellow-peek
 
       .infos-zone__video
         width 100%
