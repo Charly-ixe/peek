@@ -110,6 +110,9 @@ export default Vue.extend({
 
     onScrollZero() {
       Tweenmax.to(this.$refs.infoselt, 0.2, {opacity: 1, ease:Power1.easeInOut})
+    },
+    goArtSpi() {
+      Router.push('/art-spiegelman')
     }
 
   },
