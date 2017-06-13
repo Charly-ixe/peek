@@ -45,30 +45,20 @@ export default Vue.extend({
     this.currentPiece = this.pieces[this.index]
 
     setTimeout(()=>{
-      for (var i = 0; i < this.$refs.navitems.length; i++) {
-
-        this.navItems.push(this.$refs.navitems[i])
-      }
+      // for (var i = 0; i < this.$refs.navitems.length; i++) {
+      //
+      //   this.navItems.push(this.$refs.navitems[i])
+      // }
       let wrapper = document.querySelector(".infos-zone__wrapper")
       let navbar = document.querySelector(".infos-zone__navbar")
       let dynamicHeight = wrapper.offsetHeight
       navbar.style.height = dynamicHeight - 80 + 'px'
-      console.log(navbar)
 
-      this.navItems[0].style.marginTop = 85 + "px"
-      this.navItems[1].style.marginTop = 190 + "px"
-      this.navItems[2].style.marginTop = 140 + "px"
+
+      // this.navItems[0].style.marginTop = 85 + "px"
+      // this.navItems[1].style.marginTop = 190 + "px"
+      // this.navItems[2].style.marginTop = 140 + "px"
     },100)
-
-    // let video = document.getElementsByTagName('video')
-    // video.autoplay = false
-    // video.load()
-    // let wrapper = document.querySelector(".infos-zone__wrapper")
-    // let navbar = document.querySelector(".infos-zone__navbar")
-    //
-    // let dynamicHeight = wrapper.offsetHeight
-    // navbar.style.height = dynamicHeight
-    // console.log(dynamicHeight)
 
   },
 

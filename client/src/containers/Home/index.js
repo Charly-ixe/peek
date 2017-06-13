@@ -6,12 +6,15 @@ import States from 'core/States'
 import Router from 'core/Router'
 import Scroll from 'helpers/Scroll'
 import AssetsLoader from 'helpers/AssetsLoader'
+import Emitter from 'helpers/Emitter'
 
 import {throttle} from 'lodash'
 
 import Peeks from 'components/Peeks-gallery'
 
 import {
+  SCROLL_STARTED_ALL_EXP,
+  SCROLL_ZERO_ALL_EXP
 } from 'config/messages'
 
 import FixedNavigation from 'components/Fixed-navigation'
@@ -31,7 +34,16 @@ export default Vue.extend({
 
   assets,
 
-  emitterEvents: [],
+  emitterEvents: [
+    {
+      message: SCROLL_STARTED_ALL_EXP,
+      method: 'onScrollStarted'
+    },
+    {
+      message: SCROLL_ZERO_ALL_EXP,
+      method: 'onScrollZero'
+    }
+  ],
 
   data () {
     return {
@@ -67,7 +79,6 @@ export default Vue.extend({
 
   mounted () {
     this.createTls()
-    this.addListeners()
 
     this.scroll = new Scroll({
         preload: false,
@@ -90,13 +101,15 @@ export default Vue.extend({
     },
 
     addListeners() {
-      window.addEventListener('scroll', throttle(this.fadeOutInfos, 1200, {'trailing': false}))
+
     },
 
-    fadeOutInfos() {
-      console.log("eojfozfjezgofz");
-      Tweenmax.to(this.$refs.infoselt, 0.3, {opacity: 0, ease:Power1.easeInOut})
+    onScrollStarted() {
+      Tweenmax.to(this.$refs.infoselt, 0.2, {opacity: 0, ease:Power1.easeInOut})
+    },
 
+    onScrollZero() {
+      Tweenmax.to(this.$refs.infoselt, 0.2, {opacity: 1, ease:Power1.easeInOut})
     }
 
   },

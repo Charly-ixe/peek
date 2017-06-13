@@ -12,11 +12,11 @@
 
         </div>
 
-        <div class="infos-zone__navbar-item" ref="navitems" v-for="(content, index) in contents">
+        <!-- <div class="infos-zone__navbar-item" ref="navitems" v-for="(content, index) in contents">
 
           <div></div>
 
-        </div>
+        </div> -->
 
       </div>
 
@@ -41,7 +41,13 @@
 
       <div class="infos-zone__content" v-for="(content, index) in contents" ref="contentinfos" v-show="categoriesDisplayed">
 
-        <h4 @click="fadeOutCategories(content, index)" class="infos-zone__content-title">{{ content.title }}</h4>
+        <div class="infos-zone__navbar-item">
+
+          <div></div>
+
+        </div>
+
+        <h4 class="infos-zone__content-title">{{ content.title }}</h4>
 
         <p>{{ content.intro }}</p>
 
@@ -49,7 +55,7 @@
 
       </div>
 
-      <div class="infos-zone__content" v-show="detailDisplayed" ref="details">
+      <!-- <div class="infos-zone__content" v-show="detailDisplayed" ref="details">
 
         <h4 @click="goBackToCategories">{{ selectedDetail.title }}</h4>
 
@@ -73,7 +79,7 @@
 
         </div>
 
-      </div>
+      </div> -->
 
     </div>
 
