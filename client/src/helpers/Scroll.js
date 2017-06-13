@@ -1,5 +1,7 @@
 import Smooth from 'helpers/smooth-scrolling'
 
+import Tweenmax from 'gsap'
+
 class Parallax extends Smooth {
 
     constructor(opt) {
@@ -11,6 +13,12 @@ class Parallax extends Smooth {
         this.resizing = false
         this.cache = null
         this.dom.divs = Array.prototype.slice.call(opt.divs, 0)
+        this.lastTarget = 0
+        this.newTarget = 0
+        this.peekImages = document.getElementsByClassName('peek-image')
+        this.calcAddCounter = 0
+        this.calcLeftCounter = 0
+        this.peekImgPos = 0
     }
 
     createExtraBound() {
@@ -37,7 +45,10 @@ class Parallax extends Smooth {
         // console.log(e.originalEvent);
         this.vars.bounding = this.dom.section.getBoundingClientRect().width
         this.clampTarget()
-        // console.log(this.vars.target, this.vars.bounding);
+        // console.log(this.peekImages);
+
+
+
     }
 
     getCache() {
@@ -82,6 +93,38 @@ class Parallax extends Smooth {
     clampTarget() {
 
         this.vars.target = Math.round(Math.max(0, Math.min(this.vars.target, this.vars.bounding)))
+        // this.moveImages()
+    }
+
+    moveImages() {
+
+      if (this.lastTarget < this.vars.target && this.vars.target >= 1) {
+        if (this.calcAddCounter > 5) {
+          // console.log('remove');
+          // if (this.peekImgPos < 5) {
+            this.peekImgPos ++
+            for (let i = 0, lenght = this.peekImages.length; i < length ; i++) {
+              this.peekImages[i].style.left = this.peekImgPos+"px"
+            // }
+          }
+          this.calcAddCounter = 0
+        } else {
+          this.calcAddCounter ++
+        }
+      } else {
+        if (this.calcLeftCounter > 5 && this.vars.target != 0) {
+          // console.log('add');
+          this.peekImgPos --
+          // console.log(this.peekImgPos);
+          for (var i = 0; i < this.peekImages.length; i++) {
+            this.peekImages[i].style.left = this.peekImgPos+"px"
+          }
+          this.calcLeftCounter = 0
+        } else {
+          this.calcLeftCounter ++
+        }
+      }
+      this.lastTarget = this.vars.target
     }
 
     inViewport(el, index) {

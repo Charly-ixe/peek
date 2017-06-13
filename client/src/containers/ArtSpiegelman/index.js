@@ -67,6 +67,10 @@ export default Vue.extend({
         section: document.querySelector('.expo__peeks-scroll-container'),
         divs: document.querySelectorAll('.peek-container')
       })
+    // for (var i = 0; i < this.$refs.peekContainer.length; i++) {
+      // console.log(this.$refs.peekContainer[i].nextSibling)
+    // }
+    this.$refs.peekContainer
 
     this.hasSeenWelcome = localStorage.getItem("has-seen-welcome")
 
