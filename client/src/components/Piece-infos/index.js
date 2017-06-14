@@ -31,8 +31,9 @@ export default Vue.extend({
       currentPiece: {},
       categoriesDisplayed: true,
       detailDisplayed: false,
-      selectedDetail: {},
+      selectedCategory: {},
       navItems: [],
+      categories: [],
       activeItem: null
     }
   },
@@ -44,21 +45,14 @@ export default Vue.extend({
     this.index = this.$route.params.id
     this.currentPiece = this.pieces[this.index]
 
-    setTimeout(()=>{
-      // for (var i = 0; i < this.$refs.navitems.length; i++) {
-      //
-      //   this.navItems.push(this.$refs.navitems[i])
-      // }
-      let wrapper = document.querySelector(".infos-zone__wrapper")
-      let navbar = document.querySelector(".infos-zone__navbar")
-      let dynamicHeight = wrapper.offsetHeight
-      navbar.style.height = dynamicHeight - 80 + 'px'
+    Vue.nextTick(() => {
 
+      this.categories = this.$refs.contentinfos
+      this.navItems = this.$refs.navitems
 
-      // this.navItems[0].style.marginTop = 85 + "px"
-      // this.navItems[1].style.marginTop = 190 + "px"
-      // this.navItems[2].style.marginTop = 140 + "px"
-    },100)
+      this.setCategoriesPositions()
+      this.setNavBar()
+    })
 
   },
 
@@ -77,6 +71,14 @@ export default Vue.extend({
   methods: {
 
     createTls () {
+    },
+
+    openCategory(selected, index, event) {
+      this.selectedCategory = selected
+      let categoryElt = event.toElement.previousElementSibling
+      console.log(categoryElt);
+      categoryElt.innerHTML = ""
+      categoryElt.innerHTML = selected.content
     },
 
     fadeOutCategories(selected, n) {
@@ -111,6 +113,36 @@ export default Vue.extend({
     displayCategories() {
       this.fadeOutTl.reverse()
       this.navItems[this.activeItem].classList.remove('active')
+    },
+
+    setCategoriesPositions() {
+
+      let categoryPosY = 0
+      let dateBottom = document.querySelector('.infos-zone__date').getBoundingClientRect().bottom
+
+      for(let i = 0; i < this.categories.length; i++) {
+        if (i > 0) {
+          categoryPosY += this.categories[i-1].getBoundingClientRect().height + 30
+        }
+        else {
+          categoryPosY = dateBottom
+        }
+        this.categories[i].style.top = categoryPosY + "px"
+        console.log("1: ", this.categories[i].style.top);
+        console.log("1: ", this.categories[i].style.top);
+      }
+    },
+
+    setNavBar() {
+      let navNewHeight = this.categories[this.categories.length - 1].getBoundingClientRect().bottom
+      let navbar = document.querySelector(".infos-zone__navbar")
+      let titleContainer = document.querySelector(".infos-zone__content-block")
+      navbar.style.height = navNewHeight - 110 + 'px'
+
+      for(let i = 0; i < this.categories.length; i++) {
+        let itemPosY = this.categories[i].getBoundingClientRect().top - titleContainer.getBoundingClientRect().height + 35
+        this.navItems[i].style.top = itemPosY + "px"
+      }
     },
 
     onWindowResize ({width, height}) {
