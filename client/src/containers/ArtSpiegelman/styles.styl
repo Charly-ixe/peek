@@ -118,6 +118,31 @@ body
     // z-index 3
     &__peeks-scroll-container
       overflow-y hidden
+    .know-more
+      center-y()
+      display inline-block
+      font-family "PT Sans"
+      margin-left 200px
+      .know-more-title
+        font-family "Berlingske-ExtraBold"
+        font-size 5em
+        color white
+      .know-more-sub
+        margin-top 20px
+        font-size 1.8em
+        color $color-grey-soft
+        line-height 23px
+      .know-more-disco-container
+        display inline-block
+        .discover-txt
+          cursor pointer
+          text-transform uppercase
+          font-weight bold
+          letter-spacing 3px
+          font-size 1.3em
+          color $color-yellow-peek
+          margin-top 50px
+
     .peek-container
       opacity 0
       display inline-block
@@ -221,6 +246,7 @@ body
       transform translate3d(0px, 20px, 0px)
     .peek-container:nth-child(2n+2)
       transform translate3d(0px, 60px, 0px)
+
 
   &__overlay
     position absolute
