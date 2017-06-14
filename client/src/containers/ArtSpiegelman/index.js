@@ -195,34 +195,50 @@ export default Vue.extend({
     hoverCard(e) {
       if (e.srcElement.className == "peek-container") {
         this.currentHoverCard = e.srcElement
-        this.currentHoverCardTitle = this.currentHoverCard.children[1]
-        this.currentHoverCardLogo = this.currentHoverCard.children[2]
-        this.currentHoverCardDate = this.currentHoverCard.children[3]
-        Tweenmax.to(this.currentHoverCardTitle, 0.2, {
-          opacity: 1,
-          left: "10px",
-          ease:Power1.easeInOut
-        })
-        Tweenmax.to(this.currentHoverCardDate, 0.2, {
-          opacity: 1,
-          top: "10px",
-          ease:Power1.easeInOut
-        })
-        Tweenmax.to(this.currentHoverCardLogo, 0.1, {
-          opacity: 1,
-          ease:Power1.easeInOut
-        })
+      } else if (e.srcElement.className == "peek-image"){
+        this.currentHoverCard = e.srcElement.parentNode.parentNode
       }
+      
+      this.currentHoverCardTitle = this.currentHoverCard.children[1]
+      this.currentHoverCardLogo = this.currentHoverCard.children[2]
+      this.currentHoverCardDate = this.currentHoverCard.children[3]
+
+      Tweenmax.to(this.currentHoverCardTitle, 0.2, {
+        left: "10px",
+        ease:Power1.easeInOut
+      })
+      Tweenmax.to(this.currentHoverCardTitle, 0.3, {
+        opacity: 1,
+        ease:Power1.easeInOut
+      })
+      Tweenmax.to(this.currentHoverCardDate, 0.2, {
+        top: "10px",
+        ease:Power1.easeInOut
+      })
+      Tweenmax.to(this.currentHoverCardDate, 0.3, {
+        opacity: 1,
+        ease:Power1.easeInOut
+      })
+      Tweenmax.to(this.currentHoverCardLogo, 0.1, {
+        opacity: 1,
+        ease:Power1.easeInOut
+      })
     },
     leaveCard(e) {
       Tweenmax.to(this.currentHoverCardTitle, 0.2, {
-        opacity: 0,
         left: "-10px",
         ease:Power1.easeInOut
       })
       Tweenmax.to(this.currentHoverCardDate, 0.2, {
-        opacity: 0,
         top: "-10px",
+        ease:Power1.easeInOut
+      })
+      Tweenmax.to(this.currentHoverCardTitle, 0.1, {
+        opacity: 0,
+        ease:Power1.easeInOut
+      })
+      Tweenmax.to(this.currentHoverCardDate, 0.1, {
+        opacity: 0,
         ease:Power1.easeInOut
       })
       Tweenmax.to(this.currentHoverCardLogo, 0.1, {

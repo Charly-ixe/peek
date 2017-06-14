@@ -1,5 +1,6 @@
 import EventManagerMixin from 'mixins/EventManagerMixin'
 import scope from 'utils/generic/scope'
+import Router from 'core/Router'
 
 import {
   WINDOW_RESIZE
@@ -42,6 +43,9 @@ export default Vue.extend({
 
     onWindowResize ({width, height}) {
 
+    },
+    returnHome() {
+      Router.push('/')
     }
   },
 
