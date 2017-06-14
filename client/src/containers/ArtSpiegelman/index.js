@@ -47,7 +47,10 @@ export default Vue.extend({
       peeks_obj: Content.pieces,
       hovered: false,
       openedMenu: false,
-      firstAnimatedPeeks : []
+      firstAnimatedPeeks : [],
+      currentHoverCardTitle: {},
+      currentHoverCardLogo: {},
+      currentHoverCardDate: {}
     }
   },
 
@@ -78,10 +81,6 @@ export default Vue.extend({
         section: document.querySelector('.expo__peeks-scroll-container'),
         divs: document.querySelectorAll('.peek-container')
       })
-    // for (var i = 0; i < this.$refs.peekContainer.length; i++) {
-      // console.log(this.$refs.peekContainer[i].nextSibling)
-    // }
-    this.$refs.peekContainer
 
     this.hasSeenWelcome = localStorage.getItem("has-seen-welcome")
 
@@ -102,6 +101,7 @@ export default Vue.extend({
     createTls () {
       this.enterTl = new TimelineMax({paused: true})
       this.fadeOutCards = new TimelineMax({paused: true})
+      this.hoverCardTl = new TimelineMax({paused: true})
 
       this.enterTl
         .add(Tweenmax.to(this.bgPeekTypo, 1, {
@@ -193,8 +193,42 @@ export default Vue.extend({
       return this.peeks_obj[i].cover_url.length > 1
     },
     hoverCard(e) {
+      if (e.srcElement.className == "peek-container") {
+        this.currentHoverCard = e.srcElement
+        this.currentHoverCardTitle = this.currentHoverCard.children[1]
+        this.currentHoverCardLogo = this.currentHoverCard.children[2]
+        this.currentHoverCardDate = this.currentHoverCard.children[3]
+        Tweenmax.to(this.currentHoverCardTitle, 0.2, {
+          opacity: 1,
+          left: "10px",
+          ease:Power1.easeInOut
+        })
+        Tweenmax.to(this.currentHoverCardDate, 0.2, {
+          opacity: 1,
+          top: "10px",
+          ease:Power1.easeInOut
+        })
+        Tweenmax.to(this.currentHoverCardLogo, 0.1, {
+          opacity: 1,
+          ease:Power1.easeInOut
+        })
+      }
     },
     leaveCard(e) {
+      Tweenmax.to(this.currentHoverCardTitle, 0.2, {
+        opacity: 0,
+        left: "-10px",
+        ease:Power1.easeInOut
+      })
+      Tweenmax.to(this.currentHoverCardDate, 0.2, {
+        opacity: 0,
+        top: "-10px",
+        ease:Power1.easeInOut
+      })
+      Tweenmax.to(this.currentHoverCardLogo, 0.1, {
+        opacity: 0,
+        ease:Power1.easeInOut
+      })
     },
     goDetails(index) {
       Router.push('art-spiegelman/details/'+index)
