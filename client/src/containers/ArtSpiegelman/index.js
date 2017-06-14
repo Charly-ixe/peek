@@ -258,7 +258,7 @@ export default Vue.extend({
     },
     onScrollBeforeThird() {
       Tweenmax.to(this.$refs.bgPeekTypo, 0.3, {
-        opacity: 0.7,
+        opacity: 0.5,
         ease:Power1.easeInOut
       })
     },

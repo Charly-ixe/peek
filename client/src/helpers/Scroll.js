@@ -73,7 +73,7 @@ class Parallax extends Smooth {
       }
       if (scrollPos < 400 && this.scrollAfterThirdCard) {
         Emitter.emit('SCROLL_BEFORE_THIRD_CARD')
-        this.scrollStarted = false
+        this.scrollAfterThirdCard = false
       }
     }
 
