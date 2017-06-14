@@ -130,6 +130,9 @@ body
         z-index 5
         background-color black
         overflow hidden
+        &:hover
+          .peek-image
+            transform scale(1.05)
         .peek-image
           width 250px
           transform scale(1.0)
@@ -174,14 +177,22 @@ body
         opacity 0
         transition $transition-ui
         .peek-logo
-          background url('/images/icons/icon-peek-on.svg')
           width 30px
           height 30px
-          margin-top -40px
+          margin-top -35px
           float right
           cursor pointer
+          background url('/images/spritesheet-peeker.png') -360px 0
+        .peek-logo.peeked
+            background url('/images/spritesheet-peeker.png') -360px 0
+            animation play .8s steps(13) 1
+        .peek-logo.unpeeked
+            background url('/images/spritesheet-peeker.png') -30px 0
+            animation unplay .8s steps(13) 1
+
         .peek-logo-legend
           text-transform uppercase
+          margin-top 4px
           font-family "PT Sans"
           color $color-yellow-peek
           font-size 10px
@@ -292,3 +303,14 @@ body
 
 ::-webkit-scrollbar-thumb
     background rgba(255,255,255,0.5)
+
+@keyframes play
+    from
+      background-position 0px
+    to
+      background-position -390px
+@keyframes unplay
+    from
+      background-position -360px
+    to
+      background-position 30px

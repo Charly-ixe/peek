@@ -229,12 +229,13 @@ export default Vue.extend({
     },
     onPeekClick(e){
       let prevEl = e.srcElement.nextSibling.nextElementSibling
+      // console.log(e.srcElement);
       if (prevEl.innerHTML == "dépeeker") {
-        e.srcElement.style.backgroundImage="url(/images/icons/icon-peek-off.svg)"
+        e.srcElement.className = "peek-logo unpeeked"
         prevEl.innerHTML = "peeker"
         prevEl.style.color = "#908A86"
       } else {
-        e.srcElement.style.backgroundImage="url(/images/icons/icon-peek-on.svg)"
+        e.srcElement.className = "peek-logo peeked"
         prevEl.innerHTML = "dépeeker"
         prevEl.style.color = "#fcc854"
 
