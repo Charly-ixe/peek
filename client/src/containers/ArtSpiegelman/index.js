@@ -198,7 +198,7 @@ export default Vue.extend({
       } else if (e.srcElement.className == "peek-image"){
         this.currentHoverCard = e.srcElement.parentNode.parentNode
       }
-      
+
       this.currentHoverCardTitle = this.currentHoverCard.children[1]
       this.currentHoverCardLogo = this.currentHoverCard.children[2]
       this.currentHoverCardDate = this.currentHoverCard.children[3]
