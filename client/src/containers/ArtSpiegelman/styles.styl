@@ -152,11 +152,15 @@ body
             float right
             margin-left 8px
 
+    .peek-container.visible
+      opacity 1
+      transition $transition-ui
     .peek-container
       opacity 0
       display inline-block
       position relative
       padding 0 60px
+      transition $transition-ui
       .peek-image-mask
         position relative
         top 0
