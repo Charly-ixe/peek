@@ -33,6 +33,7 @@ export default Vue.extend({
       categoriesDisplayed: true,
       detailDisplayed: false,
       selectedCategory: {},
+      activeElement: null,
       navItems: [],
       categories: [],
       activeItem: null
@@ -74,23 +75,26 @@ export default Vue.extend({
     createTls () {
     },
 
-    openCategory(selected, index, event) {
+    openCategory(selected, index) {
       this.selectedCategory = selected
       this.activeId = index
+      this.activeElement = this.categories[index]
       let firstNavItem = document.querySelector('.first')
       let titleContainer = document.querySelector(".infos-zone__content-block")
       let navbar = document.querySelector(".infos-zone__navbar")
-      let parent = event.srcElement.parentElement
-      let categoryElts = parent.children
-      let text = event.toElement.previousElementSibling
+      let button = document.querySelector(".infos-zone__dicover-button")
+
+      let categoryElts = this.activeElement.children
+      let text = categoryElts[1]
 
       let openTl = new TimelineMax({delay: 0.2, onComplete: ()=>{
 
-        parent.style.top = this.navItems[this.activeId].getBoundingClientRect().top - 90 - this.activeId + "px"
-        text.innerHTML = ""
-        text.innerHTML = selected.content
+        this.activeElement.style.top = this.navItems[this.activeId].getBoundingClientRect().top - 90 - this.activeId + "px"
+        text.innerHTML += "<br>" + "<p>" + selected.content + "</p>"
+        text.innerHTML += "<div class='infos-zone__image-container'><img src='/images/vladek.png'><p>Vladek Spiegelman, page 34, Maus II</p></div>"
         this.navItems[this.activeId].classList.add('active')
         firstNavItem.classList.remove('active')
+        button.classList.add('hidden')
         let displayContent = new TimelineMax({delay: 0.4})
         displayContent
 
@@ -119,6 +123,7 @@ export default Vue.extend({
 
       Emitter.emit(DETAIL_CLICK)
       this.$el.classList.add('open')
+      this.detailDisplayed = true
 
       openTl
         .fromTo(categoryElts[0], 0.3, {opacity: 1, y: 0}, {opacity: 0, y: -20, ease: Expo.easeOut})
@@ -127,42 +132,51 @@ export default Vue.extend({
 
     },
 
-    fadeOutCategories(selected, n) {
-      this.selectedDetail = selected
-      this.activeItem = n
-      this.navItems[this.activeItem].classList.add('active')
-      Emitter.emit(DETAIL_CLICK)
-      // this.fadeOutTl = new TimelineMax({onComplete: this.changeContent})
-      // this.fadeOutTl
-      //   .staggerFromTo(this.$refs.contentinfos, 0.4, {opacity: 1, ease: Expo.easeOut}, {opacity: 0, ease: Expo.easeOut}, -0.1)
-      //   .to(this.$el, 0.4, {css:{width: '50%'}, ease: Expo.easeOut})
-    },
-
-    changeContent() {
-      this.categoriesDisplayed = false
-      this.detailDisplayed = true
-      // this.fadeInTl = new TimelineMax()
-      // this.fadeInTl
-      //   .staggerFromTo(this.$refs.details.children, 0.5, {opacity: 0,x:-10, ease: Expo.easeOut}, {opacity: 1,x:0, ease: Expo.easeOut}, 0.1)
-    },
-
-    goBackToCategories() {
-      if(this.detailDisplayed == true) {
-        // this.leaveDetailTl = new TimelineMax({onComplete: this.displayCategories})
-        // this.leaveDetailTl
-        //   .staggerFromTo(this.$refs.details.children, 0.5, {opacity: 1,x:0, ease: Expo.easeOut}, {opacity: 0,x:-10, ease: Expo.easeOut}, 0.1)
-        // this.categoriesDisplayed = true
-        // this.detailDisplayed = false
+    clickCategoryTitle(selected, index) {
+      if(!this.detailDisplayed) {
+        this.openCategory(selected, index)
+      }
+      else {
+        this.activeElement.classList.add('hidden')
+        this.setCategoriesPositions()
       }
     },
 
-    displayCategories() {
-      this.fadeOutTl.reverse()
-      this.navItems[this.activeItem].classList.remove('active')
-    },
+    // fadeOutCategories(selected, n) {
+    //   this.selectedDetail = selected
+    //   this.activeItem = n
+    //   this.navItems[this.activeItem].classList.add('active')
+    //   Emitter.emit(DETAIL_CLICK)
+    //   // this.fadeOutTl = new TimelineMax({onComplete: this.changeContent})
+    //   // this.fadeOutTl
+    //   //   .staggerFromTo(this.$refs.contentinfos, 0.4, {opacity: 1, ease: Expo.easeOut}, {opacity: 0, ease: Expo.easeOut}, -0.1)
+    //   //   .to(this.$el, 0.4, {css:{width: '50%'}, ease: Expo.easeOut})
+    // },
+    //
+    // changeContent() {
+    //   this.categoriesDisplayed = false
+    //   this.detailDisplayed = true
+    //   // this.fadeInTl = new TimelineMax()
+    //   // this.fadeInTl
+    //   //   .staggerFromTo(this.$refs.details.children, 0.5, {opacity: 0,x:-10, ease: Expo.easeOut}, {opacity: 1,x:0, ease: Expo.easeOut}, 0.1)
+    // },
+    //
+    // goBackToCategories() {
+    //   if(this.detailDisplayed == true) {
+    //     // this.leaveDetailTl = new TimelineMax({onComplete: this.displayCategories})
+    //     // this.leaveDetailTl
+    //     //   .staggerFromTo(this.$refs.details.children, 0.5, {opacity: 1,x:0, ease: Expo.easeOut}, {opacity: 0,x:-10, ease: Expo.easeOut}, 0.1)
+    //     // this.categoriesDisplayed = true
+    //     // this.detailDisplayed = false
+    //   }
+    // },
+    //
+    // displayCategories() {
+    //   this.fadeOutTl.reverse()
+    //   this.navItems[this.activeItem].classList.remove('active')
+    // },
 
     setCategoriesPositions() {
-
       let categoryPosY = 0
       let dateBottom = document.querySelector('.infos-zone__date').getBoundingClientRect().bottom
 
@@ -174,8 +188,7 @@ export default Vue.extend({
           categoryPosY = dateBottom
         }
         this.categories[i].style.top = categoryPosY + "px"
-        console.log("1: ", this.categories[i].style.top);
-        console.log("1: ", this.categories[i].style.top);
+
       }
     },
 

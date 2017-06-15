@@ -95,6 +95,7 @@
       .infos-zone__content
         margin-bottom 30px
         position absolute
+        transition $transition-ui
         h4
           cursor pointer
         p
@@ -103,6 +104,17 @@
         &.hidden
           opacity 0
           visibility hidden
+
+        .infos-zone__image-container
+          width 100%
+          margin-top 60px
+          img
+            width 30%
+            margin-left 50%
+            transform translate(-50%)
+          p
+            text-align center
+            margin-top 30px
 
       .infos-zone__navbar-item
         width 16px
@@ -154,3 +166,7 @@
         background-size 20px
         margin-right 25px
         cursor pointer
+
+.hidden
+  opacity 0
+  visibility hidden

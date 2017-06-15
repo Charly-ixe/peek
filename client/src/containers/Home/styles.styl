@@ -20,7 +20,7 @@ body
     top 20vh
     left 0
     padding-left 5vw
-    width 30vw
+    width 35vw
     transition opacity 0.4s ease-out
 
     &.hidden
@@ -55,15 +55,35 @@ body
           p
             font-size 14px
             color $color-grey-button
-        img
+
+            span
+              text-transform uppercase
+              font-weight 600
+        .home__image-container
           width 450px
+          overflow hidden
           margin-bottom 20px
-          cursor pointer
+          img
+            width 100%
+            cursor pointer
+            transition $transition-ui
+
+          &:hover
+            img
+              transform scale(1.05)
+
         &-text
-          width 400px
+          width 420px
           color $color-white
 
           h2
             font-size 4.2rem
-            margin 20px 0
+            margin 40px 0 20px 0
             cursor pointer
+            text-transform none
+
+          p
+            line-height 2.5rem
+
+        .secondary-button
+          color $color-white

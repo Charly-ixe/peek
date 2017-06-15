@@ -41,11 +41,15 @@
 
       <div class="infos-zone__content" v-for="(content, index) in contents" ref="contentinfos">
 
-        <h4 class="infos-zone__content-title">{{ content.title }}</h4>
+        <h4 @click="clickCategoryTitle(content, index)" class="infos-zone__content-title">{{ content.title }}</h4>
 
-        <p>{{ content.intro }}</p>
+        <div>
 
-        <button type="button" name="discover_button" class="infos-zone__dicover-button secondary-button" @click="openCategory(content, index, $event)">Découvrir plus</button>
+          <p>{{ content.intro }}</p>
+
+        </div>
+
+        <button type="button" name="discover_button" class="infos-zone__dicover-button secondary-button" @click="openCategory(content, index)">Découvrir plus</button>
 
       </div>
 
