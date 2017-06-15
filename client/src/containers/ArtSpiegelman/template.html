@@ -28,23 +28,34 @@
   <div class="expo__peeks-container">
       <div class="expo__peeks-scroll-container">
         <div class="peek-container" ref="peekContainer" @mouseover="hoverCard" @mouseleave="leaveCard" v-for="(peek, index) in peeks_obj">
-          <div class="peek-image-mask">
-            <img class="peek-image" :src="peek.cover_url[0]" :alt="peek.name" @click="goDetails(index)">
+          <div class="piece-container" v-if="isPiece(index)">
+            <div class="peek-image-mask">
+              <img class="peek-image" :src="peek.cover_url[0]" :alt="peek.name" @click="goDetails(index)">
+            </div>
+            <div class="peek-image-bg" v-if="isMultipleCover(index)"></div>
+            <div class="peek-image-bg2" v-if="isMultipleCover(index)"></div>
+            <p class="peek-container-name">
+              {{ peek.name }}
+            </p>
+            <div class="peek-logo-container">
+              <div class="peek-logo" @click="onPeekClick"></div>
+              <div class="peek-logo-legend">dépeeker</div>
+            </div>
+            <div class="peek-date">
+              {{ peek.date }}
+            </div>
           </div>
-          <div class="peek-image-bg" v-if="isMultipleCover(index)"></div>
-          <div class="peek-image-bg2" v-if="isMultipleCover(index)"></div>
-          <p class="peek-container-name">
-            {{ peek.name }}
-          </p>
-          <div class="peek-logo-container">
-            <div class="peek-logo" @click="onPeekClick"></div>
-            <div class="peek-logo-legend">dépeeker</div>
-          </div>
-          <div class="peek-date">
-            {{ peek.date }}
+          <div class="pieces-description-container" v-if="isCategoryDescr(index)">
+            <div class="piece-description-title">
+              {{ peek.title }}
+            </div>
+            <div class="piece-description-separator"></div>
+            <p class="piece-description-txt">
+              {{ peek.text }}
+            </p>
           </div>
         </div>
-        <div class="know-more" ref="knowMore">
+        <div class="know-more" v-if="isMyPeek" ref="knowMore">
           <div class="know-more-title">
             Envie d'en voir plus ?
           </div>

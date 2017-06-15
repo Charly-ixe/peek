@@ -57,7 +57,8 @@ export default Vue.extend({
       firstAnimatedPeeks : [],
       currentHoverCardTitle: {},
       currentHoverCardLogo: {},
-      currentHoverCardDate: {}
+      currentHoverCardDate: {},
+      isMyPeek: true
     }
   },
 
@@ -148,7 +149,9 @@ export default Vue.extend({
             for (let i = 4; i < this.$refs.peekContainer.length; i++) {
               this.$refs.peekContainer[i].className = "peek-container visible"
             }
-            this.$refs.knowMore.style.opacity = 1
+            if (this.isMyPeek) {
+              this.$refs.knowMore.style.opacity = 1
+            }
           }
         }),"-=0.3")
 
@@ -213,9 +216,15 @@ export default Vue.extend({
         }
       })
     },
-
+    isPiece(i) {
+      return this.peeks_obj[i].contentType == 'piece'
+    },
     isMultipleCover(i) {
       return this.peeks_obj[i].cover_url.length > 1
+    },
+    isCategoryDescr(i) {
+      console.log(this.peeks_obj[i]);
+      return this.peeks_obj[i].contentType == 'description'
     },
     hoverCard(e) {
       if (e.srcElement.className == "peek-container visible" || e.srcElement.className == "peek-container") {
@@ -299,6 +308,7 @@ export default Vue.extend({
           filtersEls[i].className = "filter-name"
         }
         e.srcElement.className = "filter-name current"
+        this.isMyPeek = this.changeContentType == 'filter-my-peek' ? true : false
       }
     },
     changeContent(contentType) {
@@ -306,6 +316,8 @@ export default Vue.extend({
         this.peeks_obj = Content.myPeeks
       } else if (contentType == 'filter-most-peeked') {
         this.peeks_obj = Content.mostPeeked[0].pieces
+      } else if (contentType == 'filter-all-pieces') {
+        this.peeks_obj = Content.allPieces
       }
     },
     onPeekClick(e){
