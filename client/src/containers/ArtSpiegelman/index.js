@@ -217,10 +217,9 @@ export default Vue.extend({
       } else if (e.srcElement.className == "peek-image"){
         this.currentHoverCard = e.srcElement.parentNode.parentNode
       }
-
-      this.currentHoverCardTitle = this.currentHoverCard.children[1]
-      this.currentHoverCardLogo = this.currentHoverCard.children[2]
-      this.currentHoverCardDate = this.currentHoverCard.children[3]
+      this.currentHoverCardTitle = this.currentHoverCard.getElementsByClassName('peek-container-name')
+      this.currentHoverCardLogo = this.currentHoverCard.getElementsByClassName('peek-logo-container')
+      this.currentHoverCardDate = this.currentHoverCard.getElementsByClassName('peek-date')
 
       Tweenmax.to(this.currentHoverCardTitle, 0.2, {
         left: "10px",
