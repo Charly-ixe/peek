@@ -1,6 +1,7 @@
 import EventManagerMixin from 'mixins/EventManagerMixin'
 import scope from 'utils/generic/scope'
 import Emitter from 'helpers/Emitter'
+import Tweenmax from 'gsap'
 
 import {
   WINDOW_RESIZE,
@@ -75,10 +76,55 @@ export default Vue.extend({
 
     openCategory(selected, index, event) {
       this.selectedCategory = selected
-      let categoryElt = event.toElement.previousElementSibling
-      console.log(categoryElt);
-      categoryElt.innerHTML = ""
-      categoryElt.innerHTML = selected.content
+      this.activeId = index
+      let firstNavItem = document.querySelector('.first')
+      let titleContainer = document.querySelector(".infos-zone__content-block")
+      let navbar = document.querySelector(".infos-zone__navbar")
+      let parent = event.srcElement.parentElement
+      let categoryElts = parent.children
+      let text = event.toElement.previousElementSibling
+
+      let openTl = new TimelineMax({delay: 0.2, onComplete: ()=>{
+
+        parent.style.top = this.navItems[this.activeId].getBoundingClientRect().top - 90 - this.activeId + "px"
+        text.innerHTML = ""
+        text.innerHTML = selected.content
+        this.navItems[this.activeId].classList.add('active')
+        firstNavItem.classList.remove('active')
+        let displayContent = new TimelineMax({delay: 0.4})
+        displayContent
+
+          .fromTo(categoryElts[0], 0.3, {opacity: 0, y: -5}, {opacity: 1, y: 0, ease: Expo.easeOut})
+          .fromTo(categoryElts[1], 0.3, {opacity: 0, y: -10}, {opacity: 1, y: 0, ease: Expo.easeOut}, 0.3)
+      }})
+
+      for(let i = 0; i < this.navItems.length; i++) {
+        let targetYTop = (this.navItems[i].getBoundingClientRect().top - titleContainer.getBoundingClientRect().height - 60) - 33*i
+        let targetYBottom = (navbar.getBoundingClientRect().bottom - this.navItems[i].getBoundingClientRect().bottom)
+        let targetYActive = (this.navItems[this.activeId].getBoundingClientRect().top - titleContainer.getBoundingClientRect().height - 60) - 33*i
+
+        if(i < this.activeId) {
+          this.categories[i].classList.add('hidden')
+          Tweenmax.to(this.navItems[i], 1.2, {y: -targetYTop, ease: Expo.easeOut})
+        }
+        else if(i > this.activeId) {
+          this.categories[i].classList.add('hidden')
+          Tweenmax.to(this.navItems[i], 1.2, {y: targetYBottom, ease: Expo.easeOut})
+        }
+        else {
+
+        }
+        Tweenmax.to(this.navItems[this.activeId], 1.2, {y: -targetYActive, ease: Expo.easeOut})
+      }
+
+      Emitter.emit(DETAIL_CLICK)
+      this.$el.classList.add('open')
+
+      openTl
+        .fromTo(categoryElts[0], 0.3, {opacity: 1, y: 0}, {opacity: 0, y: -20, ease: Expo.easeOut})
+        .fromTo(categoryElts[1], 0.3, {opacity: 1, y: 0}, {opacity: 0, y: -10, ease: Expo.easeOut}, 0.3)
+        .fromTo(categoryElts[2], 0.3, {opacity: 1, y: 0}, {opacity: 0, y: 10, ease: Expo.easeOut}, 0)
+
     },
 
     fadeOutCategories(selected, n) {
@@ -86,27 +132,27 @@ export default Vue.extend({
       this.activeItem = n
       this.navItems[this.activeItem].classList.add('active')
       Emitter.emit(DETAIL_CLICK)
-      this.fadeOutTl = new TimelineMax({onComplete: this.changeContent})
-      this.fadeOutTl
-        .staggerFromTo(this.$refs.contentinfos, 0.4, {opacity: 1, ease: Expo.easeOut}, {opacity: 0, ease: Expo.easeOut}, -0.1)
-        .to(this.$el, 0.4, {css:{width: '50%'}, ease: Expo.easeOut})
+      // this.fadeOutTl = new TimelineMax({onComplete: this.changeContent})
+      // this.fadeOutTl
+      //   .staggerFromTo(this.$refs.contentinfos, 0.4, {opacity: 1, ease: Expo.easeOut}, {opacity: 0, ease: Expo.easeOut}, -0.1)
+      //   .to(this.$el, 0.4, {css:{width: '50%'}, ease: Expo.easeOut})
     },
 
     changeContent() {
       this.categoriesDisplayed = false
       this.detailDisplayed = true
-      this.fadeInTl = new TimelineMax()
-      this.fadeInTl
-        .staggerFromTo(this.$refs.details.children, 0.5, {opacity: 0,x:-10, ease: Expo.easeOut}, {opacity: 1,x:0, ease: Expo.easeOut}, 0.1)
+      // this.fadeInTl = new TimelineMax()
+      // this.fadeInTl
+      //   .staggerFromTo(this.$refs.details.children, 0.5, {opacity: 0,x:-10, ease: Expo.easeOut}, {opacity: 1,x:0, ease: Expo.easeOut}, 0.1)
     },
 
     goBackToCategories() {
       if(this.detailDisplayed == true) {
-        this.leaveDetailTl = new TimelineMax({onComplete: this.displayCategories})
-        this.leaveDetailTl
-          .staggerFromTo(this.$refs.details.children, 0.5, {opacity: 1,x:0, ease: Expo.easeOut}, {opacity: 0,x:-10, ease: Expo.easeOut}, 0.1)
-        this.categoriesDisplayed = true
-        this.detailDisplayed = false
+        // this.leaveDetailTl = new TimelineMax({onComplete: this.displayCategories})
+        // this.leaveDetailTl
+        //   .staggerFromTo(this.$refs.details.children, 0.5, {opacity: 1,x:0, ease: Expo.easeOut}, {opacity: 0,x:-10, ease: Expo.easeOut}, 0.1)
+        // this.categoriesDisplayed = true
+        // this.detailDisplayed = false
       }
     },
 

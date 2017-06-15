@@ -9,6 +9,9 @@
   z-index 20
   overflow scroll
 
+  &.open
+    width 50%
+
   &__back
     z-index 100
     position fixed
@@ -23,14 +26,13 @@
 
   &__wrapper
     position relative
-    margin 8vh 5%
+    margin 8vh 2vw
     width 90%
     display inline-block
-    //padding-left 25px
 
     .infos-zone__navbar-block
       display inline-block
-      width 5%
+      width 1.5vw
       margin-top 40px
 
       .infos-zone__navbar
@@ -93,12 +95,14 @@
       .infos-zone__content
         margin-bottom 30px
         position absolute
-        transition $transition-ui
         h4
           cursor pointer
         p
           line-height 2rem
           margin-bottom 0
+        &.hidden
+          opacity 0
+          visibility hidden
 
       .infos-zone__navbar-item
         width 16px
