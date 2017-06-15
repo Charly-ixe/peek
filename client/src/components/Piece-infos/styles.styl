@@ -9,6 +9,9 @@
   z-index 20
   overflow scroll
 
+  &.open
+    width 50%
+
   &__back
     z-index 100
     position fixed
@@ -24,17 +27,16 @@
   &__wrapper
     position relative
     margin 8vh 2vw
-    float left
-    //padding-left 25px
+    width 90%
+    display inline-block
 
     .infos-zone__navbar-block
-      float left
-      width 5%
-      margin-top 32px
+      display inline-block
+      width 1.5vw
+      margin-top 40px
 
       .infos-zone__navbar
         width 1px
-        //height 75vh
         background-color $color-grey-soft
         position relative
 
@@ -45,9 +47,9 @@
           border 1px solid $color-grey-soft
           background-color $color-white
           display inline-block
-          position relative
+          position absolute
           transform translate(-50%)
-          //margin-bottom 13vh
+          left -5%
 
           &.first
             width 20px
@@ -59,6 +61,7 @@
             background-color $color-grey-soft
             center-xy()
             border-radius 50%
+
             &.first
               width 10px
               height 10px
@@ -71,8 +74,9 @@
               background-color $color-yellow-peek
 
     .infos-zone__content-block
-      float left
-      width 95%
+      display inline-block
+      width 90%
+      position absolute
       .infos-zone__title
         color $color-grey-dark
 
@@ -90,9 +94,27 @@
 
       .infos-zone__content
         margin-bottom 30px
-        position relative
+        position absolute
+        transition $transition-ui
         h4
           cursor pointer
+        p
+          line-height 2rem
+          margin-bottom 0
+        &.hidden
+          opacity 0
+          visibility hidden
+
+        .infos-zone__image-container
+          width 100%
+          margin-top 60px
+          img
+            width 30%
+            margin-left 50%
+            transform translate(-50%)
+          p
+            text-align center
+            margin-top 30px
 
       .infos-zone__navbar-item
         width 16px
@@ -103,7 +125,7 @@
         display inline-block
         position absolute
         transform translate(-50%)
-        left -5%
+        left 0%
         margin-top 3px
 
         div
@@ -144,3 +166,7 @@
         background-size 20px
         margin-right 25px
         cursor pointer
+
+.hidden
+  opacity 0
+  visibility hidden

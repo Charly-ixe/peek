@@ -12,11 +12,11 @@
 
         </div>
 
-        <!-- <div class="infos-zone__navbar-item" ref="navitems" v-for="(content, index) in contents">
+        <div class="infos-zone__navbar-item" ref="navitems" v-for="(content, index) in contents">
 
           <div></div>
 
-        </div> -->
+        </div>
 
       </div>
 
@@ -39,19 +39,17 @@
 
       </div>
 
-      <div class="infos-zone__content" v-for="(content, index) in contents" ref="contentinfos" v-show="categoriesDisplayed">
+      <div class="infos-zone__content" v-for="(content, index) in contents" ref="contentinfos">
 
-        <div class="infos-zone__navbar-item">
+        <h4 @click="clickCategoryTitle(content, index)" class="infos-zone__content-title">{{ content.title }}</h4>
 
-          <div></div>
+        <div>
+
+          <p>{{ content.intro }}</p>
 
         </div>
 
-        <h4 class="infos-zone__content-title">{{ content.title }}</h4>
-
-        <p>{{ content.intro }}</p>
-
-        <button type="button" name="discover_button" class="infos-zone__dicover-button secondary-button" @click="fadeOutCategories(content, index)">Découvrir plus</button>
+        <button type="button" name="discover_button" class="infos-zone__dicover-button secondary-button" @click="openCategory(content, index)">Découvrir plus</button>
 
       </div>
 

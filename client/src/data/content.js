@@ -48,7 +48,8 @@ export default {
         {
           title: "Vladek Spiegelman",
           type: "Video",
-          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
+          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire.",
+          content: "C'est un homme extrêmement ordonné, intelligent, mais qui fait parfois preuve d'un manque de tolérance.  Au fur et à mesure du récit, on voit le jeune Polonais ambitieux de Czestochowa se transformer à cause de la guerre, la fuite et les camps de concentration en un vieil homme malade, acariâtre et avare."
         },
         {
           title: "Le style graphique",

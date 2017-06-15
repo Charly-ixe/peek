@@ -78,7 +78,11 @@ export default Vue.extend({
   },
 
   mounted () {
+    this.introElts = document.querySelector('.home__intro-container').children
+    this.expoContainers = document.querySelector('.home__expos-scroll-container').children
     this.createTls()
+
+    this.enterTl.play()
 
     this.scroll = new Scroll({
         preload: false,
@@ -88,8 +92,6 @@ export default Vue.extend({
         divs: document.querySelectorAll('.home__expo-container')
     })
 
-    this.scroll.init()
-
   },
 
   beforeDestroy () {
@@ -97,7 +99,12 @@ export default Vue.extend({
 
   methods: {
     createTls () {
-      this.enterTl = new TimelineMax({paused: true})
+      this.enterTl = new TimelineMax({paused: true, delay: 1, onComplete: ()=> {
+        this.scroll.init()
+      }})
+      this.enterTl
+        .staggerFromTo(this.introElts, 0.3, {opacity:0, y:-10}, {opacity:1, y:0}, 0.2)
+        .staggerFromTo(this.expoContainers, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, 0.2)
     },
 
     addListeners() {

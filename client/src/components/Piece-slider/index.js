@@ -65,10 +65,7 @@ export default Vue.extend({
 
     adaptSlider() {
       this.$refs.overlay.classList.add("half")
-
-      setTimeout(function(){
-        this.$refs.pieceimg.classList.add("half")
-      }.bind(this), 500)
+      this.$refs.pieceimg.classList.add("half")
 
     },
 
