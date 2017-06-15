@@ -1,0 +1,36 @@
+<div class="menu">
+  <div class="menu__button" @click="onMenuClick" ref="menuBtn">
+    <div class="menu__icon"></div>
+    <div class="menu__title">menu</div>
+  </div>
+  <div class="menu__overlay-menu" ref="overlayMenu">
+    <div class="menu__overlay-menu-container">
+      <div class="menu__overlay-menu-content">
+        <router-link to="/">
+          <div class="menu__item-container" @click="goAllExpo">
+            <h1 class="menu__item-txt">Toutes les expositions</h1>
+            <div class="menu__item-arrow"></div>
+          </div>
+        </router-link>
+        <router-link to="/art-spiegelman">
+          <div class="menu__item-container" @click="goArtSpi">
+            <h1 class="menu__item-txt">Mes peeks</h1>
+            <div class="menu__item-arrow"></div>
+          </div>
+        </router-link>
+        <div class="menu__item-container" @click="goInfos">
+          <h1 class="menu__item-txt">Informations pratiques</h1>
+          <div class="menu__item-arrow"></div>
+        </div>
+        <div class="menu__item-container" @click="goAbout">
+          <h1 class="menu__item-txt">À propos de Peek</h1>
+          <div class="menu__item-arrow"></div>
+        </div>
+        <div class="menu__item-container" @click="goMyAccount">
+          <h1 class="menu__item-txt">Mon compte</h1>
+          <div class="menu__item-arrow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

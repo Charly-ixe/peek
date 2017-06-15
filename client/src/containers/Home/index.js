@@ -10,8 +10,6 @@ import Emitter from 'helpers/Emitter'
 
 import {throttle} from 'lodash'
 
-import Peeks from 'components/Peeks-gallery'
-
 import {
   SCROLL_STARTED_ALL_EXP,
   SCROLL_ZERO_ALL_EXP
@@ -19,6 +17,7 @@ import {
 
 import FixedNavigation from 'components/Fixed-navigation'
 import LoaderComponent from 'components/Loader'
+import MenuComponent from 'components/Menu'
 import Tweenmax from 'gsap'
 import Content from 'data/content'
 
@@ -126,6 +125,7 @@ export default Vue.extend({
 
   components: {
     'fixed-navigation-component': FixedNavigation,
-    'loader-component': LoaderComponent
+    'loader-component': LoaderComponent,
+    'menu-component': MenuComponent
   }
 })
