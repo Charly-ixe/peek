@@ -30,7 +30,7 @@ export default {
       title: "Retrouvez votre exposition personnelle"
     }
   ],
-  pieces : [
+  myPeeks : [
     {
       index: 0,
       name: "La nuit d'enfer",
@@ -410,5 +410,44 @@ export default {
         }
       ]
     },
+  ],
+  mostPeeked: [
+    {
+      pieces: [
+        {
+          name: "Une du New Yorker",
+          date: "1993",
+          type: "Couverture",
+          peeked: true,
+          cover_url: [ "/images/pieces/06-NewYorker.jpg" ]
+        },
+        {
+          name: "Auschwitz",
+          date: "1991",
+          peeked: true,
+          cover_url: [ "/images/pieces/Auschwitz-p41.jpg", "/images/pieces/Auschwitz-p41.jpg" ]
+        },
+        {
+          name: "Une du New Yorker",
+          date: "1998",
+          type: "Couverture",
+          peeked: true,
+          cover_url: [ "/images/pieces/07-NewYorker.jpeg" ]
+        },
+        {
+          name: "Mauschwitz",
+          date: "1991",
+          peeked: true,
+          cover_url: [ "/images/pieces/Mauschwitz-p11.jpg", "/images/pieces/Auschwitz-p41.jpg" ],
+        },
+        {
+          name: "Trous de souris",
+          date: "1991",
+          type: "Bande dessinée",
+          peeked: true,
+          cover_url: [ "/images/pieces/12-maus-trousde-souris.jpg" ]
+        }
+      ]
+    }
   ]
 }

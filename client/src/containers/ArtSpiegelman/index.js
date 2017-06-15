@@ -14,7 +14,8 @@ import Peeks from 'components/Peeks-gallery'
 import {
   SCROLL_AFTER_THIRD_CARD,
   SCROLL_BEFORE_THIRD_CARD,
-  GO_TO_POS_ZERO_SCROLL
+  GO_TO_POS_ZERO_SCROLL,
+  CHANGE_CONTENT
 } from 'config/messages'
 
 import FixedNavigation from 'components/Fixed-navigation'
@@ -41,12 +42,16 @@ export default Vue.extend({
     {
       message: SCROLL_AFTER_THIRD_CARD,
       method: 'onScrollAfterThird'
+    },
+    {
+      message: CHANGE_CONTENT,
+      method: 'changeContent'
     }
   ],
 
   data () {
     return {
-      peeks_obj: Content.pieces,
+      peeks_obj: Content.myPeeks,
       hovered: false,
       openedMenu: false,
       firstAnimatedPeeks : [],
@@ -189,6 +194,7 @@ export default Vue.extend({
           ease:Power1.easeInOut,
           onComplete: ()=> {
             Emitter.emit('GO_TO_POS_ZERO_SCROLL')
+            Emitter.emit('CHANGE_CONTENT', this.changeContentType)
             this.enterTl.restart()
           }
         })
@@ -287,6 +293,7 @@ export default Vue.extend({
         } else {
           this.fadeOutCards.restart()
         }
+        this.changeContentType = e.srcElement.id
         let filtersEls = document.getElementsByClassName('filter-name')
         for (var i = 0; i < filtersEls.length; i++) {
           filtersEls[i].className = "filter-name"
@@ -294,9 +301,15 @@ export default Vue.extend({
         e.srcElement.className = "filter-name current"
       }
     },
+    changeContent(contentType) {
+      if (contentType == 'filter-my-peek') {
+        this.peeks_obj = Content.myPeeks
+      } else if (contentType == 'filter-most-peeked') {
+        this.peeks_obj = Content.mostPeeked[0].pieces
+      }
+    },
     onPeekClick(e){
       let prevEl = e.srcElement.nextSibling.nextElementSibling
-      // console.log(e.srcElement);
       if (prevEl.innerHTML == "dépeeker") {
         e.srcElement.className = "peek-logo unpeeked"
         prevEl.innerHTML = "peeker"
