@@ -8,6 +8,8 @@ import feathers from 'feathers/client'
 import socketio from 'feathers-socketio/client'
 import io from 'socket.io-client'
 
+import Tweenmax from 'gsap'
+
 import content from 'data/content'
 
 import TutorialFirstRegSlider from 'components/Tutorial-first-reg-slider'
@@ -54,6 +56,7 @@ export default Vue.extend({
   },
 
   mounted () {
+    window.addEventListener('mouseup', this.handleFirstUserAction)
     this.createTls()
   },
 
@@ -76,6 +79,18 @@ export default Vue.extend({
     validateEmail (email) {
       const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
+    },
+    handleFirstUserAction () {
+      Tweenmax.to(this.$refs.overlay, 1, {
+        opacity: 0,
+        ease:Power1.easeInOut,
+        onStart: ()=> {
+          // this.enterTl.play()
+        },
+        onComplete: ()=> {
+          this.$refs.overlay.style.display = "none"
+        }
+      })
     }
 
   },

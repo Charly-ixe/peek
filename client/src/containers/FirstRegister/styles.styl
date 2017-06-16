@@ -8,6 +8,40 @@
     .btn-send
       border none
       margin-top 10px
+  .first-register-overlay
+    height 100%
+    width 100%
+    position absolute
+    z-index 10
+    background-color $color-grey-dark
+    .overlay-container
+      center-xy()
+      height 500px
+      .overlay-logo
+        transform scale(3)
+        background url('/images/logo-peek.svg')
+        width 24px
+        height 19px
+        margin 0 auto
+      .overlay-title
+        font-family "Berlingske"
+        font-size 62pt
+        color $color-yellow-peek
+        margin-top 80px
+      .overlay-legend
+        font-family "PT Sans"
+        font-size 14pt
+        font-weight bold
+        letter-spacing 2px
+        line-height 25px
+        color $color-grey-button
+        text-transform uppercase
+        margin-top 10px
+      .overlay-pointer
+        margin 40px auto
+        background url('/images/icons/icon-touch.svg')
+        width 83px
+        height 107px
 .first-register
   display block
   width 100vw

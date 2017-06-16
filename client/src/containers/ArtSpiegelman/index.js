@@ -71,8 +71,8 @@ export default Vue.extend({
     ])
   },
   destroyed () {
-    window.removeEventListener('mouseup', this.handleFirstClick)
-    window.removeEventListener('mousewheel', throttle(this.handleFirstScroll, 1200, {'trailing': false}))
+    window.removeEventListener('mouseup', this.handleFirstUserAction)
+    window.removeEventListener('mousewheel', throttle(this.handleFirstUserAction, 1200, {'trailing': false}))
   },
 
   mounted () {
