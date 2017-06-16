@@ -486,6 +486,54 @@ export default {
       name: "Comics Joe Sacco",
       date: "1971",
       cover_url: [ "/images/all-pieces/01-Underground/03-Comics-Joe-Sacco-1971.JPG" ]
+    },
+    {
+      contentType: "piece",
+      name: "Breakdowns",
+      date: "1978",
+      cover_url: [ "/images/all-pieces/01-Underground/04-Breakdowns-1978.jpg" ]
+    },
+    {
+      contentType: "piece",
+      name: "Breakdowns",
+      date: "1978",
+      cover_url: [ "/images/all-pieces/01-Underground/05-Breakdowns-1978.jpg" ]
+    },
+    {
+      contentType: "piece",
+      name: "Breakdowns",
+      date: "1978",
+      cover_url: [ "/images/all-pieces/01-Underground/06-Breakdowns-portrait-jeune/03-Couverture-de-Breakdowns-1978.jpg" ]
+    },
+    {
+      contentType: "piece",
+      name: "Breakdowns",
+      date: "1978",
+      cover_url: [ "/images/all-pieces/01-Underground/07-Breakdowns-1979.png" ]
+    },
+    {
+      contentType: "piece",
+      name: "Co Mix",
+      date: "1980",
+      cover_url: [ "/images/all-pieces/01-Underground/08-co-mix-1980.jpg" ]
+    },
+    {
+      contentType: "piece",
+      name: "A day in the circuit",
+      date: "1982",
+      cover_url: [ "/images/all-pieces/01-Underground/09-A-Day-at-the-Circuits--1982.jpeg" ]
+    },
+    {
+      contentType: "piece",
+      name: "Popup",
+      date: "1982",
+      cover_url: [ "/images/all-pieces/01-Underground/10-popup-1982.png" ]
+    },
+    {
+      contentType: "piece",
+      name: "Short order comix",
+      date: "1983",
+      cover_url: [ "/images/all-pieces/01-Underground/11-Short-order-comix-1983.jpeg" ]
     }
   ]
 }
