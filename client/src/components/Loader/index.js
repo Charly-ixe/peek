@@ -56,6 +56,8 @@ export default Vue.extend({
     onResourceProgress( p ) {
       this.progress = Math.ceil( p * 100 )
 
+      Tweenmax.to(this.$refs.bar, 0.2, {scaleX: p, ease: Expo.easeOut})
+
       if( this.progress === 100 ) {
 
         Tweenmax.to(this, 0.1, { tweenProgress: this.progress, onUpdate: () => {

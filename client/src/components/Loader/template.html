@@ -5,9 +5,13 @@
 
       <img class="loader__img" src="/images/logo-loader.gif" alt="Peek Gif">
 
-      <span class="loader__text">{{ progress }}%</span>
+      <div class="loader__bar">
 
-      <!-- <div class="loader__bar" v-el:bar></div> -->
+        <div class="loader__bar-loaded" ref="bar">
+
+        </div>
+
+      </div>
 
     </div>
 
