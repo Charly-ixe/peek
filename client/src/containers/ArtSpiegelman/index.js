@@ -19,6 +19,7 @@ import {
 } from 'config/messages'
 
 import FixedNavigation from 'components/Fixed-navigation'
+import MenuComponent from 'components/Menu'
 import Tweenmax from 'gsap'
 import Content from 'data/content'
 
@@ -231,6 +232,7 @@ export default Vue.extend({
       } else if (e.srcElement.className == "peek-image"){
         this.currentHoverCard = e.srcElement.parentNode.parentNode
       }
+
       this.currentHoverCardTitle = this.currentHoverCard.getElementsByClassName('peek-container-name')
       this.currentHoverCardLogo = this.currentHoverCard.getElementsByClassName('peek-logo-container')
       this.currentHoverCardDate = this.currentHoverCard.getElementsByClassName('peek-date')
@@ -281,17 +283,6 @@ export default Vue.extend({
     goDetails(index) {
       Router.push('art-spiegelman/details/'+index)
     },
-    onMenuClick() {
-      if (!this.openedMenu){
-        this.$refs.overlayMenu.className = "expo__overlay-menu opened"
-        this.$refs.menuBtn.className = "expo__menu-button opened"
-        this.openedMenu = true
-      } else {
-        this.$refs.overlayMenu.className = "expo__overlay-menu"
-        this.$refs.menuBtn.className = "expo__menu-button"
-        this.openedMenu = false
-      }
-    },
     onFilterClick(e) {
       if (e.srcElement.className != 'filter-name current') {
         this.bgTitle = e.srcElement.innerHTML
@@ -333,21 +324,6 @@ export default Vue.extend({
       }
 
     },
-    goAllExpo() {
-      Router.push("/")
-    },
-    goArtSpi() {
-      Router.push("/art-spiegelman")
-    },
-    goInfos() {
-
-    },
-    goAbout() {
-
-    },
-    goMyAccount() {
-
-    },
     onScrollBeforeThird() {
       Tweenmax.to(this.$refs.bgPeekTypo, 0.3, {
         opacity: 0.5,
@@ -370,6 +346,7 @@ export default Vue.extend({
 
   components: {
     'fixed-navigation-component': FixedNavigation,
-    'peeks-component': Peeks
+    'peeks-component': Peeks,
+    'menu-component': MenuComponent
   }
 })

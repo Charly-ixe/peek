@@ -94,7 +94,7 @@ export default Vue.extend({
         text.innerHTML += "<div class='infos-zone__image-container'><img src='/images/vladek.png'><p>Vladek Spiegelman, page 34, Maus II</p></div>"
         this.navItems[this.activeId].classList.add('active')
         firstNavItem.classList.remove('active')
-        button.classList.add('hidden')
+        button.classList.toggle('hidden')
         let displayContent = new TimelineMax({delay: 0.4})
         displayContent
 
@@ -104,15 +104,15 @@ export default Vue.extend({
 
       for(let i = 0; i < this.navItems.length; i++) {
         let targetYTop = (this.navItems[i].getBoundingClientRect().top - titleContainer.getBoundingClientRect().height - 60) - 33*i
-        let targetYBottom = (navbar.getBoundingClientRect().bottom - this.navItems[i].getBoundingClientRect().bottom)
+        let targetYBottom = ((navbar.getBoundingClientRect().bottom - this.navItems[i].getBoundingClientRect().bottom) + 33) - 33*(this.navItems.length - i)
         let targetYActive = (this.navItems[this.activeId].getBoundingClientRect().top - titleContainer.getBoundingClientRect().height - 60) - 33*i
 
         if(i < this.activeId) {
-          this.categories[i].classList.add('hidden')
+          this.categories[i].classList.toggle('hidden')
           Tweenmax.to(this.navItems[i], 1.2, {y: -targetYTop, ease: Expo.easeOut})
         }
         else if(i > this.activeId) {
-          this.categories[i].classList.add('hidden')
+          this.categories[i].classList.toggle('hidden')
           Tweenmax.to(this.navItems[i], 1.2, {y: targetYBottom, ease: Expo.easeOut})
         }
         else {
@@ -133,13 +133,7 @@ export default Vue.extend({
     },
 
     clickCategoryTitle(selected, index) {
-      if(!this.detailDisplayed) {
-        this.openCategory(selected, index)
-      }
-      else {
-        this.activeElement.classList.add('hidden')
-        this.setCategoriesPositions()
-      }
+      this.openCategory(selected, index)
     },
 
     // fadeOutCategories(selected, n) {
