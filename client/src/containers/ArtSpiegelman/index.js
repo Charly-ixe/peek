@@ -223,7 +223,6 @@ export default Vue.extend({
       return this.peeks_obj[i].cover_url.length > 1
     },
     isCategoryDescr(i) {
-      console.log(this.peeks_obj[i]);
       return this.peeks_obj[i].contentType == 'description'
     },
     hoverCard(e) {
