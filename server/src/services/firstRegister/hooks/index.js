@@ -16,7 +16,7 @@ const sendRegistrationEmail = function () {
         var email = {
           from: 'hello@peek-expo.com',
           to: hook.data.user_email,
-          subject: 'Expérience Peek 🖼  de la Bpi',
+          subject: 'Expérience Peek 🖼 de la Bpi',
           html: result.html
         };
 

@@ -6,15 +6,15 @@
     <h1>Art Spiegelman</h1>
   </div>
   <div class="expo__filter">
-    <div class="filter-name current" @click="onFilterClick" ref="filterMyPeek">
+    <div id="filter-my-peek" class="filter-name current" @click="onFilterClick" ref="filterMyPeek">
       Mes peeks
     </div>
     <div class="filter-separator"></div>
-    <div class="filter-name" @click="onFilterClick" ref="filterMostPeeked">
+    <div id="filter-most-peeked" class="filter-name" @click="onFilterClick" ref="filterMostPeeked">
       Les + peekés
     </div>
     <div class="filter-separator"></div>
-    <div class="filter-name" @click="onFilterClick" ref="filterAll">
+    <div id="filter-all-pieces" class="filter-name" @click="onFilterClick" ref="filterAll">
       Toutes les oeuvres
     </div>
   </div>
@@ -24,23 +24,34 @@
   <div class="expo__peeks-container">
       <div class="expo__peeks-scroll-container">
         <div class="peek-container" ref="peekContainer" @mouseover="hoverCard" @mouseleave="leaveCard" v-for="(peek, index) in peeks_obj">
-          <div class="peek-image-mask">
-            <img class="peek-image" :src="peek.cover_url[0]" :alt="peek.name" @click="goDetails(index)">
+          <div class="piece-container" v-if="isPiece(index)">
+            <div class="peek-image-mask">
+              <img class="peek-image" :src="peek.cover_url[0]" :alt="peek.name" @click="goDetails(index)">
+            </div>
+            <div class="peek-image-bg" v-if="isMultipleCover(index)"></div>
+            <div class="peek-image-bg2" v-if="isMultipleCover(index)"></div>
+            <p class="peek-container-name">
+              {{ peek.name }}
+            </p>
+            <div class="peek-logo-container">
+              <div class="peek-logo" @click="onPeekClick"></div>
+              <div class="peek-logo-legend">dépeeker</div>
+            </div>
+            <div class="peek-date">
+              {{ peek.date }}
+            </div>
           </div>
-          <div class="peek-image-bg" v-if="isMultipleCover(index)"></div>
-          <div class="peek-image-bg2" v-if="isMultipleCover(index)"></div>
-          <p class="peek-container-name">
-            {{ peek.name }}
-          </p>
-          <div class="peek-logo-container">
-            <div class="peek-logo" @click="onPeekClick"></div>
-            <div class="peek-logo-legend">dépeeker</div>
-          </div>
-          <div class="peek-date">
-            {{ peek.date }}
+          <div class="pieces-description-container" v-if="isCategoryDescr(index)">
+            <div class="piece-description-title">
+              {{ peek.title }}
+            </div>
+            <div class="piece-description-separator"></div>
+            <p class="piece-description-txt">
+              {{ peek.text }}
+            </p>
           </div>
         </div>
-        <div class="know-more">
+        <div class="know-more" v-if="isMyPeek" ref="knowMore">
           <div class="know-more-title">
             Envie d'en voir plus ?
           </div>

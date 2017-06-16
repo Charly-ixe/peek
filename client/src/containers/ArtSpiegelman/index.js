@@ -5,6 +5,7 @@ import { scope } from 'utils/generic'
 import States from 'core/States'
 import Router from 'core/Router'
 import Scroll from 'helpers/Scroll'
+import Emitter from 'helpers/Emitter'
 
 import {throttle} from 'lodash'
 
@@ -12,7 +13,9 @@ import Peeks from 'components/Peeks-gallery'
 
 import {
   SCROLL_AFTER_THIRD_CARD,
-  SCROLL_BEFORE_THIRD_CARD
+  SCROLL_BEFORE_THIRD_CARD,
+  GO_TO_POS_ZERO_SCROLL,
+  CHANGE_CONTENT
 } from 'config/messages'
 
 import FixedNavigation from 'components/Fixed-navigation'
@@ -40,18 +43,23 @@ export default Vue.extend({
     {
       message: SCROLL_AFTER_THIRD_CARD,
       method: 'onScrollAfterThird'
+    },
+    {
+      message: CHANGE_CONTENT,
+      method: 'changeContent'
     }
   ],
 
   data () {
     return {
-      peeks_obj: Content.pieces,
+      peeks_obj: Content.myPeeks,
       hovered: false,
       openedMenu: false,
       firstAnimatedPeeks : [],
       currentHoverCardTitle: {},
       currentHoverCardLogo: {},
-      currentHoverCardDate: {}
+      currentHoverCardDate: {},
+      isMyPeek: true
     }
   },
 
@@ -105,16 +113,19 @@ export default Vue.extend({
       this.hoverCardTl = new TimelineMax({paused: true})
 
       this.enterTl
-        .add(Tweenmax.to(this.bgPeekTypo, 1, {
-          opacity: 0.5,
-          top: "45%",
-          ease:Power1.easeInOut
-        }))
+        .addCallback(()=>{
+          Tweenmax.killTweensOf(this.bgPeekTypo, { opacity: true})
+          Tweenmax.to(this.bgPeekTypo, 0.7, {
+            top: '45%',
+            opacity: 0.5,
+            ease:Power1.easeInOut,
+          })
+        })
         .add(Tweenmax.to(this.firstAnimatedPeeks[0], 0.5, {
           opacity: 1,
           left: "-15px",
           ease:Power1.easeInOut
-        }),"-=0.4")
+        }),"-=0.3")
         .add(Tweenmax.to(this.firstAnimatedPeeks[1], 0.5, {
           opacity: 1,
           left: "-15px",
@@ -137,43 +148,60 @@ export default Vue.extend({
           onComplete: ()=> {
             this.scroll.init()
             for (let i = 4; i < this.$refs.peekContainer.length; i++) {
-              this.$refs.peekContainer[i].style.opacity = 1
+              this.$refs.peekContainer[i].className = "peek-container visible"
+            }
+            if (this.isMyPeek) {
+              this.$refs.knowMore.style.opacity = 1
             }
           }
         }),"-=0.3")
 
         this.fadeOutCards
-        .add(Tweenmax.to(this.bgPeekTypo, 0.7, {
+        .addCallback(()=>{
+          Tweenmax.killTweensOf(this.bgPeekTypo, { opacity: true})
+          Tweenmax.to(this.bgPeekTypo, 0.7, {
+            opacity: 0,
+            ease:Power1.easeInOut,
+            onComplete: ()=> {
+              this.$refs.bgPeekTypo.innerHTML = this.bgTitle
+
+            }
+          })
+        })
+        .to(this.firstAnimatedPeeks[0], 0.5, {
           opacity: 0,
           ease:Power1.easeInOut
-        }))
-        .add(Tweenmax.to(this.firstAnimatedPeeks[0], 0.5, {
+        },"-=0.5")
+        .to(this.firstAnimatedPeeks[1], 0.5, {
           opacity: 0,
           ease:Power1.easeInOut
-        }),"-=0.5")
-        .add(Tweenmax.to(this.firstAnimatedPeeks[1], 0.5, {
+        },"-=0.5")
+        .to(this.firstAnimatedPeeks[2], 0.5, {
           opacity: 0,
           ease:Power1.easeInOut
-        }),"-=0.5")
-        .add(Tweenmax.to(this.firstAnimatedPeeks[2], 0.5, {
+        },"-=0.5")
+        .to(this.firstAnimatedPeeks[3], 0.5, {
           opacity: 0,
           ease:Power1.easeInOut
-        }),"-=0.5")
-        .add(Tweenmax.to(this.firstAnimatedPeeks[3], 0.5, {
-          opacity: 0,
-          ease:Power1.easeInOut
-        }),"-=0.5")
-        .add(Tweenmax.to(this.firstAnimatedPeeks[4], 0.5, {
+        },"-=0.5")
+        .to(this.firstAnimatedPeeks[4], 0.5, {
           opacity: 0,
           ease:Power1.easeInOut,
           onComplete: ()=> {
             for (let i = 4; i < this.$refs.peekContainer.length; i++) {
-              this.$refs.peekContainer[i].style.opacity = 0
+              this.$refs.peekContainer[i].className = "peek-container"
             }
-            this.$refs.bgPeekTypo.innerHTML = this.bgTitle
+          }
+        },"-=0.5")
+        .to(this.$refs.knowMore, 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut,
+          onComplete: ()=> {
+            Emitter.emit('GO_TO_POS_ZERO_SCROLL')
+            Emitter.emit('CHANGE_CONTENT', this.changeContentType)
             this.enterTl.restart()
           }
-        }),"-=0.5")
+        })
     },
 
     handleFirstUserAction () {
@@ -189,20 +217,25 @@ export default Vue.extend({
         }
       })
     },
-
+    isPiece(i) {
+      return this.peeks_obj[i].contentType == 'piece'
+    },
     isMultipleCover(i) {
       return this.peeks_obj[i].cover_url.length > 1
     },
+    isCategoryDescr(i) {
+      return this.peeks_obj[i].contentType == 'description'
+    },
     hoverCard(e) {
-      if (e.srcElement.className == "peek-container") {
+      if (e.srcElement.className == "peek-container visible" || e.srcElement.className == "peek-container") {
         this.currentHoverCard = e.srcElement
       } else if (e.srcElement.className == "peek-image"){
         this.currentHoverCard = e.srcElement.parentNode.parentNode
       }
 
-      this.currentHoverCardTitle = this.currentHoverCard.children[1]
-      this.currentHoverCardLogo = this.currentHoverCard.children[2]
-      this.currentHoverCardDate = this.currentHoverCard.children[3]
+      this.currentHoverCardTitle = this.currentHoverCard.getElementsByClassName('peek-container-name')
+      this.currentHoverCardLogo = this.currentHoverCard.getElementsByClassName('peek-logo-container')
+      this.currentHoverCardDate = this.currentHoverCard.getElementsByClassName('peek-date')
 
       Tweenmax.to(this.currentHoverCardTitle, 0.2, {
         left: "10px",
@@ -259,17 +292,26 @@ export default Vue.extend({
         } else {
           this.fadeOutCards.restart()
         }
+        this.changeContentType = e.srcElement.id
         let filtersEls = document.getElementsByClassName('filter-name')
         for (var i = 0; i < filtersEls.length; i++) {
           filtersEls[i].className = "filter-name"
         }
         e.srcElement.className = "filter-name current"
-      } else {
+        this.isMyPeek = this.changeContentType == 'filter-my-peek' ? true : false
+      }
+    },
+    changeContent(contentType) {
+      if (contentType == 'filter-my-peek') {
+        this.peeks_obj = Content.myPeeks
+      } else if (contentType == 'filter-most-peeked') {
+        this.peeks_obj = Content.mostPeeked[0].pieces
+      } else if (contentType == 'filter-all-pieces') {
+        this.peeks_obj = Content.allPieces
       }
     },
     onPeekClick(e){
       let prevEl = e.srcElement.nextSibling.nextElementSibling
-      // console.log(e.srcElement);
       if (prevEl.innerHTML == "dépeeker") {
         e.srcElement.className = "peek-logo unpeeked"
         prevEl.innerHTML = "peeker"
@@ -285,13 +327,19 @@ export default Vue.extend({
     onScrollBeforeThird() {
       Tweenmax.to(this.$refs.bgPeekTypo, 0.3, {
         opacity: 0.5,
-        ease:Power1.easeInOut
+        ease:Power1.easeInOut,
+        onComplete: ()=> {
+          this.isScrollAfterThirdCard = false
+        }
       })
     },
     onScrollAfterThird() {
       Tweenmax.to(this.$refs.bgPeekTypo, 0.3, {
         opacity: 0,
-        ease:Power1.easeInOut
+        ease:Power1.easeInOut,
+        onComplete: ()=> {
+          this.isScrollAfterThirdCard = true
+        }
       })
     }
   },

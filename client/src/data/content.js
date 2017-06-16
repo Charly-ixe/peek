@@ -30,9 +30,10 @@ export default {
       title: "Retrouvez votre exposition personnelle"
     }
   ],
-  pieces : [
+  myPeeks : [
     {
       index: 0,
+      contentType: "piece",
       name: "La nuit d'enfer",
       date: "2008",
       type: "Bande dessinée",
@@ -60,6 +61,7 @@ export default {
     },
     {
       index: 1,
+      contentType: "piece",
       name: "Raw magazine",
       date: "1985",
       type: "Couverture",
@@ -86,6 +88,7 @@ export default {
     },
     {
       index: 2,
+      contentType: "piece",
       name: "Portrait de l’artiste en jeune",
       date: "1978",
       type: "Bande dessinée",
@@ -112,6 +115,7 @@ export default {
     },
     {
       index: 3,
+      contentType: "piece",
       name: "Breakdowns",
       date: "1978",
       type: "Bande dessinée",
@@ -138,6 +142,7 @@ export default {
     },
     {
       index: 4,
+      contentType: "piece",
       name: "Breakdown",
       date: "1991",
       type: "Bande dessinée",
@@ -164,6 +169,7 @@ export default {
     },
     {
       index: 5,
+      contentType: "piece",
       name: "Une du New Yorker",
       date: "1993",
       type: "Couverture",
@@ -190,6 +196,7 @@ export default {
     },
     {
       index: 6,
+      contentType: "piece",
       name: "Une du New Yorker",
       date: "1998",
       type: "Couverture",
@@ -217,6 +224,7 @@ export default {
     {
       index: 7,
       name: "Une du New Yorker",
+      contentType: "piece",
       date: "2001",
       type: "Couverture",
       peeked: true,
@@ -243,6 +251,7 @@ export default {
     {
       index: 8,
       name: "Maus",
+      contentType: "piece",
       date: "1976",
       type: "Bande dessinée",
       peeked: true,
@@ -269,6 +278,7 @@ export default {
     {
       index: 9,
       name: "Lune de miel",
+      contentType: "piece",
       date: "1991",
       type: "Bande dessinée",
       peeked: true,
@@ -295,6 +305,7 @@ export default {
     {
       index: 10,
       name: "La corde se resserre",
+      contentType: "piece",
       date: "1991",
       type: "Bande dessinée",
       peeked: true,
@@ -321,6 +332,7 @@ export default {
     {
       index: 11,
       name: "Trous de souris",
+      contentType: "piece",
       date: "1991",
       type: "Bande dessinée",
       peeked: true,
@@ -347,6 +359,7 @@ export default {
     {
       index: 12,
       name: "Mauschwitz",
+      contentType: "piece",
       date: "1991",
       peeked: true,
       cover_url: [ "/images/pieces/Mauschwitz-p11.jpg", "/images/pieces/Auschwitz-p41.jpg" ],
@@ -380,6 +393,7 @@ export default {
     {
       index: 13,
       name: "Auschwitz",
+      contentType: "piece",
       date: "1991",
       peeked: true,
       cover_url: [ "/images/pieces/Auschwitz-p41.jpg", "/images/pieces/Auschwitz-p41.jpg" ],
@@ -410,5 +424,116 @@ export default {
         }
       ]
     },
+  ],
+  mostPeeked: [
+    {
+      pieces: [
+        {
+          contentType: "piece",
+          name: "Une du New Yorker",
+          date: "1993",
+          type: "Couverture",
+          peeked: true,
+          cover_url: [ "/images/pieces/06-NewYorker.jpg" ]
+        },
+        {
+          contentType: "piece",
+          name: "Auschwitz",
+          date: "1991",
+          peeked: true,
+          cover_url: [ "/images/pieces/Auschwitz-p41.jpg", "/images/pieces/Auschwitz-p41.jpg" ]
+        },
+        {
+          contentType: "piece",
+          name: "Une du New Yorker",
+          date: "1998",
+          type: "Couverture",
+          peeked: true,
+          cover_url: [ "/images/pieces/07-NewYorker.jpeg" ]
+        },
+        {
+          contentType: "piece",
+          name: "Mauschwitz",
+          date: "1991",
+          peeked: true,
+          cover_url: [ "/images/pieces/Mauschwitz-p11.jpg", "/images/pieces/Auschwitz-p41.jpg" ],
+        },
+        {
+          contentType: "piece",
+          name: "Trous de souris",
+          date: "1991",
+          type: "Bande dessinée",
+          peeked: true,
+          cover_url: [ "/images/pieces/12-maus-trousde-souris.jpg" ]
+        }
+      ]
+    }
+  ],
+  allPieces: [
+    {
+      contentType: "description",
+      title: "Underground",
+      text: "Spiegelman trouve véritablement sa voie dans la bande dessinée underground au début des années 1970 à travers les récits qu'il publie dans les revues Short Order Comix ou Arcade, dont il est également le coéditeur. Nombre de ses histoires novatrices seront réunies dans Breakdowns, un grand album cartonné paru en 1977. Le titre fait référence à la fois à la dépression nerveuse et au découpage de la planche qu'effectue le dessinateur de bande dessinée au préalable."
+    },
+    {
+      contentType: "piece",
+      name: "Autoportrait",
+      date: "1974",
+      cover_url: [ "/images/all-pieces/01-Underground/01-Underground.jpeg" ]
+    },
+    {
+      contentType: "piece",
+      name: "Comics Joe Sacco",
+      date: "1971",
+      cover_url: [ "/images/all-pieces/01-Underground/03-Comics-Joe-Sacco-1971.JPG" ]
+    },
+    {
+      contentType: "piece",
+      name: "Breakdowns",
+      date: "1978",
+      cover_url: [ "/images/all-pieces/01-Underground/04-Breakdowns-1978.jpg" ]
+    },
+    {
+      contentType: "piece",
+      name: "Breakdowns",
+      date: "1978",
+      cover_url: [ "/images/all-pieces/01-Underground/05-Breakdowns-1978.jpg" ]
+    },
+    {
+      contentType: "piece",
+      name: "Breakdowns",
+      date: "1978",
+      cover_url: [ "/images/all-pieces/01-Underground/06-Breakdowns-portrait-jeune/03-Couverture-de-Breakdowns-1978.jpg" ]
+    },
+    {
+      contentType: "piece",
+      name: "Breakdowns",
+      date: "1978",
+      cover_url: [ "/images/all-pieces/01-Underground/07-Breakdowns-1979.png" ]
+    },
+    {
+      contentType: "piece",
+      name: "Co Mix",
+      date: "1980",
+      cover_url: [ "/images/all-pieces/01-Underground/08-co-mix-1980.jpg" ]
+    },
+    {
+      contentType: "piece",
+      name: "A day in the circuit",
+      date: "1982",
+      cover_url: [ "/images/all-pieces/01-Underground/09-A-Day-at-the-Circuits--1982.jpeg" ]
+    },
+    {
+      contentType: "piece",
+      name: "Popup",
+      date: "1982",
+      cover_url: [ "/images/all-pieces/01-Underground/10-popup-1982.png" ]
+    },
+    {
+      contentType: "piece",
+      name: "Short order comix",
+      date: "1983",
+      cover_url: [ "/images/all-pieces/01-Underground/11-Short-order-comix-1983.jpeg" ]
+    }
   ]
 }

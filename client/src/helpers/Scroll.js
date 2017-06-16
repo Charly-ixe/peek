@@ -4,7 +4,8 @@ import {
   SCROLL_STARTED_ALL_EXP,
   SCROLL_ZERO_ALL_EXP,
   SCROLL_AFTER_THIRD_CARD,
-  SCROLL_BEFORE_THIRD_CARD
+  SCROLL_BEFORE_THIRD_CARD,
+  GO_TO_POS_ZERO_SCROLL
 } from 'config/messages'
 
 import Tweenmax from 'gsap'
@@ -34,6 +35,12 @@ class Parallax extends Smooth {
 
         ['getCache', 'inViewport']
         .forEach((fn) => this[fn] = this[fn].bind(this))
+
+        Emitter.on('GO_TO_POS_ZERO_SCROLL', ()=> {
+          // setTimeout(()=>{
+            this.vars.target = 0
+          // }, 300)
+        })
     }
 
     resize() {

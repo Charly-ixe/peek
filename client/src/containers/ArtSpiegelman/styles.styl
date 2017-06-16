@@ -152,11 +152,15 @@ body
             float right
             margin-left 8px
 
+    .peek-container.visible
+      opacity 1
+      transition $transition-ui
     .peek-container
       opacity 0
       display inline-block
       position relative
       padding 0 60px
+      transition $transition-ui
       .peek-image-mask
         position relative
         top 0
@@ -242,6 +246,31 @@ body
         color $color-grey-light
         font-size 1.3em
         transition $transition-ui
+
+      .pieces-description-container
+        display inline-block
+        width 400px
+        height 350px
+        background-color white
+        color black
+        padding 40px 30px
+        .piece-description-title
+          font-family "Berlingske"
+          font-size 3em
+        .piece-description-separator
+          width 60px
+          height 2px
+          background-color $color-yellow-peek
+          margin-left -12px
+          margin-top 5px
+        .piece-description-txt
+          width 300px
+          white-space pre-line
+          line-height 20px
+          display inline-block
+          margin-top 5px
+          font-family "PT Sans"
+          font-size 1.5em
     // [class^='peek-container']:hover
     //   .peek-container-name
     //     opacity 1
@@ -285,9 +314,10 @@ body
       margin-top 50px
 
     .nav-indicator-icon
-      background url('/images/icons/icon-scroll.svg')
-      width 22px
-      height 59px
+      background url('/images/icons/scroll-5.gif')
+      width 10px
+      height 50px
+      transform scale(0.8)
       margin 20px auto 0 auto
 
   &__overlay-menu
