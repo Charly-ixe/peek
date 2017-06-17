@@ -57,6 +57,7 @@ export default Vue.extend({
 
   mounted () {
     window.addEventListener('mouseup', this.handleFirstUserAction)
+    window.addEventListener('keyup', this.onKeyDown)
     this.createTls()
   },
 
@@ -91,6 +92,11 @@ export default Vue.extend({
           this.$refs.overlay.style.display = "none"
         }
       })
+    },
+    onKeyDown() {
+      if (this.validateEmail(this.$refs.formEmail.value)) {
+        console.log("email validé");
+      }
     }
 
   },

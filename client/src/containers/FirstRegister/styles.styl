@@ -65,6 +65,12 @@
     .first-register__form
       center-xy()
       width 55%
+      &-welcome
+        text-transform uppercase
+        color $color-grey-button
+        font-size 12pt
+        font-family 'PT Sans'
+        font-weight bold
 
       &-title
         color $color-white
@@ -72,28 +78,70 @@
       &-text
         color $color-white
         margin-top 6vh
+        line-height 20px
 
       &-block
         margin-top 6vh
         position relative
         height 4.8rem
 
-        label
+        .first-register__form-input::-webkit-input-placeholder
           color $color-grey-light
           text-transform uppercase
-          font-size 1.2rem
-          font-weight bold
+          font-size 1.3rem
           position absolute
-          //transform translateY(10px)
+          letter-spacing 1px
+
+        .first-register__form-input::-moz-placeholder
+          color $color-grey-light
+          text-transform uppercase
+          font-size 1.3rem
+          position absolute
+          letter-spacing 1px
 
         .first-register__form-input
           position absolute
           bottom 0
           font-family PT Sans
           font-size 1.6rem
+        .first-register__form-check
+          background url('/images/icons/check-2.svg')
+          width 18px
+          height 14px
+          float right
+          margin-top 28px
+          display none
+        .first-register__form-check.display
+          display block
 
+      &-bracelet-txt
+        margin-top 40px
+        color $color-grey-light
+        text-transform uppercase
+        font-size 1.3rem
+        font-family 'PT Sans'
+        line-height 18px
+        letter-spacing 1px
+      &-bracelet-nb-container
+        text-align center
+        margin-top 20px
+        font-family 'PT Sans'
+        font-size 1.9rem
+        color $color-grey-light
+        width 100px
+        height 25px
+        border-bottom 1px solid $color-yellow-peek
+        .minus
+          float left
+        .number
+          color white
+          display inline-block
+        .plus
+          float right
 
       &-submit
-
         center-x()
         margin-top 4vh
+        font-family 'PT Sans'
+        letter-spacing 1px
+        font-weight bold

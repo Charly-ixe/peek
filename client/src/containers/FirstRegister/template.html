@@ -22,6 +22,7 @@
     </div>
 
     <form class="first-register__form">
+      <div class="first-register__form-welcome">bienvenue</div>
 
       <h1 class="first-register__form-title">Enregistrez-vous</h1>
 
@@ -29,10 +30,18 @@
 
       <div class="first-register__form-block">
 
-        <label for="email"><p>Adresse Email</p></label>
+        <!-- <label for="email"><p>Adresse Email</p></label> -->
 
-        <input class="first-register__form-input input" ref="formEmail" type="email" name="email" value="">
-
+        <input class="first-register__form-input input" placeholder="adresse email" ref="formEmail" type="email" name="email" value="">
+        <div class="first-register__form-check" ref="formCheck"></div>
+      </div>
+      <div class="first-register__form-bracelet-txt">
+        nombre de bracelets à associer </br> à ce mail
+      </div>
+      <div class="first-register__form-bracelet-nb-container">
+        <div class="minus">-</div>
+        <div class="number">1</div>
+        <div class="plus">+</div>
       </div>
 
       <div @click="saveEmail" class="first-register__form-submit cta-button">Valider</div>
