@@ -8,6 +8,8 @@ import feathers from 'feathers/client'
 import socketio from 'feathers-socketio/client'
 import io from 'socket.io-client'
 
+
+
 import Tweenmax from 'gsap'
 
 import content from 'data/content'
@@ -19,6 +21,7 @@ const socket = io('http://localhost:3030')
 const app = feathers().configure(socketio(socket))
 // Get the message service that uses a websocket connection
 const firstRegisterService = app.service('firstRegisters')
+const getPeeksService = app.service('peeks')
 
 import Peeks from 'components/Peeks-gallery'
 
@@ -59,6 +62,19 @@ export default Vue.extend({
     window.addEventListener('mouseup', this.handleFirstUserAction)
     window.addEventListener('keyup', this.onKeyDown)
     this.createTls()
+    let _this = this
+
+    getPeeksService.on('created', function(message) {
+      console.log('Someone peek an artwork', message);
+      _this.$refs.videoCheck1.removeAttribute('loop');
+      _this.$refs.videoCheck1.addEventListener("ended", function() {
+        _this.$refs.videoCheck1.style.display = "none"
+        _this.$refs.videoCheck2.style.display = "block"
+        _this.$refs.videoCheck2.style.opacity = 1
+        _this.braceletActiveTl.play()
+        _this.$refs.videoCheck2.play()
+      }, true);
+    });
   },
 
   beforeDestroy () {
@@ -68,6 +84,7 @@ export default Vue.extend({
 
     createTls () {
       this.badgeAppearCheck = new TimelineMax({paused: true})
+      this.braceletActiveTl = new TimelineMax({paused: true})
       this.badgeAppearCheck
         .to(this.$refs.formWelcome, 0.5, {
           opacity: 0,
@@ -98,6 +115,11 @@ export default Vue.extend({
               opacity: 1,
               ease: Power1.easeInOut
             })
+            Tweenmax.to(this.$refs.videoCheck1, 0.5, {
+              opacity: 1,
+              ease:Power1.easeInOut
+            })
+            this.$refs.videoCheck1.play()
           },
           onReverseComplete:()=> {
             console.log("on reverse complete");
@@ -116,7 +138,6 @@ export default Vue.extend({
             })
           },
           onReverseComplete:()=> {
-            console.log("on reverse complete");
             this.$refs.formDescr.innerHTML = "Entrez votre adresse mail afin d'y associer votre bracelet. Nous vous enverrons un seul mail afin d'activer votre compte."
           }
         },"-=0.5")
@@ -125,6 +146,34 @@ export default Vue.extend({
           ease:Power1.easeInOut
         })
 
+        this.braceletActiveTl
+        .to(this.$refs.formTitle, 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut,
+          onComplete:()=> {
+            this.$refs.formTitle.innerHTML = "Bracelet activé"
+            Tweenmax.to(this.$refs.formTitle, 0.5, {
+              opacity: 1,
+              ease: Power1.easeInOut
+            })
+          }
+        })
+        .to(this.$refs.returnBtn, 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut,
+        },"-=0.5")
+        .to(this.$refs.formDescr, 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut,
+          onComplete:()=> {
+            this.$refs.formDescr.innerHTML = "Votre bracelet a bien été activé, vous pouvez commencer la visite de l'exposition.</br> Bonne visite !"
+            Tweenmax.to(this.$refs.formDescr, 0.5, {
+              opacity: 1,
+              ease: Power1.easeInOut
+            })
+          }
+        },"-=0.5")
+
     },
     saveEmail () {
       this.email = this.$refs.formEmail.value
@@ -132,6 +181,7 @@ export default Vue.extend({
         //send email
         // firstRegisterService.create({ user_email: email });
         this.$refs.formEmail.value = ""
+        this.$refs.videoCheck1.style.display = "block"
         this.badgeAppearCheck.play()
       }
     },
