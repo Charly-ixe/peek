@@ -96,6 +96,9 @@ export default Vue.extend({
     onKeyDown() {
       if (this.validateEmail(this.$refs.formEmail.value)) {
         console.log("email validé");
+        this.$refs.formCheck.className = "first-register__form-check display"
+      } else {
+        this.$refs.formCheck.className = "first-register__form-check"
       }
     }
 
