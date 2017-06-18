@@ -14,6 +14,10 @@
   </div>
   <div class="first-register__wrapper">
 
+    <div class="first-register__return-arrow" ref="returnBtn" @click="onReturnClick">
+      <div class="arrow"></div>
+      <div class="arrow-txt">retour</div>
+    </div>
 
     <div class="first-register__logo">
 
@@ -22,29 +26,29 @@
     </div>
 
     <form class="first-register__form">
-      <div class="first-register__form-welcome">bienvenue</div>
+      <div class="first-register__form-welcome" ref="formWelcome">bienvenue</div>
 
-      <h1 class="first-register__form-title">Enregistrez-vous</h1>
+      <h1 class="first-register__form-title" ref="formTitle">Enregistrez-vous</h1>
 
-      <p class="first-register__form-text">Entrez votre adresse mail afin d'y associer votre bracelet. Nous vous enverrons un seul mail afin d'activer votre compte</p>
+      <p class="first-register__form-text" ref="formDescr">Entrez votre adresse mail afin d'y associer votre bracelet. Nous vous enverrons un seul mail afin d'activer votre compte</p>
 
-      <div class="first-register__form-block">
+      <div class="first-register__form-block" ref="formInput">
 
         <!-- <label for="email"><p>Adresse Email</p></label> -->
 
         <input class="first-register__form-input input" placeholder="adresse email" ref="formEmail" type="email" name="email" value="">
         <div class="first-register__form-check" ref="formCheck"></div>
       </div>
-      <div class="first-register__form-bracelet-txt">
+      <div class="first-register__form-bracelet-txt" ref="formBraceletTxt">
         nombre de bracelets à associer </br> à ce mail
       </div>
-      <div class="first-register__form-bracelet-nb-container">
+      <div class="first-register__form-bracelet-nb-container" ref="formBraceletCont">
         <div class="minus">-</div>
         <div class="number">1</div>
         <div class="plus">+</div>
       </div>
 
-      <div @click="saveEmail" class="first-register__form-submit cta-button">Valider</div>
+      <div @click="saveEmail" class="first-register__form-submit cta-button" ref="formBtn">Valider</div>
 
     </form>
 

@@ -67,15 +67,76 @@ export default Vue.extend({
   methods: {
 
     createTls () {
-      this.enterTl = new TimelineMax({paused: true})
+      this.badgeAppearCheck = new TimelineMax({paused: true})
+      this.badgeAppearCheck
+        .to(this.$refs.formWelcome, 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut
+        })
+        .to(this.$refs.formInput, 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut
+        },"-=0.5")
+        .to(this.$refs.formBraceletTxt, 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut
+        },"-=0.5")
+        .to(this.$refs.formBraceletCont, 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut
+        },"-=0.5")
+        .to(this.$refs.formBtn, 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut
+        },"-=0.5")
+        .to(this.$refs.formTitle, 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut,
+          onComplete:()=> {
+            this.$refs.formTitle.innerHTML = "Badgez votre bracelet"
+            Tweenmax.to(this.$refs.formTitle, 0.5, {
+              opacity: 1,
+              ease: Power1.easeInOut
+            })
+          },
+          onReverseComplete:()=> {
+            console.log("on reverse complete");
+            this.$refs.formTitle.innerHTML = "Enregistrez vous"
+            this.$refs.formEmail.value = this.returnEmail()
+          }
+        },"-=0.5")
+        .to(this.$refs.formDescr, 0.5, {
+          opacity: 0,
+          ease:Power1.easeInOut,
+          onComplete:()=> {
+            this.$refs.formDescr.innerHTML = "Passez votre bracelet devant la borne à votre droite </br> et attendez le retour lumineux."
+            Tweenmax.to(this.$refs.formDescr, 0.5, {
+              opacity: 1,
+              ease: Power1.easeInOut
+            })
+          },
+          onReverseComplete:()=> {
+            console.log("on reverse complete");
+            this.$refs.formDescr.innerHTML = "Entrez votre adresse mail afin d'y associer votre bracelet. Nous vous enverrons un seul mail afin d'activer votre compte."
+          }
+        },"-=0.5")
+        .to(this.$refs.returnBtn, 0.5, {
+          opacity: 1,
+          ease:Power1.easeInOut
+        })
+
     },
     saveEmail () {
-      let email = this.$refs.formEmail.value
-      if ( email != "" && this.validateEmail(email)) {
+      this.email = this.$refs.formEmail.value
+      if ( this.email != "" && this.validateEmail(this.email)) {
         //send email
-        firstRegisterService.create({ user_email: email });
+        // firstRegisterService.create({ user_email: email });
         this.$refs.formEmail.value = ""
+        this.badgeAppearCheck.play()
       }
+    },
+    returnEmail() {
+      return this.email
     },
     validateEmail (email) {
       const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -100,6 +161,9 @@ export default Vue.extend({
       } else {
         this.$refs.formCheck.className = "first-register__form-check"
       }
+    },
+    onReturnClick() {
+      this.badgeAppearCheck.reverse()
     }
 
   },
