@@ -42,20 +42,82 @@ export default {
       content: [
         {
           title: "Le Zoomorphisme",
-          type: "Text",
           intro: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs.",
-          content: "Les souris, apparaissant déjà dans une œuvre préfigurant Maus, et font référence aux images de propagande nazies et au documentaire antisémite Le Juif éternel ; elles permettent également de traduire la haine antisémite des Nazis par la métaphore chat-souris (l’image du prisonnier juif d’Allemagne rendue tantôt par une souris et tantôt par un chat permet à l’auteur de jouer sur ces représentations et ce qu’elles évoquent au lecteur) et les Américains deviennent des chiens car ils chassèrent les Allemands, tout comme les chiens chassent les chats."
+          subdetails: [
+            {
+              type: "text",
+              content: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs."
+            },
+            {
+              type: "text",
+              content: "Les souris, apparaissant déjà dans une œuvre préfigurant Maus, et font référence aux images de propagande nazies et au documentaire antisémite Le Juif éternel ; elles permettent également de traduire la haine antisémite des Nazis par la métaphore chat-souris (l’image du prisonnier juif d’Allemagne rendue tantôt par une souris et tantôt par un chat permet à l’auteur de jouer sur ces représentations et ce qu’elles évoquent au lecteur) et les Américains deviennent des chiens car ils chassèrent les Allemands, tout comme les chiens chassent les chats."
+            },
+            {
+              type: "video",
+              url: "/videos/zoomorphisme-art-spieglman.mp4",
+              credits: "Arena - Art Spiegelman (BBC), 1987"
+            },
+            {
+              type: "quote",
+              content: "Mickey Mouse est l’idéal le plus lamentable qui ait jamais vu le jour {…} Finissons-en avec la tyrannie que les Juifs exercent sur le peuple ! À bas Mickey Mouse ! Portez la croix gammée.",
+              credits: "Article de journal, Poméranie, Allemagne, milieu des années 3O"
+            },
+            {
+              type: "link",
+              url: "",
+              name: "Le juif éternel"
+            },
+            {
+              type: "link",
+              url: "",
+              name: "Looney Tunes"
+            }
+          ]
         },
         {
           title: "Vladek Spiegelman",
           type: "Video",
           intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire.",
-          content: "C'est un homme extrêmement ordonné, intelligent, mais qui fait parfois preuve d'un manque de tolérance.  Au fur et à mesure du récit, on voit le jeune Polonais ambitieux de Czestochowa se transformer à cause de la guerre, la fuite et les camps de concentration en un vieil homme malade, acariâtre et avare."
+          subdetails: [
+            {
+              type: "text",
+              content: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
+            },
+            {
+              type: "text",
+              content: "C'est un homme extrêmement ordonné, intelligent, mais qui fait parfois preuve d'un manque de tolérance.  Au fur et à mesure du récit, on voit le jeune Polonais ambitieux de Czestochowa se transformer à cause de la guerre, la fuite et les camps de concentration en un vieil homme malade, acariâtre et avare."
+            },
+            {
+              type: "image",
+              url: "/images/vladek.png",
+              credits: "Vladek Spiegelman, page 34, Maus II"
+            }
+          ]
         },
         {
           title: "Le style graphique",
           type: "Audio",
-          intro: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère »."
+          intro: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère ».",
+          subdetails: [
+            {
+              type: "text",
+              content: "Spiegelman cherche une dessin…"
+            },
+            {
+              type: "quote",
+              content: "…qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère.",
+              credits: "Art Spiegelman"
+            },
+            {
+              type: "text",
+              content: "Dans  l’ensemble de  son  œuvre, dès  ses  premiers écrits,  Spiegelman s’est placé au centre de son écriture, en racontant des événements de sa vie ou en  partageant  des  expériences  vécues. Il est certain qu’en prenant sa propre  vie comme  matière  de  ses comics,  il expose  son  écriture,  pour  ne pas dire son  style, c’est-à-dire  la  place  singulière  qu’il  aurait pu  trouver à l’intérieur du «système  de  la  bande  dessinée», constituant  un  ensemble  de signes stabilisés. Il l’expose en ce sens qu’il la met en situation d’être sans cesse déstabilisée par les forces intérieures qu’il fait jaillir de lui-même et qui  risquent  de  l’invalider. La  question  de  son  propre  rapport  à  l’écriture  n’a  cessé  d’occuper  une place importante,  sinon même centrale,  au cœur de  son  œuvre.",
+            },
+            {
+              type: "audio",
+              url: "",
+              credits: "Interview d’Art Spiegelman, Traits de Mémoire 1998"
+            }
+          ]
         }
       ]
     },

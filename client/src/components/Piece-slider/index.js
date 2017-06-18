@@ -37,7 +37,7 @@ export default Vue.extend({
   },
 
   created () {
-    this.currentPiece = data.pieces[this.$route.params.id]
+    this.currentPiece = data.myPeeks[this.$route.params.id]
   },
 
   mounted () {

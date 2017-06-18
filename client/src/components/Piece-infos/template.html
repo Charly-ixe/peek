@@ -26,7 +26,7 @@
 
       <div class="infos-zone__title">
 
-        <h1 @click="goBackToCategories"> {{ currentPiece.name }} </h1>
+        <h1> {{ currentPiece.name }} </h1>
 
         <img src="/images/icon-peek-on.svg" alt="" v-if="peeked">
         <img src="/images/icon-peek-off.svg" alt="" v-else>
@@ -43,9 +43,11 @@
 
         <h4 @click="clickCategoryTitle(content, index)" class="infos-zone__content-title">{{ content.title }}</h4>
 
-        <div>
+        <div class="infos-zone__content-elements">
 
           <p>{{ content.intro }}</p>
+
+          <subdetails-component v-show="detailDisplayed"></subdetails-component>
 
         </div>
 
@@ -83,6 +85,6 @@
 
   </div>
 
-  <router-link to="/art-spiegelman"><button type="button" name="back_to_gallery" class="infos-zone__back back-button">Art Spiegelman</button></router-link>
+  <button type="button" name="back_to_gallery" class="infos-zone__back back-button" @click="backToArtSpi">Art Spiegelman</button>
 
 </div>

@@ -87,3 +87,29 @@ body
 
         .secondary-button
           color $color-white
+
+@media screen and (max-width: 640px)
+
+  #main-wrapper
+    overflow-y hidden
+
+    .home__intro-container
+      width 80vw
+      top 10vh
+      h1
+        font-size 3.6rem
+    .home__expos-container
+      top 15vh
+
+      .home__expos-scroll-container
+        padding-left 90vw
+
+        .home__expo-container
+          width 90vw
+          margin-right 10vw
+
+          .home__image-container
+            width 100%
+
+          &-text
+            width 100%
