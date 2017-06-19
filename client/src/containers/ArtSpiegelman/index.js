@@ -339,6 +339,21 @@ export default Vue.extend({
           this.isScrollAfterThirdCard = true
         }
       })
+    },
+    goPeeks() {
+      if (!this.filterClicFlag) {
+        this.fadeOutCards.play()
+        this.filterClicFlag = true
+      } else {
+        this.fadeOutCards.restart()
+      }
+      this.changeContentType = "filter-most-peeked"
+      let filtersEls = document.getElementsByClassName('filter-name')
+      for (var i = 0; i < filtersEls.length; i++) {
+        filtersEls[i].className = "filter-name"
+      }
+      this.$refs.filterMostPeeked.className = "filter-name current"
+      this.bgTitle = "Les + peekés"
     }
   },
 
