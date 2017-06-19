@@ -2,15 +2,21 @@ export default {
   tuto_sub_steps : [
     {
       index: 0,
-      image: "/images/tuto_step1.svg",
+      image: "/videos/AI-Tuto-03-expo_2_1.mp4",
       title: "Retrouvez votre exposition personnelle",
       subtitle: "Soit l'ensemble des œuvres que vous avez peekées lors de votre visite"
     },
     {
-      index: 1,
-      image: "/images/tuto_step2.svg",
-      title: "Découvrez du contenu supplémentaire sur les œuvres",
-      subtitle: "Contexte, anecdotes ou encore des œuvres relatives"
+      index: 2,
+      image: "/videos/AI-Tuto-06-detail_2.mp4",
+      title: "Apprenez en plus sur les œuvres",
+      subtitle: "Grâce aux anecdotes et autres contenus intéractifs"
+    },
+    {
+      index: 3,
+      image: "/videos/AI-Tuto-07-toutes-expo.mp4",
+      title: "(Re)découvrez les expos de la BPI passées",
+      subtitle: "Et venez jeter un coup d'oeil à l'exposition en cours"
     }
   ],
   tuto_first_reg_steps : [

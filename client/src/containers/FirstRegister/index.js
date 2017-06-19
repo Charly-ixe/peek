@@ -65,15 +65,8 @@ export default Vue.extend({
     let _this = this
 
     getPeeksService.on('created', function(message) {
-      console.log('Someone peek an artwork', message);
-      _this.$refs.videoCheck1.removeAttribute('loop');
-      _this.$refs.videoCheck1.addEventListener("ended", function() {
-        _this.$refs.videoCheck1.style.display = "none"
-        _this.$refs.videoCheck2.style.display = "block"
-        _this.$refs.videoCheck2.style.opacity = 1
-        _this.braceletActiveTl.play()
-        _this.$refs.videoCheck2.play()
-      }, true);
+      console.log('Bracelet validé', message);
+      _this.validateBracelet()
     });
   },
 
@@ -122,7 +115,6 @@ export default Vue.extend({
             this.$refs.videoCheck1.play()
           },
           onReverseComplete:()=> {
-            console.log("on reverse complete");
             this.$refs.formTitle.innerHTML = "Enregistrez vous"
             this.$refs.formEmail.value = this.returnEmail()
           }
@@ -182,6 +174,7 @@ export default Vue.extend({
         firstRegisterService.create({ user_email: this.email });
         this.$refs.formEmail.value = ""
         this.$refs.videoCheck1.style.display = "block"
+        this.$refs.videoCheck1.addEventListener('click', this.validateBracelet)
         this.badgeAppearCheck.play()
       }
     },
@@ -214,6 +207,20 @@ export default Vue.extend({
     },
     onReturnClick() {
       this.badgeAppearCheck.reverse()
+    },
+    validateBracelet() {
+      let _this = this
+      this.$refs.videoCheck1.removeAttribute('loop');
+      this.$refs.videoCheck1.addEventListener("ended", function() {
+        _this.$refs.videoCheck1.style.display = "none"
+        _this.$refs.videoCheck2.style.display = "block"
+        _this.$refs.videoCheck2.style.opacity = 1
+        setTimeout(function() {
+          _this.$refs.videoCheck2.pause();
+        }, 800);
+        _this.braceletActiveTl.play()
+        _this.$refs.videoCheck2.play()
+      }, true);
     }
 
   },

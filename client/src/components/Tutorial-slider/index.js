@@ -2,7 +2,8 @@ import EventManagerMixin from 'mixins/EventManagerMixin'
 import scope from 'utils/generic/scope'
 
 import {
-  WINDOW_RESIZE
+  WINDOW_RESIZE,
+  NEXT_STEP_TUTO_SUB
 } from 'config/messages'
 
 import content from 'data/content';
@@ -20,6 +21,10 @@ export default Vue.extend({
   emitterEvents: [{
     message: WINDOW_RESIZE,
     method: 'onWindowResize'
+  },
+  {
+    message: NEXT_STEP_TUTO_SUB,
+    method: 'nextStep'
   }],
 
   data () {
@@ -31,14 +36,13 @@ export default Vue.extend({
   },
 
   created () {
-    setInterval(this.nextStep, 4000)
   },
 
   mounted () {
     this.slides = this.$children
     this.slides.forEach((slide, i) => {
       slide.index = i
-      slide.image = content.tuto_sub_steps[i].image
+      slide.video = content.tuto_sub_steps[i].image
       slide.title = content.tuto_sub_steps[i].title
       slide.subtitle = content.tuto_sub_steps[i].subtitle
     })
@@ -66,6 +70,7 @@ export default Vue.extend({
       if(this.index > this.slidesCount - 1) {
         this.index = 0
       }
+      this.$children[this.index].playVideoAtIndex(this.index)
     },
 
     onWindowResize ({width, height}) {
