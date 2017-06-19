@@ -24,7 +24,7 @@
       transform scale(0.5, 1)
 
 
-  img
+  img, video
     center-xy()
     height 80%
     transition all 0.4s ease-out
@@ -35,6 +35,18 @@
     &.half
       transform translate3d(-25%, -50%, 0)
 
+  &__video-button
+    position absolute
+    center-x()
+    bottom 4vh
+    width: 30px
+    height 30px
+    border-radius 50%
+    background-image url('/images/icons/icon-lecture-video-morphisme.svg')
+    background-size cover
+    background-repeat no-repeat
+    background-position center
+    cursor pointer
 
   &__fullscreen-button
     position fixed

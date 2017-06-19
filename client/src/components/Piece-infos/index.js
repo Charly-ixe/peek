@@ -107,12 +107,20 @@ export default Vue.extend({
         let navNewHeight = this.categories[this.categories.length - 1].getBoundingClientRect().bottom
         let navbar = document.querySelector(".infos-zone__navbar")
         // navbar.style.height = navNewHeight - 110 + 'px'
+        if(this.detailDisplayed) {
+          this.detailDisplayed = false
+        }
+        else {
+          this.detailDisplayed = true
+        }
+        console.log(categoryElts[1].children[1].children);
 
         let displayContent = new TimelineMax({delay: 0.4})
         displayContent
 
           .fromTo(categoryElts[0], 0.3, {opacity: 0, y: -5}, {opacity: 1, y: 0, ease: Expo.easeOut})
-          .fromTo(categoryElts[1], 0.3, {opacity: 0, y: -10}, {opacity: 1, y: 0, ease: Expo.easeOut}, 0.3)
+          .fromTo(categoryElts[1].children[0], 0.3, {opacity: 0, y: -5}, {opacity: 1, y: 0, ease: Expo.easeOut}, 0.2)
+          .staggerFromTo(categoryElts[1].children[1].children, 0.3, {opacity: 0, y: -10}, {opacity: 1, y: 0, ease: Expo.easeOut}, 0.2)
       }})
 
       for(let i = 0; i < this.navItems.length; i++) {
@@ -135,18 +143,11 @@ export default Vue.extend({
       }
 
       Emitter.emit(DETAIL_CLICK)
-      this.$el.classList.add('open')
-
-      if(this.detailDisplayed) {
-        this.detailDisplayed = false
-      }
-      else {
-        this.detailDisplayed = true
-      }
+      this.$el.classList.toggle('open')
 
       openTl
         .fromTo(categoryElts[0], 0.3, {opacity: 1, y: 0}, {opacity: 0, y: -20, ease: Expo.easeOut})
-        .fromTo(categoryElts[1], 0.3, {opacity: 1, y: 0}, {opacity: 0, y: -10, ease: Expo.easeOut}, 0.3)
+        .fromTo(categoryElts[1].children[0], 0.3, {opacity: 1, y: 0}, {opacity: 0, y: -10, ease: Expo.easeOut}, 0.3)
         .fromTo(categoryElts[2], 0.3, {opacity: 1, y: 0}, {opacity: 0, y: 10, ease: Expo.easeOut}, 0)
 
     },

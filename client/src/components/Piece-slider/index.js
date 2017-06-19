@@ -32,12 +32,14 @@ export default Vue.extend({
   data () {
     return {
       fullScreen: false,
-      currentPiece: {}
+      currentPiece: {},
+      coverType: null
     }
   },
 
   created () {
     this.currentPiece = data.myPeeks[this.$route.params.id]
+    this.coverType = this.currentPiece.cover_type
   },
 
   mounted () {
@@ -49,11 +51,17 @@ export default Vue.extend({
   methods: {
 
     createTls () {
+
     },
 
     handleFullScreen() {
       this.$refs.overlay.classList.toggle("full")
-      this.$refs.pieceimg.classList.toggle("full")
+      if(this.coverType == "image") {
+        this.$refs.pieceimg.classList.toggle("full")
+      }
+      else if(this.coverType == "video") {
+        this.$refs.piecevid.classList.toggle("full")
+      }
       document.body.classList.toggle("auto")
       if(this.fullScreen) {
         this.fullScreen = false
@@ -64,9 +72,18 @@ export default Vue.extend({
     },
 
     adaptSlider() {
-      this.$refs.overlay.classList.add("half")
-      this.$refs.pieceimg.classList.add("half")
+      this.$refs.overlay.classList.toggle("half")
+      if(this.coverType == "image") {
+        this.$refs.pieceimg.classList.toggle("half")
+      }
+      else if(this.coverType == "video") {
+        this.$refs.piecevid.classList.toggle("half")
+      }
 
+    },
+
+    playMorphing() {
+      this.$refs.piecevid.play()
     },
 
     onWindowResize ({width, height}) {

@@ -38,6 +38,7 @@ export default {
       date: "2008",
       type: "Bande dessinée",
       peeked: true,
+      cover_type: "image",
       cover_url: [ "/images/pieces/01-Comics-Spiegelman-Joe-Sacco.jpg" ],
       content: [
         {
@@ -128,23 +129,55 @@ export default {
       date: "1985",
       type: "Couverture",
       peeked: true,
-      cover_url: [ "/images/pieces/02-Raw-couverture.jpg" ],
+      cover_type: "video",
+      cover_url: [ "/images/pieces/02-Raw-couverture.jpg"],
+      video_url: "/videos/morphing-raw.mp4",
+      poster: "/images/all-pieces/03-Raw/04-Raw-cover--1986/raw-cover.jpg",
       content: [
         {
-          title: "Le Zoomorphisme",
+          title: "La creation de Raw",
           type: "Text",
-          intro: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs.",
-          content: "Les souris, apparaissant déjà dans une œuvre préfigurant Maus, et font référence aux images de propagande nazies et au documentaire antisémite Le Juif éternel ; elles permettent également de traduire la haine antisémite des Nazis par la métaphore chat-souris (l’image du prisonnier juif d’Allemagne rendue tantôt par une souris et tantôt par un chat permet à l’auteur de jouer sur ces représentations et ce qu’elles évoquent au lecteur) et les Américains deviennent des chiens car ils chassèrent les Allemands, tout comme les chiens chassent les chats."
+          intro: "RAW est une revue américaine de bande dessinée dirigée par Art Spiegelman et Françoise Mouly et publiée en deux séries de 1980 à 1991.",
+          subdetails: [
+            {
+              type: "text",
+              content:"RAW est une revue américaine de bande dessinée dirigée par Art Spiegelman et Françoise Mouly et publiée en deux séries de 1980 à 1991."
+            },
+            {
+              type: "text",
+              content:"Aux États-Unis, ce fut une publication emblématique de la bande-dessinée d'avant-garde, contre-point plus intellectuel à Weirdo, la revue de Robert Crumb, et le lieu principal de publication de la production européenne de l'époque. Sa très grande qualité, saluée dès l'époque est aujourd'hui encore unanimement reconnue."
+            },
+          ]
         },
         {
-          title: "Vladek Spiegelman",
+          title: "Sa collaboration avec Françoise Mouly",
           type: "Video",
-          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
+          intro: "Avec Françoise Mouly, actuelle directrice artistique du New Yorker, Art Spiegelman a créé la formidable revue RAW où Maus a été prépublié",
+          subdetails: [
+            {
+              type: "text",
+              content: "Avec Françoise Mouly, actuelle directrice artistique du New Yorker, Art Spiegelman a créé la formidable revue RAW où Maus a été prépublié. Publiés de 1980 à 1991, Raw a marqué l’histoire de la bande dessinée contemporaine par son exigence, son avant-gardisme et son habileté à mélanger bande dessinée, illustration et graphisme, réunissant les auteurs venus de tous pays."
+            }
+          ]
         },
         {
-          title: "Le style graphique",
+          title: "Le comic pour adultes",
           type: "Audio",
-          intro: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère »."
+          intro: "Spiegelman a souvent expliqué le cheminement qui l'a conduit à lancer le magazine avec Mouly : après la disparition de Arcade, l'anthologie des comics underground qu'il éditait avec Bill Griffith et l'affaiblissement de la scène underground, il craignait la disparition pure et simple des comics pour adultes.",
+          subdetails: [
+            {
+              type: "text",
+              content: "Spiegelman a souvent expliqué le cheminement qui l'a conduit à lancer le magazine avec Mouly : après la disparition de Arcade, l'anthologie des comics underground qu'il éditait avec Bill Griffith et l'affaiblissement de la scène underground, il craignait la disparition pure et simple des comics pour adultes."
+            },
+            {
+              type: "text",
+              content: "Il s'était juré qu'il ne recommencerait pas l'aventure de publier ses pairs, à cause des tensions et des jalousies que cela avait occasionnées mais Mouly voulait justement tenter ce genre d'aventures : elle avait lancé sa petite maison d'édition Raw Books & Graphics en 1978 et pensait qu'un magazine mettant en valeur ses goûts littéraires et graphiques serait un medium plus efficace car, à cette époque, des magazines graphiques de grand format, Punk et New-Wave, comme Wet, étaient distribués par les libraires indépendants. Elle installa une presse dans leur loft du quatrième étage et s'essaya aux techniques d'impression."
+            },
+            {
+              type: "text",
+              content: "Mouly et Spiegelman choisirent l'appellation « graphix magazine » pour RAW, en espérant que cette approche nouvelle écarterait les préventions des lecteurs à propos des comics et les amènerait à s'intéresser aux travaux présentés avec un œil neuf."
+            }
+          ]
         }
       ]
     },
