@@ -6,6 +6,7 @@ import States from 'core/States'
 import Router from 'core/Router'
 import Scroll from 'helpers/Scroll'
 import Emitter from 'helpers/Emitter'
+import Detect from 'helpers/Detect'
 
 import {throttle} from 'lodash'
 
@@ -57,7 +58,8 @@ export default Vue.extend({
       currentHoverCardTitle: {},
       currentHoverCardLogo: {},
       currentHoverCardDate: {},
-      isMyPeek: true
+      isMyPeek: true,
+      isMobile: false
     }
   },
 
@@ -76,26 +78,37 @@ export default Vue.extend({
   mounted () {
     this.filterClicFlag = false
     this.bgPeekTypo = this.$refs.bgPeekTypo
-    for (let i = 0; i < 5; i++) {
-      if (this.$refs.peekContainer[i].children !== 'pieces-description-container') {
-        this.firstAnimatedPeeks.push(this.$refs.peekContainer[i])
+    if (Detect.isDesktop) {
+      for (let i = 0; i < 5; i++) {
+        if (this.$refs.peekContainer[i].children !== 'pieces-description-container') {
+          this.firstAnimatedPeeks.push(this.$refs.peekContainer[i])
+        }
       }
-    }
-    this.createTls()
-
-    this.scroll = new Scroll({
+      this.scroll = new Scroll({
         preload: false,
         native: false,
         direction: 'horizontal',
         section: document.querySelector('.expo__peeks-scroll-container'),
         divs: document.querySelectorAll('.peek-container')
       })
+    } else {
+      this.isMobile = true
+      this.peeks_obj = Content.mostPeeked[0].pieces
+      for (let i = 0; i < 5; i++) {
+        this.firstAnimatedPeeks.push(this.$refs.peekContainer[i])
+      }
+    }
+    this.createTls()
 
     this.hasSeenWelcome = localStorage.getItem("has-seen-welcome")
 
     if (this.hasSeenWelcome !== null) {
       this.$refs.overlay.style.display = "none"
-      this.enterTl.play()
+      if (Detect.isdesktop) {
+        this.enterTl.play()
+      } else {
+        this.enterMobileTl.play()
+      }
     } else {
       window.addEventListener('mousewheel', throttle(this.handleFirstUserAction, 1200, {'trailing': false}))
       window.addEventListener('mouseup', this.handleFirstUserAction)
@@ -109,6 +122,7 @@ export default Vue.extend({
   methods: {
     createTls () {
       this.enterTl = new TimelineMax({paused: true})
+      this.enterMobileTl = new TimelineMax({paused: true})
       this.fadeOutCards = new TimelineMax({paused: true})
       this.hoverCardTl = new TimelineMax({paused: true})
 
@@ -146,7 +160,9 @@ export default Vue.extend({
           left: "-15px",
           ease:Power1.easeInOut,
           onComplete: ()=> {
-            this.scroll.init()
+            if (Detect.isDesktop) {
+              this.scroll.init()
+            }
             for (let i = 4; i < this.$refs.peekContainer.length; i++) {
               this.$refs.peekContainer[i].className = "peek-container visible"
             }
@@ -155,6 +171,22 @@ export default Vue.extend({
             }
           }
         }),"-=0.3")
+
+        this.enterMobileTl
+          .add(Tweenmax.to(this.firstAnimatedPeeks[0], 0.7, {
+            opacity: 1,
+            ease:Power1.easeInOut
+          }))
+          .add(Tweenmax.to(this.firstAnimatedPeeks[1], 0.7, {
+            opacity: 1,
+            ease:Power1.easeInOut,
+            onComplete: ()=> {
+              for (let i = 2; i < this.$refs.peekContainer.length; i++) {
+                this.$refs.peekContainer[i].className = "peek-container visible"
+              }
+            }
+          }),"-=0.5")
+
 
         this.fadeOutCards
         .addCallback(()=>{

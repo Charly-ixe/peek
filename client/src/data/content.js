@@ -532,6 +532,8 @@ export default {
       pieces: [
         {
           contentType: "piece",
+          number: 587,
+          descr: "personnes ont peeké cette oeuvre",
           name: "Une du New Yorker",
           date: "1993",
           type: "Couverture",
@@ -540,6 +542,8 @@ export default {
         },
         {
           contentType: "piece",
+          descr: "des visiteurs ont aimé cette oeuvre",
+          number: "60%",
           name: "Auschwitz",
           date: "1991",
           peeked: true,
@@ -547,6 +551,8 @@ export default {
         },
         {
           contentType: "piece",
+          descr: "peeks récoltés par cette oeuvre",
+          number: 273,
           name: "Une du New Yorker",
           date: "1998",
           type: "Couverture",
@@ -555,6 +561,8 @@ export default {
         },
         {
           contentType: "piece",
+          descr: "des peekers ont peeké cette oeuvre",
+          number: "46%",
           name: "Mauschwitz",
           date: "1991",
           peeked: true,
@@ -562,6 +570,18 @@ export default {
         },
         {
           contentType: "piece",
+          descr: "des visiteurs ont peeké cette oeuvre",
+          number: "30%",
+          name: "Trous de souris",
+          date: "1991",
+          type: "Bande dessinée",
+          peeked: true,
+          cover_url: [ "/images/pieces/12-maus-trousde-souris.jpg" ]
+        },
+        {
+          contentType: "piece",
+          descr: "personnes ont peeké cette oeuvre",
+          number: 107,
           name: "Trous de souris",
           date: "1991",
           type: "Bande dessinée",

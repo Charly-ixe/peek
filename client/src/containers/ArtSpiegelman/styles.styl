@@ -25,6 +25,8 @@ body
       letter-spacing 3px
       font-size 15px
       color $color-grey-light
+    .eye-title
+      display none
 
   &__menu-button
     position fixed
@@ -384,3 +386,99 @@ body
       background-position -360px
     to
       background-position 30px
+body.device-mobile
+  .expo
+    white-space inherit
+    overflow-y inherit
+    overflow-x hidden
+    .fixed-navigation
+      position relative
+      .fixed-navigation__logo
+        center-x()
+    .menu
+      position relative
+      margin-top -80px
+      &__button
+        position absolute
+    &__titles
+      h2
+        display none
+      h1
+        font-size 3.5em
+        margin-top 60px
+        margin-left -30px
+      .eye-title
+        display block
+        color $color-yellow-peek
+        text-transform uppercase
+        font-family "PT Sans"
+        font-size 1.5em
+        font-weight bold
+        margin-left -30px
+        margin-top 20px
+        letter-spacing 2px
+        line-height 20px
+    &__filter
+      display none
+    &__peeks-container
+      position relative
+      transform inherit
+      display block
+      top 5%
+      left 0
+      .peek-container
+        margin-top 20px
+        .piece-container
+          .peek-image-bg
+            display none
+          .peek-image-bg2
+            display none
+          .eye-infos-container
+            .point-container
+              float left
+              margin-left 6px
+              .point-small
+                position absolute
+                margin-top 7px
+                margin-left 7px
+                width 4px
+                height 4px
+                border-radius 5px
+                background-color white
+              .circle
+                width 18px
+                height 18px
+                border solid 1px white
+                border-radius 10px
+              .trait
+                height 25px
+                margin-left 8px
+                width 1px
+                background-color white
+            .number
+              font-family "Berlingske"
+              display inline-block
+              font-size 4.3em
+              margin-left 6px
+              color $color-yellow-peek
+            .nb-description
+              float right
+              color $color-grey-soft
+              font-family "PT Sans"
+              font-size 1.6em
+              width 130px
+      .peek-container:nth-child(1)
+        transform inherit
+      .peek-container:nth-child(2n+2)
+        transform inherit
+      .peek-container:nth-child(3n+3)
+        transform inherit
+
+      .peek-container-name
+        opacity 1
+        margin-left 0
+      .peek-date
+        opacity 1
+        color $color-grey-light
+    .know-more
+      display none
