@@ -77,7 +77,9 @@ export default Vue.extend({
     this.filterClicFlag = false
     this.bgPeekTypo = this.$refs.bgPeekTypo
     for (let i = 0; i < 5; i++) {
-      this.firstAnimatedPeeks.push(this.$refs.peekContainer[i])
+      if (this.$refs.peekContainer[i].children !== 'pieces-description-container') {
+        this.firstAnimatedPeeks.push(this.$refs.peekContainer[i])
+      }
     }
     this.createTls()
 
@@ -354,6 +356,7 @@ export default Vue.extend({
       }
       this.$refs.filterMostPeeked.className = "filter-name current"
       this.bgTitle = "Les + peekés"
+      this.isMyPeek = false
     }
   },
 
