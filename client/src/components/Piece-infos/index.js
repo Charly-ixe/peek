@@ -103,6 +103,11 @@ export default Vue.extend({
         this.navItems[this.activeId].classList.toggle('active')
         firstNavItem.classList.toggle('active')
         button.classList.toggle('hidden')
+
+        let navNewHeight = this.categories[this.categories.length - 1].getBoundingClientRect().bottom
+        let navbar = document.querySelector(".infos-zone__navbar")
+        // navbar.style.height = navNewHeight - 110 + 'px'
+
         let displayContent = new TimelineMax({delay: 0.4})
         displayContent
 
