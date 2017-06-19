@@ -4,7 +4,7 @@ import Emitter from 'helpers/Emitter'
 
 import {
   WINDOW_RESIZE,
-  NEXT_STEP_TUTO_SUB
+  NEXT_STEP_TUTO
 } from 'config/messages'
 
 export default Vue.extend({
@@ -42,7 +42,7 @@ export default Vue.extend({
           this.videos[this.index].play()
       }
       this.videos[this.index].addEventListener("ended", ()=> {
-        Emitter.emit('NEXT_STEP_TUTO_SUB')
+        Emitter.emit('NEXT_STEP_TUTO')
       })
     })
   },

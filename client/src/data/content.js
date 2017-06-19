@@ -22,17 +22,17 @@ export default {
   tuto_first_reg_steps : [
     {
       index: 0,
-      image: "/images/illlu-step-1-first-reg.svg",
+      image: "/videos/AI-Tuto-01-mail.mp4",
       title: "Prenez votre bracelet et activez-le sur la borne"
     },
     {
       index: 1,
-      image: "/images/illlu-step-2-first-reg.svg",
+      image: "/videos/AI-Tuto-02-badge.mp4",
       title: "Peekez vos oeuvres préférées avec le bracelet"
     },
     {
       index: 2,
-      image: "/images/illlu-step-3-first-reg.svg",
+      image: "/videos/AI-Tuto-03-expo.mp4",
       title: "Retrouvez votre exposition personnelle"
     }
   ],

@@ -3,7 +3,7 @@ import scope from 'utils/generic/scope'
 
 import {
   WINDOW_RESIZE,
-  NEXT_STEP_TUTO_SUB
+  NEXT_STEP_TUTO
 } from 'config/messages'
 
 import content from 'data/content';
@@ -23,7 +23,7 @@ export default Vue.extend({
     method: 'onWindowResize'
   },
   {
-    message: NEXT_STEP_TUTO_SUB,
+    message: NEXT_STEP_TUTO,
     method: 'nextStep'
   }],
 
