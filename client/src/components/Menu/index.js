@@ -42,12 +42,18 @@ export default Vue.extend({
 
     onMenuClick() {
       if (!this.openedMenu){
-        this.$refs.overlayMenu.className = "expo__overlay-menu opened"
-        this.$refs.menuBtn.className = "expo__menu-button opened"
+        // this.$refs.menuBtn.childNodes[2].style.marginRight = "17px"
+        this.$refs.overlayMenu.className = "menu__overlay-button opened"
+        this.$refs.menuBtn.className = "menu__button opened"
+        this.$refs.menuBtn.childNodes[2].innerHTML = "fermer"
+        this.$refs.menuBtn.childNodes[0].style.width = "22px"
         this.openedMenu = true
       } else {
-        this.$refs.overlayMenu.className = "expo__overlay-menu"
-        this.$refs.menuBtn.className = "expo__menu-button"
+        // this.$refs.menuBtn.childNodes[2].style.marginRight = "10px"
+        this.$refs.overlayMenu.className = "menu__overlay-menu"
+        this.$refs.menuBtn.className = "menu__button"
+        this.$refs.menuBtn.childNodes[0].style.width = "29px"
+        this.$refs.menuBtn.childNodes[2].innerHTML = "menu"
         this.openedMenu = false
       }
     },

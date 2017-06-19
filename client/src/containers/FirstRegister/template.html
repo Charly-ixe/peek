@@ -1,18 +1,23 @@
-<!-- <div class="page first-register">
-
-  <fixed-navigation-component></fixed-navigation-component>
-  <div class="first-register__form">
-    <input class="input" type="text" name="email" value="" placeholder="Entrez votre email" ref="formEmail">
-    <div class="btn-send cta-button" @click="saveEmail">
-      Enregistrer mon email
-    </div>
-  </div>
-
-</div> -->
-
 <div class="page first-register">
 
+  <div class="first-register-overlay" ref="overlay">
+    <div class="overlay-container">
+      <div class="overlay-logo"></div>
+      <div class="overlay-title">Bienvenue</div>
+      <div class="overlay-legend">
+        Touchez l'écran pour commencer</br>
+        l'expérience peek, muni de</br>
+        votre bracelet.
+      </div>
+      <div class="overlay-pointer"></div>
+    </div>
+  </div>
   <div class="first-register__wrapper">
+
+    <div class="first-register__return-arrow" ref="returnBtn" @click="onReturnClick">
+      <div class="arrow"></div>
+      <div class="arrow-txt">retour</div>
+    </div>
 
     <div class="first-register__logo">
 
@@ -21,20 +26,35 @@
     </div>
 
     <form class="first-register__form">
+      <div class="first-register__form-welcome" ref="formWelcome">bienvenue</div>
 
-      <h1 class="first-register__form-title">Enregistrez-vous</h1>
+      <h1 class="first-register__form-title" ref="formTitle">Enregistrez-vous</h1>
 
-      <p class="first-register__form-text">Entrez votre adresse mail afin d'y associer votre bracelet. Nous vous enverrons un seul mail afin d'activer votre compte</p>
+      <p class="first-register__form-text" ref="formDescr">Entrez votre adresse mail afin d'y associer votre bracelet. Nous vous enverrons un seul mail afin d'activer votre compte</p>
 
-      <div class="first-register__form-block">
+      <div class="first-register__form-block" ref="formInput">
 
-        <label for="email"><p>Adresse Email</p></label>
+        <!-- <label for="email"><p>Adresse Email</p></label> -->
 
-        <input class="first-register__form-input input" ref="formEmail" type="email" name="email" value="">
-
+        <input class="first-register__form-input input" placeholder="adresse email" ref="formEmail" type="email" name="email" value="">
+        <div class="first-register__form-check" ref="formCheck"></div>
+      </div>
+      <div class="first-register__form-bracelet-txt" ref="formBraceletTxt">
+        nombre de bracelets à associer </br> à ce mail
+      </div>
+      <div class="first-register__form-bracelet-nb-container" ref="formBraceletCont">
+        <div class="minus">-</div>
+        <div class="number">1</div>
+        <div class="plus">+</div>
       </div>
 
-      <div @click="saveEmail" class="first-register__form-submit cta-button">Valider</div>
+      <div @click="saveEmail" class="first-register__form-submit cta-button" ref="formBtn">Valider</div>
+      <video class="video-check" width="400" loop height="400" ref="videoCheck1">
+        <source src="/videos/icon-check_1.mp4" type="video/mp4"/>
+      </video>
+      <video class="video-check" width="400" height="400" ref="videoCheck2">
+        <source src="/videos/icon-check_2.mp4" type="video/mp4"/>
+      </video>
 
     </form>
 

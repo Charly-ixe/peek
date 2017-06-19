@@ -9,8 +9,6 @@ import Emitter from 'helpers/Emitter'
 
 import {throttle} from 'lodash'
 
-import Peeks from 'components/Peeks-gallery'
-
 import {
   SCROLL_AFTER_THIRD_CARD,
   SCROLL_BEFORE_THIRD_CARD,
@@ -71,8 +69,8 @@ export default Vue.extend({
     ])
   },
   destroyed () {
-    window.removeEventListener('mouseup', this.handleFirstClick)
-    window.removeEventListener('mousewheel', throttle(this.handleFirstScroll, 1200, {'trailing': false}))
+    window.removeEventListener('mouseup', this.handleFirstUserAction)
+    window.removeEventListener('mousewheel', throttle(this.handleFirstUserAction, 1200, {'trailing': false}))
   },
 
   mounted () {
@@ -346,7 +344,6 @@ export default Vue.extend({
 
   components: {
     'fixed-navigation-component': FixedNavigation,
-    'peeks-component': Peeks,
     'menu-component': MenuComponent
   }
 })

@@ -34,12 +34,14 @@ export default {
     {
       index: 0,
       contentType: "piece",
-      name: "La nuit d'enfer",
-      date: "2008",
-      type: "Bande dessinée",
+      name: "Raw magazine",
+      date: "1985",
+      type: "Couverture",
       peeked: true,
-      cover_type: "image",
-      cover_url: [ "/images/pieces/01-Comics-Spiegelman-Joe-Sacco.jpg" ],
+      cover_type: "video",
+      cover_url: [ "/images/pieces/02-Raw-couverture.jpg"],
+      video_url: "/videos/morphing-raw.mp4",
+      poster: "/images/all-pieces/03-Raw/04-Raw-cover--1986/raw-cover.jpg",
       content: [
         {
           title: "Le Zoomorphisme",
@@ -123,16 +125,14 @@ export default {
       ]
     },
     {
-      index: 1,
+      index: 5,
       contentType: "piece",
-      name: "Raw magazine",
-      date: "1985",
+      name: "Une du New Yorker",
+      date: "1993",
       type: "Couverture",
       peeked: true,
-      cover_type: "video",
-      cover_url: [ "/images/pieces/02-Raw-couverture.jpg"],
-      video_url: "/videos/morphing-raw.mp4",
-      poster: "/images/all-pieces/03-Raw/04-Raw-cover--1986/raw-cover.jpg",
+      cover_type: "image",
+      cover_url: [ "/images/all-pieces/07-The New Yorker/04-Une-du-New-Yorker-fevrier-1993.jpg"],
       content: [
         {
           title: "La creation de Raw",
@@ -178,6 +178,61 @@ export default {
               content: "Mouly et Spiegelman choisirent l'appellation « graphix magazine » pour RAW, en espérant que cette approche nouvelle écarterait les préventions des lecteurs à propos des comics et les amènerait à s'intéresser aux travaux présentés avec un œil neuf."
             }
           ]
+        }
+      ]
+    },
+    {
+      index: 8,
+      name: "Maus",
+      contentType: "piece",
+      date: "1976",
+      type: "Bande dessinée",
+      peeked: true,
+      cover_url: [ "/images/pieces/09-croquis-maus-spiegleman.jpg" ],
+      content: [
+        {
+          title: "Le Zoomorphisme",
+          type: "Text",
+          intro: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs.",
+          content: "Les souris, apparaissant déjà dans une œuvre préfigurant Maus, et font référence aux images de propagande nazies et au documentaire antisémite Le Juif éternel ; elles permettent également de traduire la haine antisémite des Nazis par la métaphore chat-souris (l’image du prisonnier juif d’Allemagne rendue tantôt par une souris et tantôt par un chat permet à l’auteur de jouer sur ces représentations et ce qu’elles évoquent au lecteur) et les Américains deviennent des chiens car ils chassèrent les Allemands, tout comme les chiens chassent les chats."
+        },
+        {
+          title: "Vladek Spiegelman",
+          type: "Video",
+          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
+        },
+        {
+          title: "Le style graphique",
+          type: "Audio",
+          intro: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère »."
+        }
+      ]
+    },
+    {
+      index: 1,
+      contentType: "piece",
+      name: "La nuit d'enfer",
+      date: "2008",
+      type: "Bande dessinée",
+      peeked: true,
+      cover_url: [ "/images/pieces/01-Comics-Spiegelman-Joe-Sacco.jpg" ],
+      content: [
+        {
+          title: "Le Zoomorphisme",
+          type: "Text",
+          intro: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs.",
+          content: "Les souris, apparaissant déjà dans une œuvre préfigurant Maus, et font référence aux images de propagande nazies et au documentaire antisémite Le Juif éternel ; elles permettent également de traduire la haine antisémite des Nazis par la métaphore chat-souris (l’image du prisonnier juif d’Allemagne rendue tantôt par une souris et tantôt par un chat permet à l’auteur de jouer sur ces représentations et ce qu’elles évoquent au lecteur) et les Américains deviennent des chiens car ils chassèrent les Allemands, tout comme les chiens chassent les chats."
+        },
+        {
+          title: "Vladek Spiegelman",
+          type: "Video",
+          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire.",
+          content: "C'est un homme extrêmement ordonné, intelligent, mais qui fait parfois preuve d'un manque de tolérance.  Au fur et à mesure du récit, on voit le jeune Polonais ambitieux de Czestochowa se transformer à cause de la guerre, la fuite et les camps de concentration en un vieil homme malade, acariâtre et avare."
+        },
+        {
+          title: "Le style graphique",
+          type: "Audio",
+          intro: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère »."
         }
       ]
     },
@@ -263,33 +318,6 @@ export default {
       ]
     },
     {
-      index: 5,
-      contentType: "piece",
-      name: "Une du New Yorker",
-      date: "1993",
-      type: "Couverture",
-      peeked: true,
-      cover_url: [ "/images/pieces/06-NewYorker.jpg" ],
-      content: [
-        {
-          title: "Le Zoomorphisme",
-          type: "Text",
-          intro: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs.",
-          content: "Les souris, apparaissant déjà dans une œuvre préfigurant Maus, et font référence aux images de propagande nazies et au documentaire antisémite Le Juif éternel ; elles permettent également de traduire la haine antisémite des Nazis par la métaphore chat-souris (l’image du prisonnier juif d’Allemagne rendue tantôt par une souris et tantôt par un chat permet à l’auteur de jouer sur ces représentations et ce qu’elles évoquent au lecteur) et les Américains deviennent des chiens car ils chassèrent les Allemands, tout comme les chiens chassent les chats."
-        },
-        {
-          title: "Vladek Spiegelman",
-          type: "Video",
-          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
-        },
-        {
-          title: "Le style graphique",
-          type: "Audio",
-          intro: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère »."
-        }
-      ]
-    },
-    {
       index: 6,
       contentType: "piece",
       name: "Une du New Yorker",
@@ -324,33 +352,6 @@ export default {
       type: "Couverture",
       peeked: true,
       cover_url: [ "/images/pieces/08-NewYorker.jpg" ],
-      content: [
-        {
-          title: "Le Zoomorphisme",
-          type: "Text",
-          intro: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs.",
-          content: "Les souris, apparaissant déjà dans une œuvre préfigurant Maus, et font référence aux images de propagande nazies et au documentaire antisémite Le Juif éternel ; elles permettent également de traduire la haine antisémite des Nazis par la métaphore chat-souris (l’image du prisonnier juif d’Allemagne rendue tantôt par une souris et tantôt par un chat permet à l’auteur de jouer sur ces représentations et ce qu’elles évoquent au lecteur) et les Américains deviennent des chiens car ils chassèrent les Allemands, tout comme les chiens chassent les chats."
-        },
-        {
-          title: "Vladek Spiegelman",
-          type: "Video",
-          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
-        },
-        {
-          title: "Le style graphique",
-          type: "Audio",
-          intro: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère »."
-        }
-      ]
-    },
-    {
-      index: 8,
-      name: "Maus",
-      contentType: "piece",
-      date: "1976",
-      type: "Bande dessinée",
-      peeked: true,
-      cover_url: [ "/images/pieces/09-croquis-maus-spiegleman.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",

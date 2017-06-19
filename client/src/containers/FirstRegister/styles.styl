@@ -8,6 +8,40 @@
     .btn-send
       border none
       margin-top 10px
+  .first-register-overlay
+    height 100%
+    width 100%
+    position absolute
+    z-index 10
+    background-color $color-grey-dark
+    .overlay-container
+      center-xy()
+      height 500px
+      .overlay-logo
+        transform scale(3)
+        background url('/images/logo-peek.svg')
+        width 24px
+        height 19px
+        margin 0 auto
+      .overlay-title
+        font-family "Berlingske"
+        font-size 62pt
+        color $color-yellow-peek
+        margin-top 80px
+      .overlay-legend
+        font-family "PT Sans"
+        font-size 14pt
+        font-weight bold
+        letter-spacing 2px
+        line-height 25px
+        color $color-grey-button
+        text-transform uppercase
+        margin-top 10px
+      .overlay-pointer
+        margin 40px auto
+        background url('/images/icons/icon-touch.svg')
+        width 83px
+        height 107px
 .first-register
   display block
   width 100vw
@@ -21,6 +55,30 @@
     width 50%
     height 100%
 
+    .first-register__return-arrow
+      opacity 0
+      cursor pointer
+      position absolute
+      left 50px
+      top 50px
+      color $color-grey-btn
+      .arrow
+        background url('/images/icons/icon-fleche-1.svg')
+        transform scale(1.5) rotate(180deg)
+        width 12px
+        height 17px
+        display inline-block
+
+      .arrow-txt
+        display inline-block
+        position absolute
+        top 0
+        left 30px
+        text-transform uppercase
+        font-family "PT Sans"
+        font-size 1.5em
+        font-weight bold
+
     .first-register__logo
       center-x()
       top 10vh
@@ -30,36 +88,94 @@
 
     .first-register__form
       center-xy()
-      width 55%
+      width 65%
+      &-welcome
+        text-transform uppercase
+        color $color-grey-button
+        font-size 12pt
+        font-family 'PT Sans'
+        font-weight bold
 
       &-title
         color $color-white
+        letter-spacing 1px
 
       &-text
         color $color-white
         margin-top 6vh
+        line-height 20px
 
       &-block
         margin-top 6vh
         position relative
         height 4.8rem
 
-        label
+        .first-register__form-input::-webkit-input-placeholder
           color $color-grey-light
           text-transform uppercase
-          font-size 1.2rem
-          font-weight bold
+          font-size 1.3rem
           position absolute
-          //transform translateY(10px)
+          letter-spacing 1px
+
+        .first-register__form-input::-moz-placeholder
+          color $color-grey-light
+          text-transform uppercase
+          font-size 1.3rem
+          position absolute
+          letter-spacing 1px
 
         .first-register__form-input
           position absolute
           bottom 0
           font-family PT Sans
           font-size 1.6rem
+        .first-register__form-check
+          background url('/images/icons/check-2.svg')
+          width 18px
+          height 14px
+          float right
+          margin-top 28px
+          opacity 0
+          transition $transition-ui
+        .first-register__form-check.display
+          opacity 1
 
+      &-bracelet-txt
+        margin-top 40px
+        color $color-grey-light
+        text-transform uppercase
+        font-size 1.3rem
+        font-family 'PT Sans'
+        line-height 18px
+        letter-spacing 1px
+      &-bracelet-nb-container
+        text-align center
+        margin-top 20px
+        font-family 'PT Sans'
+        font-size 1.9rem
+        color $color-grey-light
+        width 100px
+        height 25px
+        border-bottom 1px solid $color-yellow-peek
+        .minus
+          float left
+        .number
+          color white
+          display inline-block
+        .plus
+          float right
 
       &-submit
-
         center-x()
         margin-top 4vh
+        font-family 'PT Sans'
+        letter-spacing 1px
+        font-weight bold
+      .video-check
+        center-xy()
+        opacity 0
+        display none
+        width 200px
+        height 200px
+        margin-top 150px
+        border solid 1px $color-grey-border-vid

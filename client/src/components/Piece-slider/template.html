@@ -8,7 +8,7 @@
 
   <video :src=currentPiece.video_url autoplay :poster=currentPiece.poster v-else ref="piecevid"></video>
 
-  <div class="piece-slider__video-button" @click="playMorphing">
+  <div class="piece-slider__video-button" @click="playMorphing" v-if="coverType == 'video'">
 
   </div>
 
