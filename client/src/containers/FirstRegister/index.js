@@ -179,7 +179,7 @@ export default Vue.extend({
       this.email = this.$refs.formEmail.value
       if ( this.email != "" && this.validateEmail(this.email)) {
         //send email
-        // firstRegisterService.create({ user_email: email });
+        firstRegisterService.create({ user_email: this.email });
         this.$refs.formEmail.value = ""
         this.$refs.videoCheck1.style.display = "block"
         this.badgeAppearCheck.play()

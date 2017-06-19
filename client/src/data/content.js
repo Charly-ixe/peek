@@ -49,7 +49,22 @@ export default {
         {
           title: "Vladek Spiegelman",
           type: "Video",
-          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
+          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire.",
+          subdetails: [
+            {
+              type: "text",
+              content: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
+            },
+            {
+              type: "text",
+              content: "C'est un homme extrêmement ordonné, intelligent, mais qui fait parfois preuve d'un manque de tolérance.  Au fur et à mesure du récit, on voit le jeune Polonais ambitieux de Czestochowa se transformer à cause de la guerre, la fuite et les camps de concentration en un vieil homme malade, acariâtre et avare."
+            },
+            {
+              type: "image",
+              url: "/images/vladek.png",
+              credits: "Vladek Spiegelman, page 34, Maus II"
+            }
+          ]
         },
         {
           title: "Le style graphique",
