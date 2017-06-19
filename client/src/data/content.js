@@ -38,7 +38,7 @@ export default {
       date: "1985",
       type: "Couverture",
       peeked: true,
-      cover_url: [ "/images/pieces/02-Raw-couverture.jpg" ],
+      cover_url: [ "/images/pieces/02-raw-cover.jpg" ],
       content: [
         {
           title: "Le Zoomorphisme",
