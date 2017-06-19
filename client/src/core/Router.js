@@ -6,6 +6,7 @@ import Details from 'containers/Details'
 import FirstRegister from 'containers/FirstRegister'
 import Submission from 'containers/Submission'
 import ArtSpiegelman from 'containers/ArtSpiegelman'
+import Informations from 'containers/Informations'
 
 
 import {
@@ -59,6 +60,14 @@ class Router extends VueRouter {
         path: '/submission',
         name: 'submission',
         component: Submission,
+        meta: {
+          keepAlive: false
+        }
+      },
+      {
+        path: '/informations',
+        name: 'informations',
+        component: Informations,
         meta: {
           keepAlive: false
         }

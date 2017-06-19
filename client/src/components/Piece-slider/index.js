@@ -37,7 +37,7 @@ export default Vue.extend({
   },
 
   created () {
-    this.currentPiece = data.pieces[this.$route.params.id]
+    this.currentPiece = data.myPeeks[this.$route.params.id]
   },
 
   mounted () {
@@ -51,16 +51,16 @@ export default Vue.extend({
     createTls () {
     },
 
-    goFullScreen() {
-      this.$refs.overlay.classList.add("full")
-      this.$refs.pieceimg.classList.add("full")
-      this.fullScreen = true
-    },
-
-    exitFullScreen() {
-      this.$refs.overlay.classList.remove("full")
-      this.$refs.pieceimg.classList.remove("full")
-      this.fullScreen = false
+    handleFullScreen() {
+      this.$refs.overlay.classList.toggle("full")
+      this.$refs.pieceimg.classList.toggle("full")
+      document.body.classList.toggle("auto")
+      if(this.fullScreen) {
+        this.fullScreen = false
+      }
+      else {
+        this.fullScreen = true
+      }
     },
 
     adaptSlider() {
