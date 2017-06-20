@@ -17,7 +17,7 @@ import content from 'data/content'
 import TutorialFirstRegSlider from 'components/Tutorial-first-reg-slider'
 import TutorialStep from 'components/Tutorial-step'
 
-const socket = io('http://localhost:3030')
+const socket = io('http://192.168.0.100:3030')
 const app = feathers().configure(socketio(socket))
 // Get the message service that uses a websocket connection
 const firstRegisterService = app.service('firstRegisters')
@@ -59,7 +59,8 @@ export default Vue.extend({
   },
 
   mounted () {
-    window.addEventListener('mouseup', this.handleFirstUserAction)
+    window.addEventListener('click', this.handleFirstUserAction)
+    window.addEventListener('touchstart', this.handleFirstUserAction)
     window.addEventListener('keyup', this.onKeyDown)
     this.createTls()
     let _this = this
