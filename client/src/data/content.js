@@ -39,7 +39,7 @@ export default {
       type: "Couverture",
       peeked: true,
       cover_type: "video",
-      cover_url: [ "/images/pieces/02-Raw-couverture.jpg"],
+      cover_url: [ "/images/all-pieces/03-Raw/04-Raw-cover--1986/raw-cover.jpg"],
       video_url: "/videos/morphing-raw.mp4",
       poster: "",
       content: [
