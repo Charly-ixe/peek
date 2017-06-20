@@ -662,20 +662,21 @@ export default {
           contentType: "piece",
           number: 587,
           descr: "personnes ont peeké cette oeuvre",
-          name: "Une du New Yorker",
-          date: "1993",
+          name: "Autoportrait",
+          date: "1974",
           type: "Couverture",
           peeked: true,
-          cover_url: [ "/images/pieces/06-NewYorker.jpg" ]
+          cover_url: [ "/images/01-Autor-retrato-Art-Spiegelman.jpeg" ]
         },
         {
           contentType: "piece",
           descr: "des visiteurs ont aimé cette oeuvre",
           number: "60%",
-          name: "Auschwitz",
-          date: "1991",
+          name: "Une du New Yorker",
+          date: "1993",
+          type: "Couverture",
           peeked: true,
-          cover_url: [ "/images/pieces/Auschwitz-p41.jpg", "/images/pieces/Auschwitz-p41.jpg" ]
+          cover_url: [ "/images/pieces/06-NewYorker.jpg" ]
         },
         {
           contentType: "piece",
@@ -698,18 +699,18 @@ export default {
         },
         {
           contentType: "piece",
-          descr: "des visiteurs ont peeké cette oeuvre",
-          number: "30%",
-          name: "Trous de souris",
-          date: "1991",
+          descr: "personnes ont peeké cette oeuvre",
+          number: 107,
+          name: "Print Magazine",
+          date: "1981",
           type: "Bande dessinée",
           peeked: true,
-          cover_url: [ "/images/pieces/12-maus-trousde-souris.jpg" ]
+          cover_url: [ "/images/06-Couverture-pour-Print-Magazine-1981-Art-Spiegelman.jpg" ]
         },
         {
           contentType: "piece",
-          descr: "personnes ont peeké cette oeuvre",
-          number: 107,
+          descr: "des visiteurs ont peeké cette oeuvre",
+          number: "30%",
           name: "Trous de souris",
           date: "1991",
           type: "Bande dessinée",
