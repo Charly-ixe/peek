@@ -345,6 +345,9 @@ export default Vue.extend({
       } else if (contentType == 'filter-most-peeked') {
         this.peeks_obj = Content.mostPeeked[0].pieces
         for (var i = 0; i < cards.length; i++) {
+          if (i == 2 || i == 1) {
+            continue
+          }
           cards[i].classList.add('unpeeked')
           cards[i].nextSibling.nextElementSibling.innerHTML = "peeker"
           cards[i].nextSibling.nextElementSibling.style.color = "#908A86"
