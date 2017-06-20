@@ -10,6 +10,12 @@
   overflow scroll
   // transition width 0.2s ease-out
 
+  .fade-enter-active, .fade-leave-active
+    transition: opacity .3s
+
+  .fade-enter, .fade-leave-to
+    opacity 0
+
   &__previous-peek
     position relative
     float left

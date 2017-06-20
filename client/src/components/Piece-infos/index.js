@@ -113,7 +113,6 @@ export default Vue.extend({
         else {
           this.detailDisplayed = true
         }
-        console.log(categoryElts[1].children[1].children);
 
         let displayContent = new TimelineMax({delay: 0.4})
         displayContent
