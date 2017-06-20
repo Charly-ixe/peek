@@ -78,6 +78,7 @@ export default Vue.extend({
   mounted () {
     this.filterClicFlag = false
     this.bgPeekTypo = this.$refs.bgPeekTypo
+    console.log(Detect.isDesktop);
     if (Detect.isDesktop) {
       for (let i = 0; i < 5; i++) {
         if (this.$refs.peekContainer[i].children !== 'pieces-description-container') {
@@ -91,7 +92,7 @@ export default Vue.extend({
         section: document.querySelector('.expo__peeks-scroll-container'),
         divs: document.querySelectorAll('.peek-container')
       })
-    } else {
+    } else if (Detect.isMobile) {
       this.isMobile = true
       this.peeks_obj = Content.mostPeeked[0].pieces
       for (let i = 0; i < 5; i++) {
@@ -104,7 +105,7 @@ export default Vue.extend({
 
     if (this.hasSeenWelcome !== null) {
       this.$refs.overlay.style.display = "none"
-      if (Detect.isdesktop) {
+      if (Detect.isDesktop) {
         this.enterTl.play()
       } else {
         this.enterMobileTl.play()
