@@ -4,7 +4,7 @@
   background-color $color-grey-dark
 
   &__wrapper
-    width 90vw
+    width 85vw
     margin-top 15vh
     center-x()
     color $color-white
@@ -20,13 +20,64 @@
       text-transform uppercase
       font-weight 800
       letter-spacing 0.25rem
+      line-height 2.2rem
+
+      span
+        text-transform none
+
 
     h1
       font-size 3.6rem
 
     p
       color $color-grey-soft
-      margin-bottom 40px
+      margin-bottom 30px
+      line-height 2.4rem
+
+    .informations__button-site
+      color $color-white
+      margin-bottom 20px
+
+    .informations__social-container
+      display inline-block
+
+      img
+        width 34px
+        height 34px
+        margin-right 20px
+
+    .informations__adress-block
+      position relative
+      padding-left 50px
+      padding-top 10px
+      margin 10px 0
+
+      &:before
+        content ''
+        position absolute
+        left 0
+        top 0
+        background-repeat no-repeat
+        background-position center
+        width 40px
+        height 40px
+
+      &#adress
+
+        &:before
+          background-image url('/images/position.svg')
+          background-size 24px 31px
+
+      &#time
+        margin-bottom 40px
+
+        &:before
+          background-image url('/images/time.svg')
+          background-size 24px 24px
+
+      p
+        font-size 1.8rem
+        margin 0
 
 
 @media screen and (max-width: 640px)
