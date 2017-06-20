@@ -335,12 +335,27 @@ export default Vue.extend({
       }
     },
     changeContent(contentType) {
+      let cards = document.getElementsByClassName('peek-logo')
       if (contentType == 'filter-my-peek') {
         this.peeks_obj = Content.myPeeks
+        for (var i = 0; i < cards.length; i++) {
+          cards[i].classList.remove('unpeeked')
+          let prevEl = cards[i].nextSibling.nextElementSibling
+        }
       } else if (contentType == 'filter-most-peeked') {
         this.peeks_obj = Content.mostPeeked[0].pieces
+        for (var i = 0; i < cards.length; i++) {
+          cards[i].classList.add('unpeeked')
+          cards[i].nextSibling.nextElementSibling.innerHTML = "peeker"
+          cards[i].nextSibling.nextElementSibling.style.color = "#908A86"
+        }
       } else if (contentType == 'filter-all-pieces') {
         this.peeks_obj = Content.allPieces
+        for (var i = 0; i < cards.length; i++) {
+          cards[i].classList.add('unpeeked')
+          cards[i].nextSibling.nextElementSibling.innerHTML = "peeker"
+          cards[i].nextSibling.nextElementSibling.style.color = "#908A86"
+        }
       }
     },
     onPeekClick(e){
