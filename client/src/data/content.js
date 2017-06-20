@@ -55,10 +55,6 @@ export default {
           intro: "RAW est une revue américaine de bande dessinée dirigée par Art Spiegelman et Françoise Mouly et publiée en deux séries de 1980 à 1991.",
           subdetails: [
             {
-              type: "text",
-              content:"RAW est une revue américaine de bande dessinée dirigée par Art Spiegelman et Françoise Mouly et publiée en deux séries de 1980 à 1991."
-            },
-            {
               type: "image",
               url:"/images/01-artspiegelman2.jpg",
               credits: "Art Spiegelman dessinant pour RAW, 1987"
@@ -167,10 +163,6 @@ export default {
           type: "Video",
           intro: "Pendant dix ans, à partir de 1992, Art Spiegelman rejoint l'équipe du New Yorker quand la nouvelle rédactrice en chef fait appel à ses services pour raviver l'humour de la prestigieuse revue.",
           subdetails: [
-            {
-              type: "text",
-              content: "Pendant dix ans, à partir de 1992, Art Spiegelman rejoint l'équipe du New Yorker quand la nouvelle rédactrice en chef fait appel à ses services pour raviver l'humour de la prestigieuse revue."
-            },
             {
               type: "image",
               url: "/images/02-Scandale.jpg",
