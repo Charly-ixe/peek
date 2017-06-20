@@ -78,6 +78,7 @@ export default Vue.extend({
       }
       else if(this.coverType == "video") {
         this.$refs.piecevid.classList.toggle("half")
+        // this.$refs.videobutton.classList.toggle("half")
       }
 
     },

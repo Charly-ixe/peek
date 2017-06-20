@@ -55,6 +55,32 @@
     &:before
       left -0.5rem
 
+.back-button-right
+  display block
+  padding 16px 25px
+  color $color-grey-button
+  font-size 14px
+  cursor pointer
+  text-transform uppercase
+  transition $transition-ui
+  font-family PT Sans
+  font-weight bold
+  letter-spacing 0.3rem
+  &:before
+    content ''
+    center-y()
+    right 0
+    height calc(100% - 32px)
+    width 15px
+    background-image url('/images/icon-arrow-right.svg')
+    background-size 11px
+    background-position center
+    background-repeat no-repeat
+    transition $transition-ui
+  &:hover
+    &:before
+      right -0.5rem
+
 .secondary-button
   display block
   padding 16px 0

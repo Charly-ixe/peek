@@ -188,6 +188,18 @@ export default Vue.extend({
       Router.push('/art-spiegelman')
     },
 
+    nextPeek() {
+      let newIndex = this.index++
+      // Router.push('/art-spiegelman/details/'+newIndex)
+
+      Router.push({
+        path: '/art-spiegelman/details/1',
+        force: true
+      })
+      Router.go()
+
+    },
+
     onWindowResize ({width, height}) {
 
     }

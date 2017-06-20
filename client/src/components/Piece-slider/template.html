@@ -8,11 +8,9 @@
 
   <video :src=currentPiece.video_url autoplay :poster=currentPiece.poster v-else ref="piecevid"></video>
 
-  <div class="piece-slider__video-button" @click="playMorphing" v-if="coverType == 'video'">
+  <div class="piece-slider__video-button" @click="playMorphing" v-if="coverType == 'video'" ref="videobutton">
 
   </div>
-
-
 
   <button type="button" name="full_screen" @click="handleFullScreen" class="piece-slider__fullscreen-button" ref="fullbutton" v-if="!fullScreen"></button>
   <button type="button" name="close_full" @click="handleFullScreen" class="piece-slider__close-button" ref="fullbutton" v-else></button>
