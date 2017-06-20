@@ -17,7 +17,7 @@ import content from 'data/content'
 import TutorialFirstRegSlider from 'components/Tutorial-first-reg-slider'
 import TutorialStep from 'components/Tutorial-step'
 
-const socket = io('http://192.168.0.100:3030')
+const socket = io('http://192.168.0.102:3030')
 const app = feathers().configure(socketio(socket))
 // Get the message service that uses a websocket connection
 const firstRegisterService = app.service('firstRegisters')
