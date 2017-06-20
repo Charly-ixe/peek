@@ -50,99 +50,6 @@ export default {
       poster: "",
       content: [
         {
-          title: "Le Zoomorphisme",
-          intro: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs.",
-          subdetails: [
-            {
-              type: "text",
-              content: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs."
-            },
-            {
-              type: "text",
-              content: "Les souris, apparaissant déjà dans une œuvre préfigurant Maus, et font référence aux images de propagande nazies et au documentaire antisémite Le Juif éternel ; elles permettent également de traduire la haine antisémite des Nazis par la métaphore chat-souris (l’image du prisonnier juif d’Allemagne rendue tantôt par une souris et tantôt par un chat permet à l’auteur de jouer sur ces représentations et ce qu’elles évoquent au lecteur) et les Américains deviennent des chiens car ils chassèrent les Allemands, tout comme les chiens chassent les chats."
-            },
-            {
-              type: "video",
-              url: "/videos/zoomorphisme-art-spieglman.mp4",
-              credits: "Arena - Art Spiegelman (BBC), 1987"
-            },
-            {
-              type: "quote",
-              content: "Mickey Mouse est l’idéal le plus lamentable qui ait jamais vu le jour {…} Finissons-en avec la tyrannie que les Juifs exercent sur le peuple ! À bas Mickey Mouse ! Portez la croix gammée.",
-              credits: "Article de journal, Poméranie, Allemagne, milieu des années 3O"
-            },
-            {
-              type: "link",
-              url: "",
-              name: "Le juif éternel"
-            },
-            {
-              type: "link",
-              url: "",
-              name: "Looney Tunes"
-            }
-          ]
-        },
-        {
-          title: "Vladek Spiegelman",
-          type: "Video",
-          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire.",
-          subdetails: [
-            {
-              type: "text",
-              content: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
-            },
-            {
-              type: "text",
-              content: "C'est un homme extrêmement ordonné, intelligent, mais qui fait parfois preuve d'un manque de tolérance.  Au fur et à mesure du récit, on voit le jeune Polonais ambitieux de Czestochowa se transformer à cause de la guerre, la fuite et les camps de concentration en un vieil homme malade, acariâtre et avare."
-            },
-            {
-              type: "image",
-              url: "/images/vladek.png",
-              credits: "Vladek Spiegelman, page 34, Maus II"
-            }
-          ]
-        },
-        {
-          title: "Le style graphique",
-          type: "Audio",
-          intro: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère ».",
-          subdetails: [
-            {
-              type: "text",
-              content: "Spiegelman cherche une dessin…"
-            },
-            {
-              type: "quote",
-              content: "…qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère.",
-              credits: "Art Spiegelman"
-            },
-            {
-              type: "text",
-              content: "Dans  l’ensemble de  son  œuvre, dès  ses  premiers écrits,  Spiegelman s’est placé au centre de son écriture, en racontant des événements de sa vie ou en  partageant  des  expériences  vécues. Il est certain qu’en prenant sa propre  vie comme  matière  de  ses comics,  il expose  son  écriture,  pour  ne pas dire son  style, c’est-à-dire  la  place  singulière  qu’il  aurait pu  trouver à l’intérieur du «système  de  la  bande  dessinée», constituant  un  ensemble  de signes stabilisés. Il l’expose en ce sens qu’il la met en situation d’être sans cesse déstabilisée par les forces intérieures qu’il fait jaillir de lui-même et qui  risquent  de  l’invalider. La  question  de  son  propre  rapport  à  l’écriture  n’a  cessé  d’occuper  une place importante,  sinon même centrale,  au cœur de  son  œuvre.",
-            },
-            {
-              type: "audio",
-              url: "/audio/style-graphique.mp3",
-              credits: "Interview d’Art Spiegelman, Traits de Mémoire 1998"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      index: 5,
-      contentType: "piece",
-      name: "Une du New Yorker",
-      date: "1993",
-      type: "Couverture",
-      peeked: true,
-      cover_type: "video",
-      cover_url: [ "/images/all-pieces/07-The New Yorker/04-Une-du-New-Yorker-fevrier-1993.jpg"],
-      video_url: "/videos/morphing-new-york.mp4",
-      poster: "",
-      content: [
-        {
           title: "La creation de Raw",
           type: "Text",
           intro: "RAW est une revue américaine de bande dessinée dirigée par Art Spiegelman et Françoise Mouly et publiée en deux séries de 1980 à 1991.",
@@ -220,6 +127,132 @@ export default {
       ]
     },
     {
+      index: 5,
+      contentType: "piece",
+      name: "Une du New Yorker",
+      date: "1993",
+      type: "Couverture",
+      peeked: true,
+      cover_type: "video",
+      cover_url: [ "/images/all-pieces/07-The New Yorker/04-Une-du-New-Yorker-fevrier-1993.jpg"],
+      video_url: "/videos/morphing-new-york.mp4",
+      poster: "",
+      content: [
+        {
+          title: "Art Spiegelman et le dessin de presse",
+          type: "Text",
+          intro: "Pour ceux qui ne lisent pas le magazine ou qui le lisent irrégulièrement, les couvertures de Spiegelman fonctionnent métonymiquement pour celles de tous ses confrères, et même un peu pour le New Yorker tout entier",
+          subdetails: [
+            {
+              type: "text",
+              content:"Pour ceux qui ne lisent pas le magazine ou qui le lisent irrégulièrement, les couvertures de Spiegelman fonctionnent métonymiquement pour celles de tous ses confrères, et même un peu pour le New Yorker tout entier. Des critiques bien intentionnés ont noté à diverses époques de la vie du magazine que le New Yorker était plus remarquable graphiquement que pour son contenu et, à la limite, que c’était de très loin le meilleur magazine pour des gens ne sachant pas lire."
+            },
+            {
+              type: "text",
+              content:"Spiegelman entra au New Yorker en 1993, dans les valises de Tina Brown, rédactrice en chef dans le bon ton, arrivée à la direction de l’hebdomadaire l’année d’avant dans l’intention de donner un coup de jeune à cette vénérable institution, mais qui arriva seulement à rendre le magazine toc et prétentieux, tout en se mettant l’équipe à dos et en dégoûtant les lecteurs. Quelques mois après l’arrivée de Spiegelman, sa femme, Françoise Mouly, devint la directrice artistique de l’hebdomadaire."
+            },
+            {
+              type: "image",
+              url:"/images/01-Spiegelman-dessin-presse.jpg",
+              credits: "Autoportrait d’Art Spiegelman dans son atelier, 1996"
+            },
+            {
+              type: "text",
+              content:"Délaissant la bande dessinée, il illustre en 1994 – dans le style graphique des années 1920 – un livre qui avait fait scandale à sa parution, en 1928 : The Wild Party (traduit en français sous le titre La Nuit d'enfer), par Joseph Moncure March, un long poème violent et érotique sur une soirée qui se transforme peu à peu en orgie."
+            }
+          ]
+        },
+        {
+          title: "Le scandale",
+          type: "Video",
+          intro: "Pendant dix ans, à partir de 1992, Art Spiegelman rejoint l'équipe du New Yorker quand la nouvelle rédactrice en chef fait appel à ses services pour raviver l'humour de la prestigieuse revue.",
+          subdetails: [
+            {
+              type: "text",
+              content: "Pendant dix ans, à partir de 1992, Art Spiegelman rejoint l'équipe du New Yorker quand la nouvelle rédactrice en chef fait appel à ses services pour raviver l'humour de la prestigieuse revue."
+            },
+            {
+              type: "image",
+              url: "/images/02-Scandale.jpg",
+              credits: "Photographie des émeutes de 1992 à Brooklyn, C. Shepperd 1992"
+            },
+            {
+              type: "text",
+              content: "La première couverture qu'il livre cible les tensions entre Noirs et Juifs dans le quartier de Crown Heights à Brooklyn, montrant un Juif hassidique et une femme noire dans une étreinte passionnée. Cette référence à des émeutes raciales sur la une du New Yorker va créer un véritable scandale."
+            },
+            {
+              type: "text",
+              content: "Les images prêtant à controverse réalisées par Spiegelman, comme la couverture figurant Clinton lorsque éclate le scandale Monica Lewinsky, ou encore le ‘ 41 Shots, 10 Cents ’ quand les policiers de New York City tirent quarante et une balles sur un travailleur immigré, définissent un ton plus effronté pour le vénérable magazine et instaurent une nouvelle tradition pour ses couvertures."
+            },
+            {
+              type: "link",
+              url: "",
+              name: "Article du New York Time du 3 Juin 1992"
+            }
+          ]
+        },
+        {
+          title: "L'artiste provocateur",
+          type: "Audio",
+          intro: "Lorsqu'Art Spiegelmann dessine sa première couverture pour le magasine, le 15 février 1993, autant dire pour la Saint Valentin, cela déclenche un véritable coup de tonnerre.",
+          subdetails: [
+            {
+              type: "text",
+              content: "Lorsqu'Art Spiegelmann dessine sa première couverture pour le magasine, le 15 février 1993, autant dire pour la Saint Valentin, cela déclenche un véritable coup de tonnerre. Il faut savoir qu'à l'époque les quartiers déshérités de Brooklyn, peuplés d'Afro-Américains et de juifs orthodoxes, étaient au bord de la guerre raciale. Un enfant noir avait été renversé par un juif et s'en était suivi des représailles et une véritable crise."
+            },
+            {
+              type: "video",
+              url: "/videos/03-Art-Spiegelman-Tours-His-Retrospective-Notes-from-All-Over-The-New-Yorker.mp4",
+              credits: "Retrospective de Art Spiegelman : Notes from All Over, The New Yorker"
+            },
+            {
+              type: "text",
+              content: "Mais voilà que Spiegelmann intervient et dessine un homme juif embrassant une femme noire. Il leur envoie un message sous forme pictural simple et fort : ‘Nous devons nous aimer les uns les autres ou mourir’."
+            },
+            {
+              type: "image",
+              url: "/images/03-artSpiegelman-newYorker.jpg",
+              credits: "Art Spiegelman s’exprimant sur la couverture du New Yorker"
+            },
+            {
+              type: "text",
+              content: "Cela déclencha une levée de boucliers, des centaines de personnes menacèrent de se désabonner du magasines et Spiegelmann du écourter ses vacances pour venir s'en expliquer. le magasine, un peu insipide, venait de prendre une nouvelle tournure en collaborant avec Spiegelmann qui n'aura de cesse de produire des oeuvres qui sont très critiques envers la société et l'actualité mais qui recèlent une puissance émotionnelle prodigieuse."
+            }
+          ]
+        },
+        {
+          title: "L’avis de Paul Auster",
+          type: "Audio",
+          intro: "Lorsqu'Art Spiegelmann dessine sa première couverture pour le magasine, le 15 février 1993, autant dire pour la Saint Valentin, cela déclenche un véritable coup de tonnerre.",
+          subdetails: [
+            {
+              type: "quote",
+              content: "Art Spiegelman est une quadruple menace, unique en son genre : c'est un artiste qui dessine et peint, un caméléon qui peut parodier et embellir tous les styles picturaux, un écrivain qui s'exprime avec des phrases vivantes et acérées, et un provocateur qui a un don pour l'humour le plus sauvage et le plus ravageur. Mêlez tous ces talents, mettez-les au service d'une profonde conscience politique, et vous aurez un homme capable de marquer fortement le monde. C'est précisément ce que, pendant dix ans, Art Spiegelman a fait au New Yorker.",
+              credits: "Paul Auster"
+            },
+            {
+              type: "images",
+              url: "/images/04-paul-auster.jpg",
+              credits: "Portrait de Paul Auster, 1996"
+            },
+            {
+              type: "text",
+              content: "Dans la préface de Bons Baisers de New York, le romancier Paul Auster se livre à des attaques gauchisantes contre le New Yorker, qui est, comme chacun sait, une référence pour une certaine élite intellectuelle-laquelle n’est du reste pas cantonnée à NewYork, ni même aux Etats-Unis."
+            },
+            {
+              type: "text",
+              content: "Selon Auster, les articles incisifs du journal seraient accompagnés de publicités pour des vacances aux Caraïbes et de dessins guillerets sur les petites manies de la classe moyenne. En réalité, les dessins humoristiques du New Yorker illustrent l’absurdité des relations sociales, familiales et conjugales de la classe à laquelle appartient le lecteur et s’apparentent souvent à des thérapies - très - brèves. Si Auster se montre si sévère vis-à-vis du magazine, c’est parce qu’il veut donner à Spiegelman la position d’un outsider, ruant dans les brancards, et qui aurait payé le prix fort pour son courage et son engagement."
+            },
+            {
+              type: "link",
+              url: "",
+              name: "Interview de Paul Auster"
+            }
+          ]
+        }
+      ]
+    },
+    {
       index: 8,
       name: "Maus",
       contentType: "piece",
@@ -230,19 +263,82 @@ export default {
       content: [
         {
           title: "Le Zoomorphisme",
-          type: "Text",
           intro: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs.",
-          content: "Les souris, apparaissant déjà dans une œuvre préfigurant Maus, et font référence aux images de propagande nazies et au documentaire antisémite Le Juif éternel ; elles permettent également de traduire la haine antisémite des Nazis par la métaphore chat-souris (l’image du prisonnier juif d’Allemagne rendue tantôt par une souris et tantôt par un chat permet à l’auteur de jouer sur ces représentations et ce qu’elles évoquent au lecteur) et les Américains deviennent des chiens car ils chassèrent les Allemands, tout comme les chiens chassent les chats."
+          subdetails: [
+            {
+              type: "text",
+              content: "Le zoomorphisme est un style familier aux dessins animés et aux bandes dessinées, pour représenter les différents groupes nationaux : les Juifs deviennent des souris (« Maus » signifie « souris » en allemand), les Allemands sont des chats, les Américains des chiens, et les Polonais des porcs."
+            },
+            {
+              type: "text",
+              content: "Les souris, apparaissant déjà dans une œuvre préfigurant Maus, et font référence aux images de propagande nazies et au documentaire antisémite Le Juif éternel ; elles permettent également de traduire la haine antisémite des Nazis par la métaphore chat-souris (l’image du prisonnier juif d’Allemagne rendue tantôt par une souris et tantôt par un chat permet à l’auteur de jouer sur ces représentations et ce qu’elles évoquent au lecteur) et les Américains deviennent des chiens car ils chassèrent les Allemands, tout comme les chiens chassent les chats."
+            },
+            {
+              type: "video",
+              url: "/videos/zoomorphisme-art-spieglman.mp4",
+              credits: "Arena - Art Spiegelman (BBC), 1987"
+            },
+            {
+              type: "quote",
+              content: "Mickey Mouse est l’idéal le plus lamentable qui ait jamais vu le jour {…} Finissons-en avec la tyrannie que les Juifs exercent sur le peuple ! À bas Mickey Mouse ! Portez la croix gammée.",
+              credits: "Article de journal, Poméranie, Allemagne, milieu des années 3O"
+            },
+            {
+              type: "link",
+              url: "",
+              name: "Le juif éternel"
+            },
+            {
+              type: "link",
+              url: "",
+              name: "Looney Tunes"
+            }
+          ]
         },
         {
           title: "Vladek Spiegelman",
           type: "Video",
-          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
+          intro: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire.",
+          subdetails: [
+            {
+              type: "text",
+              content: "Vladek Spiegelman est le père d'Art. C'est lui qui témoigne de son histoire."
+            },
+            {
+              type: "text",
+              content: "C'est un homme extrêmement ordonné, intelligent, mais qui fait parfois preuve d'un manque de tolérance.  Au fur et à mesure du récit, on voit le jeune Polonais ambitieux de Czestochowa se transformer à cause de la guerre, la fuite et les camps de concentration en un vieil homme malade, acariâtre et avare."
+            },
+            {
+              type: "image",
+              url: "/images/vladek.png",
+              credits: "Vladek Spiegelman, page 34, Maus II"
+            }
+          ]
         },
         {
           title: "Le style graphique",
           type: "Audio",
-          intro: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère »."
+          intro: "Spiegelman cherche un dessin « qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère ».",
+          subdetails: [
+            {
+              type: "text",
+              content: "Spiegelman cherche une dessin…"
+            },
+            {
+              type: "quote",
+              content: "…qui se situe quelque part entre l’intimité d’une écriture à la main et la clarté d’une police de caractère.",
+              credits: "Art Spiegelman"
+            },
+            {
+              type: "text",
+              content: "Dans  l’ensemble de  son  œuvre, dès  ses  premiers écrits,  Spiegelman s’est placé au centre de son écriture, en racontant des événements de sa vie ou en  partageant  des  expériences  vécues. Il est certain qu’en prenant sa propre  vie comme  matière  de  ses comics,  il expose  son  écriture,  pour  ne pas dire son  style, c’est-à-dire  la  place  singulière  qu’il  aurait pu  trouver à l’intérieur du «système  de  la  bande  dessinée», constituant  un  ensemble  de signes stabilisés. Il l’expose en ce sens qu’il la met en situation d’être sans cesse déstabilisée par les forces intérieures qu’il fait jaillir de lui-même et qui  risquent  de  l’invalider. La  question  de  son  propre  rapport  à  l’écriture  n’a  cessé  d’occuper  une place importante,  sinon même centrale,  au cœur de  son  œuvre.",
+            },
+            {
+              type: "audio",
+              url: "/audio/style-graphique.mp3",
+              credits: "Interview d’Art Spiegelman, Traits de Mémoire 1998"
+            }
+          ]
         }
       ]
     },
