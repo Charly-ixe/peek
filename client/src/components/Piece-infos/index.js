@@ -104,7 +104,8 @@ export default Vue.extend({
         firstNavItem.classList.toggle('active')
         button.classList.toggle('hidden')
 
-        let navNewHeight = this.categories[this.categories.length - 1].getBoundingClientRect().bottom
+        let navNewHeight = categoryElts[1].children[1].getBoundingClientRect().bottom
+        console.log(navNewHeight);
         let navbar = document.querySelector(".infos-zone__navbar")
         // navbar.style.height = navNewHeight - 110 + 'px'
         if(this.detailDisplayed) {
@@ -120,6 +121,7 @@ export default Vue.extend({
           .fromTo(categoryElts[0], 0.3, {opacity: 0, y: -5}, {opacity: 1, y: 0, ease: Expo.easeOut})
           .fromTo(categoryElts[1].children[0], 0.3, {opacity: 0, y: -5}, {opacity: 1, y: 0, ease: Expo.easeOut}, 0.2)
           .staggerFromTo(categoryElts[1].children[1].children, 0.3, {opacity: 0, y: -10}, {opacity: 1, y: 0, ease: Expo.easeOut}, 0.2)
+          .fromTo(buttonContainer, 0.3, {opacity: 0}, {opacity: 1, ease: Expo.easeOut}, 0.5)
       }})
 
       for(let i = 0; i < this.navItems.length; i++) {
@@ -144,7 +146,11 @@ export default Vue.extend({
       Emitter.emit(DETAIL_CLICK)
       this.$el.classList.toggle('open')
 
+      let buttonContainer = document.querySelector('.infos-zone__buttons-container')
+
+
       openTl
+        .fromTo(buttonContainer, 0.3, {opacity: 1}, {opacity: 0, ease: Expo.easeOut})
         .fromTo(categoryElts[0], 0.3, {opacity: 1, y: 0}, {opacity: 0, y: -20, ease: Expo.easeOut})
         .fromTo(categoryElts[1].children[0], 0.3, {opacity: 1, y: 0}, {opacity: 0, y: -10, ease: Expo.easeOut}, 0.3)
         .fromTo(categoryElts[2], 0.3, {opacity: 1, y: 0}, {opacity: 0, y: 10, ease: Expo.easeOut}, 0)
