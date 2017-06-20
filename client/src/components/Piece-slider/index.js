@@ -43,6 +43,10 @@ export default Vue.extend({
   },
 
   mounted () {
+    Vue.nextTick(() => {
+      this.createTls()
+      this.enterTl.play()
+    })
   },
 
   beforeDestroy () {
@@ -51,7 +55,9 @@ export default Vue.extend({
   methods: {
 
     createTls () {
-
+      this.enterTl = new TimelineMax({paused: true, delay: 0.6})
+      this.enterTl
+        .fromTo(this.$el, 0.5, {x: -80, opacity: 0}, {x: 0, opacity: 1, ease: Expo.easeOut})
     },
 
     handleFullScreen() {

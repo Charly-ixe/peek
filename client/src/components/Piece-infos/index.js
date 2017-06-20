@@ -21,6 +21,20 @@ export default Vue.extend({
 
   template: require('./template.html'),
 
+  // route: {
+  //
+  //   activate: function( { next } ) {
+  //
+  //     TweenMax.fromTo(this.$el, 0.7, {
+  //       opacity: 0
+  //     }, {
+  //       opacity: 1,
+  //       ease: Expo.easeOut
+  //     });
+  //     next();
+  //   },
+  // },
+
   domEvents: [],
 
   emitterEvents: [{
@@ -45,6 +59,7 @@ export default Vue.extend({
   },
 
   created () {
+
   },
 
   mounted () {
@@ -53,17 +68,22 @@ export default Vue.extend({
 
     Vue.nextTick(() => {
 
+
       this.categories = this.$refs.contentinfos
       this.navItems = this.$refs.navitems
 
       this.setCategoriesPositions()
       this.setNavBar()
 
+      this.createTls()
+
       this.subdetails = this.$children
       this.subdetails.forEach((subdetail, i) => {
         subdetail.index = i
         subdetail.content = this.currentPiece.content[i].subdetails
       })
+
+      this.enterTl.play()
     })
 
   },
@@ -83,6 +103,13 @@ export default Vue.extend({
   methods: {
 
     createTls () {
+      this.enterTl = new TimelineMax({paused: true, delay: 0.6})
+      this.enterTl
+        .fromTo(this.$el, 0.8, {scaleX: 0, opacity:0}, {scaleX: 1, opacity: 1, ease: Expo.easeOut})
+        .staggerFromTo(this.$refs.contentinfos, 0.3, {opacity: 0, y: -10}, {opacity: 1, y: 0, ease: Expo.easeOut}, 0.2)
+        .staggerFromTo(this.navItems, 0.3, {opacity: 0, y: -10}, {opacity: 1, y: 0, ease: Expo.easeOut}, 0.1)
+
+
     },
 
     openCategory(selected, index) {
