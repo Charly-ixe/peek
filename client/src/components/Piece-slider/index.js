@@ -73,13 +73,14 @@ export default Vue.extend({
 
     adaptSlider() {
       this.$refs.overlay.classList.toggle("half")
-      if(this.coverType == "image") {
-        this.$refs.pieceimg.classList.toggle("half")
-      }
-      else if(this.coverType == "video") {
-        this.$refs.piecevid.classList.toggle("half")
-        // this.$refs.videobutton.classList.toggle("half")
-      }
+      this.$el.classList.toggle("half")
+      // if(this.coverType == "image") {
+      //   this.$refs.pieceimg.classList.toggle("half")
+      // }
+      // else if(this.coverType == "video") {
+      //   this.$refs.piecevid.classList.toggle("half")
+      //   // this.$refs.videobutton.classList.toggle("half")
+      // }
 
     },
 

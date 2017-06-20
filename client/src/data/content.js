@@ -117,7 +117,7 @@ export default {
             },
             {
               type: "audio",
-              url: "",
+              url: "/audio/style-graphique.mp3",
               credits: "Interview d’Art Spiegelman, Traits de Mémoire 1998"
             }
           ]

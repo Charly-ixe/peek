@@ -21,7 +21,9 @@
       </div>
     </div>
     <div class="subdetails__audio-container" v-else-if="subdetail.type =='audio'">
+      <audio :src="subdetail.url" class="subdetails__audio" controls>
 
+      </audio>
     </div>
   </div>
 </div>
