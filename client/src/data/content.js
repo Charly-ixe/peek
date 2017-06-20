@@ -45,9 +45,9 @@ export default {
       type: "Couverture",
       peeked: true,
       cover_type: "video",
-      cover_url: [ "/images/pieces/02-Raw-couverture.jpg"],
+      cover_url: [ "/images/all-pieces/03-Raw/04-Raw-cover--1986/raw-cover.jpg"],
       video_url: "/videos/morphing-raw.mp4",
-      poster: "/images/all-pieces/03-Raw/04-Raw-cover--1986/raw-cover.jpg",
+      poster: "",
       content: [
         {
           title: "Le Zoomorphisme",
@@ -123,7 +123,7 @@ export default {
             },
             {
               type: "audio",
-              url: "",
+              url: "/audio/style-graphique.mp3",
               credits: "Interview d’Art Spiegelman, Traits de Mémoire 1998"
             }
           ]
@@ -137,8 +137,10 @@ export default {
       date: "1993",
       type: "Couverture",
       peeked: true,
-      cover_type: "image",
+      cover_type: "video",
       cover_url: [ "/images/all-pieces/07-The New Yorker/04-Une-du-New-Yorker-fevrier-1993.jpg"],
+      video_url: "/videos/morphing-new-york.mp4",
+      poster: "",
       content: [
         {
           title: "La creation de Raw",
@@ -150,9 +152,19 @@ export default {
               content:"RAW est une revue américaine de bande dessinée dirigée par Art Spiegelman et Françoise Mouly et publiée en deux séries de 1980 à 1991."
             },
             {
+              type: "image",
+              url:"/images/01-artspiegelman2.jpg",
+              credits: "Art Spiegelman dessinant pour RAW, 1987"
+            },
+            {
               type: "text",
               content:"Aux États-Unis, ce fut une publication emblématique de la bande-dessinée d'avant-garde, contre-point plus intellectuel à Weirdo, la revue de Robert Crumb, et le lieu principal de publication de la production européenne de l'époque. Sa très grande qualité, saluée dès l'époque est aujourd'hui encore unanimement reconnue."
             },
+            {
+              type: "link",
+              url: "",
+              name:"Liste des numéros parus de RAW"
+            }
           ]
         },
         {
@@ -161,8 +173,18 @@ export default {
           intro: "Avec Françoise Mouly, actuelle directrice artistique du New Yorker, Art Spiegelman a créé la formidable revue RAW où Maus a été prépublié",
           subdetails: [
             {
+              type: "image",
+              url: "/images/02-mouly.jpg",
+              credits: "Jeunes Art Spiegelman et Françoise Mouly, 1981"
+            },
+            {
               type: "text",
               content: "Avec Françoise Mouly, actuelle directrice artistique du New Yorker, Art Spiegelman a créé la formidable revue RAW où Maus a été prépublié. Publiés de 1980 à 1991, Raw a marqué l’histoire de la bande dessinée contemporaine par son exigence, son avant-gardisme et son habileté à mélanger bande dessinée, illustration et graphisme, réunissant les auteurs venus de tous pays."
+            },
+            {
+              type: "video",
+              url: "/videos/02-RAW-une-aventure-éditoriale-par-Françoise-Mouly.mp4",
+              credits: "RAW, une aventure éditoriale par Françoise Mouly"
             }
           ]
         },
@@ -176,12 +198,22 @@ export default {
               content: "Spiegelman a souvent expliqué le cheminement qui l'a conduit à lancer le magazine avec Mouly : après la disparition de Arcade, l'anthologie des comics underground qu'il éditait avec Bill Griffith et l'affaiblissement de la scène underground, il craignait la disparition pure et simple des comics pour adultes."
             },
             {
+              type: "image",
+              url: "/images/03-differentes-couv-raw.png",
+              credits: "Différentes couvertures de RAW de 1980"
+            },
+            {
               type: "text",
               content: "Il s'était juré qu'il ne recommencerait pas l'aventure de publier ses pairs, à cause des tensions et des jalousies que cela avait occasionnées mais Mouly voulait justement tenter ce genre d'aventures : elle avait lancé sa petite maison d'édition Raw Books & Graphics en 1978 et pensait qu'un magazine mettant en valeur ses goûts littéraires et graphiques serait un medium plus efficace car, à cette époque, des magazines graphiques de grand format, Punk et New-Wave, comme Wet, étaient distribués par les libraires indépendants. Elle installa une presse dans leur loft du quatrième étage et s'essaya aux techniques d'impression."
             },
             {
               type: "text",
               content: "Mouly et Spiegelman choisirent l'appellation « graphix magazine » pour RAW, en espérant que cette approche nouvelle écarterait les préventions des lecteurs à propos des comics et les amènerait à s'intéresser aux travaux présentés avec un œil neuf."
+            },
+            {
+              type: "link",
+              url: "",
+              name: "Analyse comparative des éditions de RAW"
             }
           ]
         }

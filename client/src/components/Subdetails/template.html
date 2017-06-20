@@ -1,3 +1,29 @@
 <div class="subdetails">
-  
+  <div v-for="subdetail in content">
+    <p v-if="subdetail.type == 'text'">{{subdetail.content}}</p>
+    <div class="subdetails__video-container" v-else-if="subdetail.type == 'video'">
+      <video :src="subdetail.url" class="subdetails__video" ref="subvideo" @click="handleVideoClick"></video>
+      <div class="subdetails__video-play-button" @click="handleVideoPlayButton" ref="playbutton"></div>
+      <p class="subdetails__credits">{{subdetail.credits}}</p>
+    </div>
+    <div v-else-if="subdetail.type =='quote'" class="subdetails__quote-container">
+      <div class="subdetails__quote">{{subdetail.content}}</div>
+      <p class="subdetails__credits center">{{subdetail.credits}}</p>
+    </div>
+    <div class="subdetails__image-container" v-else-if="subdetail.type =='image'">
+      <img :src="subdetail.url" alt="">
+      <p class="subdetails__credits center">{{subdetail.credits}}</p>
+    </div>
+    <div class="subdetails__link-container" v-else-if="subdetail.type =='link'">
+      <h4 class="subdetails__outro">Aller plus loin</h4>
+      <div class="subdetails__link">
+        {{subdetail.name}}
+      </div>
+    </div>
+    <div class="subdetails__audio-container" v-else-if="subdetail.type =='audio'">
+      <audio :src="subdetail.url" class="subdetails__audio" controls>
+
+      </audio>
+    </div>
+  </div>
 </div>

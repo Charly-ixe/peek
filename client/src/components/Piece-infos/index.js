@@ -113,7 +113,6 @@ export default Vue.extend({
         else {
           this.detailDisplayed = true
         }
-        console.log(categoryElts[1].children[1].children);
 
         let displayContent = new TimelineMax({delay: 0.4})
         displayContent
@@ -186,6 +185,18 @@ export default Vue.extend({
 
     backToArtSpi() {
       Router.push('/art-spiegelman')
+    },
+
+    nextPeek() {
+      let newIndex = this.index++
+      // Router.push('/art-spiegelman/details/'+newIndex)
+
+      Router.push({
+        path: '/art-spiegelman/details/1',
+        force: true
+      })
+      Router.go()
+
     },
 
     onWindowResize ({width, height}) {

@@ -6,11 +6,6 @@ export default [
   },
   {
     type: 'image',
-    id: 'raw-couverture',
-    url: './images/pieces/02-Raw-couverture.jpg'
-  },
-  {
-    type: 'image',
     id: 'couverture-breakdowns',
     url: './images/pieces/03-Couverture-Breakdowns.jpg'
   },
